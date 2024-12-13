@@ -43,17 +43,29 @@ const Homescreen = () => {
     for(const room of duplicaterooms){
       
       if (room.currentbookings.length > 0) {
-        for (booking of room.currentbookings) {
+        for (const booking of room.currentbookings) {
           
-          if(!moment(moment(moment(dates[0]).format("DD-MM-YYYY")).isBetween(booking.fromdate , booking.todate))
+          if(!moment(moment(dates[0]).format("DD-MM-YYYY")).isBetween(booking.fromdate , booking.todate)
           && !moment(moment(dates[1]).format("DD-MM-YYYY")).isBetween(booking.fromdate , booking.todate))
           
           {
+            if (
+              
+              moment(dates[0]).format("DD-MM-YYYY") !== booking.fromdate &&
+              moment(dates[0]).format("DD-MM-YYYY") !== booking.todate &&
+              moment(dates[1]).format("DD-MM-YYYY") !== booking.fromdate &&
+              moment(dates[1]).format("DD-MM-YYYY") !== booking.todate 
             
+            ) {
+              availability = true
+            }
           }
         }
       }
-
+        if (availability == true || room.currentbookings.length==0) {
+          temprooms.push(room)
+        }
+        setRoom(temprooms)
     }
   }
 

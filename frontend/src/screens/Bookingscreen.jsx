@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Loader from '../components/Loader';
 import moment from 'moment';
+import StripeCheckout from 'react-stripe-checkout';
 
-const Bookingscreen = ({}) => {
+const Bookingscreen = ({ }) => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const [room, setRoom] = useState({});
@@ -78,6 +79,10 @@ const Bookingscreen = ({}) => {
         }
     }
 
+    function onToken(token) {
+        console.log(token)
+    }
+
     return (
         <div className="m-5">
             {loading ? (
@@ -123,6 +128,13 @@ const Bookingscreen = ({}) => {
                                 >
                                     Fizetés
                                 </button>
+
+
+                                <StripeCheckout
+                                    token={onToken}
+                                    stripeKey="pk_test_51QVWdICIgmCaxGt9pvHZm31G8UEAvk6h9VbV2aHTYiKGEdGCyaeA0s74eKKt3MfhxwCxHzTEend1UJDOoZyzwhGX00fIbCDhR7"
+                                />
+
                             </div>
                         </div>
                     </div>

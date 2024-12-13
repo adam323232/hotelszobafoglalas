@@ -107,24 +107,24 @@ const Bookingscreen = ({ }) => {
 
                         <div className="col-md-5">
                             <div style={{ textAlign: 'right' }}>
-                                <h1>Booking Details</h1>
+                                <h1>Foglalási adatok</h1>
                                 <hr />
 
                                 <b>
                                     <p>Név: {JSON.parse(localStorage.getItem('currentUser')).user.name}</p>
                                     <p>Ettől: {fromdate}</p>
                                     <p>Eddig: {todate}</p>
-                                    <p>Max count: {room.maxcount}</p>
+                                    <p>Maximális férőhely: {room.maxcount}</p>
                                 </b>
                             </div>
 
                             <div style={{ textAlign: 'right' }}>
                                 <b>
-                                    <h1>Amount</h1>
+                                    <h1>Összeg</h1>
                                     <hr />
-                                    <p>Total days: {totaldays}</p>
-                                    <p>Rent per days: {room.rentperday}</p>
-                                    <p>Total amount: {totalamount}</p>
+                                    <p>Össznap: {totaldays}</p>
+                                    <p>{room.rentperday} €/éjszaka</p>
+                                    <p>Végösszeg: {totalamount} €</p>
                                 </b>
                             </div>
 

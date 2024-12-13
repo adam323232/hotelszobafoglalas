@@ -65,6 +65,7 @@ const Bookingscreen = ({ }) => {
         };
 
         try {
+            setLoading(true);
             const response = await fetch(
                 'http://localhost:5000/api/bookings/bookroom',
                 {
@@ -80,6 +81,7 @@ const Bookingscreen = ({ }) => {
             if (response.ok) {
                 window.alert(result.msg);
             }
+            setLoading(false);
         } catch (error) {
             console.log('Nem sikerült rendelést felvenni!');
         }
@@ -129,7 +131,7 @@ const Bookingscreen = ({ }) => {
                                 amount={totalamount * 100}
                                     token={onToken}
                                     currency="EUR"
-                                    stripeKey="pk_test_51QVWdICIgmCaxGt9pvHZm31G8UEAvk6h9VbV2aHTYiKGEdGCyaeA0s74eKKt3MfhxwCxHzTEend1UJDOoZyzwhGX00fIbCDhR7"
+                                    stripeKey="sk_test_51QVWdICIgmCaxGt9FxC6lGWJxplmO99f6sKnFX005cPaKMS1YflYwecioMOZt3zKdZaSmNXod3v3KqGspGEj37VW007EIDbxgh"
                                 >
                                 
 

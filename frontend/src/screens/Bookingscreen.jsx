@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import Loader from '../components/Loader';
 import moment from 'moment';
 import StripeCheckout from 'react-stripe-checkout';
+import Swal from 'sweetalert2';
 
 const Bookingscreen = ({ }) => {
     const [loading, setLoading] = useState(true);
@@ -82,8 +83,10 @@ const Bookingscreen = ({ }) => {
                 window.alert(result.msg);
             }
             setLoading(false);
+            Swal.fire('Gratulálok', 'A szobafoglalás sikeresen megtörtént')
         } catch (error) {
-            console.log('Nem sikerült rendelést felvenni!');
+            console.log('Nem sikerült a rendelést felvenni!');
+            Swal.fire('Nem sikerült a rendelést felvenni!');
         }
     }
 

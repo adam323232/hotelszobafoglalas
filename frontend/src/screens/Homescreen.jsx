@@ -12,6 +12,7 @@ const Homescreen = () => {
   const [error, setError] = useState(false);
   const [fromdate, setfromdate] = useState();
   const [todate, settodate] = useState();
+  const [duplicaterooms, setduplicaterooms] = useState([])
 
   useEffect(() => {
     const fgv = async () => {
@@ -22,6 +23,7 @@ const Homescreen = () => {
           const szobak = await data.json();
           localStorage.setItem("rooms", JSON.stringify(szobak.rooms));
           setRoom(szobak.rooms);
+          setduplicaterooms(data);
         }
       } catch (error) {
         console.log(error);
@@ -34,6 +36,25 @@ const Homescreen = () => {
   function filterByDate(dates) {
     setfromdate(moment(dates[0].$d).format("DD-MM-YYYY"));
     settodate(moment(dates[1].$d).format("DD-MM-YYYY"));
+
+    var temprooms = []
+    var availability = false
+
+    for(const room of duplicaterooms){
+      
+      if (room.currentbookings.length > 0) {
+        for (booking of room.currentbookings) {
+          
+          if(!moment(moment(moment(dates[0]).format("DD-MM-YYYY")).isBetween(booking.fromdate , booking.todate))
+          && !moment(moment(dates[1]).format("DD-MM-YYYY")).isBetween(booking.fromdate , booking.todate))
+          
+          {
+            
+          }
+        }
+      }
+
+    }
   }
 
   return (

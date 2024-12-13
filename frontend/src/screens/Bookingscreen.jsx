@@ -99,7 +99,7 @@ const Bookingscreen = ({}) => {
                                 <hr />
 
                                 <b>
-                                    <p>Név: </p>
+                                    <p>Név: {JSON.parse(localStorage.getItem('currentUser')).user.name}</p>
                                     <p>Ettől: {fromdate}</p>
                                     <p>Eddig: {todate}</p>
                                     <p>Max count: {room.maxcount}</p>

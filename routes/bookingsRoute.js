@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const BookingModel = require('../models/booking');
+const Room = require('../models/room');
 const moment = require('moment');
 
 router.post('/bookroom', async (req, res) => {
@@ -23,6 +24,18 @@ router.post('/bookroom', async (req, res) => {
 
         const booking = await newbooking.save();
         console.log(booking);
+
+        const roomtemp = await Room.findOne({_id : room._id});
+        
+        roomtemp.currentbookings.push({
+            bookingid : booking._id ,
+            fromdate : moment(fromdate).format('DD-MM-YYYY') , 
+            todate : moment(todate).format('DD-MM-YYYY') , 
+            userid : userid , 
+            status : booking.status 
+        });
+
+        await roomtemp.save();
 
         return res.status(201).json({ msg: 'Sikeres szobafoglalás!' });
     } catch (error) {

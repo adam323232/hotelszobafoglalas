@@ -12,7 +12,10 @@ const Homescreen = () => {
   const [error, setError] = useState(false);
   const [fromdate, setfromdate] = useState();
   const [todate, settodate] = useState();
-  const [duplicaterooms, setduplicaterooms] = useState([])
+  const [duplicaterooms, setduplicaterooms] = useState([]);
+
+  const [searchkey, setsearchkey] = useState('');
+  const [type, settype] = useState('all')
 
   useEffect(() => {
     const fgv = async () => {
@@ -23,7 +26,7 @@ const Homescreen = () => {
           const szobak = await data.json();
           localStorage.setItem("rooms", JSON.stringify(szobak.rooms));
           setRoom(szobak.rooms);
-          setduplicaterooms(data);
+          setduplicaterooms(szobak.rooms);
         }
       } catch (error) {
         console.log(error);
@@ -69,19 +72,40 @@ const Homescreen = () => {
     }
   }
 
+  function filterBySearch(){
+    const value = e.target.value;
+    setsearchkey(value);
+    const temprooms = duplicaterooms.filter(room=>room.name.toLowerCase().includes(searchkey.toLocaleLowerCase()))
+
+    setRoom(temprooms)
+  }
+
   return (
     <div className="container">
-      <div className="row">
+      <div className="row mt-5 bs">
         <div className="col-md-3">
           <RangePicker format="DD-MM-YYYY" onChange={filterByDate} />
         </div>
+
+        <div className="col-md-5">
+          <input type="text" className="form-control" placeholder="search rooms" value={searchkey} onChange={(e)=>{setsearchkey(e.target.value)}} onKeyUp={filterBySearch}/>
+        </div>
+
+        <div className="col-md-3">
+        <select className="form-control">
+          <option value="all">Mindent mutat</option>
+          <option value="delux">Delux</option>
+          <option value="nondelux">Non-Delux</option>
+          <option value="old">Old style</option>
+        </select>
+        </div>
+
+
       </div>
 
       <div className="row justify-content-center mt-5">
         {loading ? (
           <Loader />
-        ) : error ? (
-          <Error />
         ) : (
           rooms.map((room) => {
             return (
@@ -90,7 +114,6 @@ const Homescreen = () => {
                   room={room}
                   fromdate={fromdate}
                   todate={todate}
-                  ricsi="ricsi"
                 />
               </div>
             );

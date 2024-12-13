@@ -47,7 +47,12 @@ const Bookingscreen = ({ }) => {
         fgv();
     }, [roomid]);
 
-    async function bookRoom() {
+    // async function bookRoom() {
+ 
+    // }
+
+    async function onToken(token) {
+        console.log(token)
         const bookingDetails = {
             room,
             // userid: JSON.parse(localStorage.getItem('currentUser'))._id,
@@ -56,6 +61,7 @@ const Bookingscreen = ({ }) => {
             toDate,
             totalamount,
             totaldays,
+            token
         };
 
         try {
@@ -77,10 +83,6 @@ const Bookingscreen = ({ }) => {
         } catch (error) {
             console.log('Nem sikerült rendelést felvenni!');
         }
-    }
-
-    function onToken(token) {
-        console.log(token)
     }
 
     return (
@@ -122,18 +124,20 @@ const Bookingscreen = ({ }) => {
                             </div>
 
                             <div style={{ float: 'right' }}>
-                                <button
-                                    className="btn btn-primary"
-                                    onClick={bookRoom}
-                                >
-                                    Fizetés
-                                </button>
-
 
                                 <StripeCheckout
+                                amount={totalamount * 100}
                                     token={onToken}
+                                    currency="EUR"
                                     stripeKey="pk_test_51QVWdICIgmCaxGt9pvHZm31G8UEAvk6h9VbV2aHTYiKGEdGCyaeA0s74eKKt3MfhxwCxHzTEend1UJDOoZyzwhGX00fIbCDhR7"
-                                />
+                                >
+                                
+
+                                <button
+                                    className="btn btn-primary">Fizetés{" "}
+                                </button>
+
+                                </StripeCheckout>
 
                             </div>
                         </div>

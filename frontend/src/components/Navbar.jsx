@@ -57,9 +57,9 @@ const Navbar = () => {
                                         <li>
                                             <a
                                                 className="dropdown-item"
-                                                href="#"
+                                                href="/profile"
                                             >
-                                                Foglalások
+                                                Profil
                                             </a>
                                         </li>
                                         <li>

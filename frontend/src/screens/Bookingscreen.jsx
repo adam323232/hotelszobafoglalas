@@ -52,8 +52,7 @@ const Bookingscreen = ({ }) => {
  
     // }
 
-    async function onToken(token) {
-        console.log(token)
+    async function onToken() {
         const bookingDetails = {
             room,
             // userid: JSON.parse(localStorage.getItem('currentUser'))._id,
@@ -62,7 +61,6 @@ const Bookingscreen = ({ }) => {
             toDate,
             totalamount,
             totaldays,
-            token
         };
 
         try {
@@ -129,21 +127,9 @@ const Bookingscreen = ({ }) => {
                             </div>
 
                             <div style={{ float: 'right' }}>
-
-                                <StripeCheckout
-                                amount={totalamount * 100}
-                                    token={onToken}
-                                    currency="EUR"
-                                    stripeKey="sk_test_51QVWdICIgmCaxGt9FxC6lGWJxplmO99f6sKnFX005cPaKMS1YflYwecioMOZt3zKdZaSmNXod3v3KqGspGEj37VW007EIDbxgh"
-                                >
-                                
-
                                 <button
-                                    className="btn btn-primary">Fizetés{" "}
+                                    className="btn btn-primary" onClick={onToken}>Fizetés{" "}
                                 </button>
-
-                                </StripeCheckout>
-
                             </div>
                         </div>
                     </div>

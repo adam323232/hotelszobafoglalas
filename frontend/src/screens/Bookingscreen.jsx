@@ -48,20 +48,20 @@ const Bookingscreen = ({ }) => {
         fgv();
     }, [roomid]);
 
-    // async function bookRoom() {
+    // async function () {
  
     // }
 
-    async function onToken() {
+    async function bookRoom() {
         const bookingDetails = {
             room,
-            // userid: JSON.parse(localStorage.getItem('currentUser'))._id,
-            userid,
+            userid: JSON.parse(localStorage.getItem('currentUser')).user._id,
             fromDate,
             toDate,
             totalamount,
             totaldays,
         };
+        console.log(bookingDetails);
 
         try {
             setLoading(true);
@@ -128,7 +128,7 @@ const Bookingscreen = ({ }) => {
 
                             <div style={{ float: 'right' }}>
                                 <button
-                                    className="btn btn-primary" onClick={onToken}>Fizetés{" "}
+                                    className="btn btn-primary" onClick={bookRoom}>Fizetés{" "}
                                 </button>
                             </div>
                         </div>

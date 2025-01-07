@@ -72,12 +72,22 @@ const Homescreen = () => {
     }
   }
 
-  function filterBySearch(){
+  function filterBySearch(e) {
     const value = e.target.value;
-    setsearchkey(value);
-    const temprooms = duplicaterooms.filter(room=>room.name.toLowerCase().includes(searchkey.toLocaleLowerCase()))
-
-    setRoom(temprooms)
+    setsearchkey(value); // Frissíti a keresési kulcsot
+    const temprooms = duplicaterooms.filter(room => 
+      room.name.toLowerCase().includes(value.toLowerCase())
+    );
+    setRoom(temprooms); // Azonnal szűri a szobákat
+  }
+  function filterByType(e){
+    settype(e)
+    if(e!=='all'){
+      const temprooms = duplicaterooms.filter(room => room.type.toLowerCase()==e.toLowerCase())
+      setRoom(temprooms)
+    }else{
+      setRoom(duplicaterooms)
+    }
   }
 
   return (
@@ -92,7 +102,7 @@ const Homescreen = () => {
         </div>
 
         <div className="col-md-3">
-        <select className="form-control">
+        <select className="form-control" value={type} onChange={(e)=>{filterByType(e.target.value)}}>
           <option value="all">Mindent mutat</option>
           <option value="delux">Delux</option>
           <option value="nondelux">Non-Delux</option>

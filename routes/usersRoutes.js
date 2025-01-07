@@ -9,7 +9,7 @@ router.post('/register', async (req, res) => {
             email: req.body.email,
             password: req.body.password,
         });
-
+        console.log('regisztráció');
         console.log(newuser);
         const user = await newuser.save();
         res.status(200).json({ msg: 'Sikeres regisztráció' });

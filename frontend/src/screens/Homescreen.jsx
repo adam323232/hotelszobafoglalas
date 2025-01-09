@@ -105,8 +105,8 @@ const Homescreen = () => {
         <select className="form-control" value={type} onChange={(e)=>{filterByType(e.target.value)}}>
           <option value="all">Mindent mutat</option>
           <option value="delux">Delux</option>
-          <option value="nondelux">Non-Delux</option>
-          <option value="old">Old style</option>
+          <option value="non-delux">Non-Delux</option>
+          <option value="old style">Old style</option>
         </select>
         </div>
 

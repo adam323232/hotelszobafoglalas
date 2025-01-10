@@ -12,8 +12,6 @@ const Foglalasok = () => {
       const foglalasok = await response.json();
 
       if (response.ok) {
-        console.log(foglalasok.bookings);
-
         setRooms(
           foglalasok.bookings.filter((elem) => elem.userid === user._id)
         );
@@ -22,12 +20,19 @@ const Foglalasok = () => {
     foglalasleker();
   }, []);
 
-  async function cancelBooking(bookingid, elemid) {
+  async function cancelBooking(bookingid) {
     try {
-      setLoading(true);
-      const result = await (
-        await axios.post("/api/cancelbooking", { bookingid, roomid })
-      ).data;
+      //setLoading(true);
+      const result = await fetch(
+        "http://localhost:5000/api/bookings/cancelbooking",
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ bookingid }),
+        }
+      );
       console.log(result);
     } catch (error) {
       console.log(error);

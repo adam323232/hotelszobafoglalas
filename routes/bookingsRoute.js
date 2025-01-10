@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const BookingModel = require("../models/booking");
+const Booking = require("../models/booking");
+const Room = require("../models/room");
 const moment = require("moment");
 
 router.post("/bookroom", async (req, res) => {
@@ -33,33 +34,28 @@ router.post("/bookroom", async (req, res) => {
 // GET kérés az összes foglalás lekéréséhez
 router.get("/", async (req, res) => {
   try {
-    const bookings = await BookingModel.find({});
+    const bookings = await Booking.find({});
     return res.status(200).json({ bookings });
   } catch (error) {
     return res.status(400).json({ error: error.message });
   }
 });
 
-router.post("/cancelbooking", async (req, res) => {
-  const { bookingid, elemid } = req.body;
+router.put("/cancelbooking", async (req, res) => {
+  const { bookingid } = req.body;
+  console.log(req.body);
 
   try {
-    const bookingitem = await Booking.findOne({ _id: bookingid });
-
-    bookingitem.status = "cancelled";
-    await bookingitem.save();
-    const room = await Room.findOne({ _id: elemid });
-
-    const bookings = room.currentbookings;
-
-    const temp = bookings.filter(
-      (booking) => booking.bookingid.toString() !== bookingid
+    const bookingitem = await Booking.findByIdAndUpdate(
+      { _id: bookingid },
+      { status: "cancelled" }
     );
-    room.currentbookings = temp;
 
-    await room.save();
+    console.log(bookingitem);
 
-    res.send("Visszamondtad a foglalást sikeresen");
+    return res
+      .status(200)
+      .json({ msg: "Visszamondtad a foglalást sikeresen", bookingitem });
   } catch (error) {
     return res.status(400).json({ error });
   }

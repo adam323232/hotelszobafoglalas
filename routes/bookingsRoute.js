@@ -9,9 +9,9 @@ router.post("/bookroom", async (req, res) => {
     const rooms = req.body.bookingDetails.room;
     const others = req.body.bookingDetails;
     // console.log(rooms);
-    console.log(others);
+    // console.log(others);
 
-    const newbooking = new BookingModel({
+    const newbooking = new Booking({
       room: rooms.name,
       roomid: rooms._id,
       userid: others.userid,
@@ -60,5 +60,16 @@ router.put("/cancelbooking", async (req, res) => {
     return res.status(400).json({ error });
   }
 });
+
+// router.get("/bookings", (req, res) => {
+
+//   try {
+//     const bookings = await Booking.find()
+//     res.send(bookings)
+//   } catch (error) {
+//     return res.status(400).json({ error });
+//   }
+
+// });
 
 module.exports = router;

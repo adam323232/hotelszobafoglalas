@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Szobak from "./Szobak.jsx";
+import Users  from "./Users.jsx";
 import Loader from "../components/Loader";
-
-// import { TabPane, Tabs } from "react-bootstrap";
 import { Tabs } from "antd";
 
 const { TabPane } = Tabs;
@@ -24,7 +23,7 @@ function Adminscreen() {
           <h1>Szoba hozzáadása</h1>
         </TabPane>
         <TabPane tab="Felhasználók" key="4">
-          <h1>Felhasználók</h1>
+          <Users/>
         </TabPane>
       </Tabs>
     </div>
@@ -35,6 +34,7 @@ export default Adminscreen;
 
 export function Bookings() {
   const [rooms, setRooms] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const foglalasleker = async () => {
@@ -43,29 +43,50 @@ export function Bookings() {
         const foglalasok = await response.json();
 
         if (response.ok) {
-          // Minden foglalás megjelenítése, nem szűrünk userid alapján
           setRooms(foglalasok.bookings);
         }
       } catch (error) {
         console.error("Hiba történt a foglalások lekérésekor:", error);
+      } finally {
+        setLoading(false);
       }
     };
     foglalasleker();
   }, []);
 
+  if (loading) {
+    return <Loader />;
+  }
+
   return (
-    <div>
-      {rooms.map((elem) => (
-        <div className="row justify-content-center mt-5">
-          <div className="col-md-9 mt-3">
-            Hotel: <h1>{elem.room}</h1>
-            Ettől: <h3>{elem.fromdate}</h3>
-            Eddig: <h3>{elem.todate}</h3>
-            Ár: <h3>{elem.totalamount}€</h3>
-            Status: <h1>{elem.status === "booked" ? "LEFOGLALT" : "TÖRÖLT"}</h1>
-          </div>
-        </div>
-      ))}
+    <div className="row justify-content-center mt-5">
+      <div className="col-md-10">
+        <h1>Foglalások</h1>
+        <table className="table table-bordered table-dark">
+          <thead className="bs">
+            <tr>
+              <th>Szoba Id</th>
+              <th>Hotel</th>
+              <th>Ettől</th>
+              <th>Eddig</th>
+              <th>Ár</th>
+              <th>Státusz</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rooms.map((elem) => (
+              <tr key={elem._id}>
+                <td>{elem._id}</td>
+                <td>{elem.room}</td>
+                <td>{elem.fromdate}</td>
+                <td>{elem.todate}</td>
+                <td>{elem.totalamount}€</td>
+                <td>{elem.status === "booked" ? "LEFOGLALT" : "TÖRÖLT"}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

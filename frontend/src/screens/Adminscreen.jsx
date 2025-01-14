@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Szobak from "./Szobak.jsx";
 import Loader from "../components/Loader";
 
 // import { TabPane, Tabs } from "react-bootstrap";
@@ -17,7 +18,7 @@ function Adminscreen() {
           <Bookings />
         </TabPane>
         <TabPane tab="Szobák" key="2">
-          <h1>Szobák</h1>
+          <Szobak />
         </TabPane>
         <TabPane tab="Szoba hozzáadása" key="3">
           <h1>Szoba hozzáadása</h1>

@@ -18,6 +18,7 @@ app.use('/api/rooms', roomsRoute);
 app.use('/api/users', usersRoute);
 app.use('/api/bookings', bookingsRoute);
 
+
 app.listen(PORT, () => {
     console.log(`http://localhost:${PORT}`);
 });

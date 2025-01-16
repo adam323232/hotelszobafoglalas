@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Szobak from "./Szobak.jsx";
-import Users  from "./Users.jsx";
+import AddRoom from "./AddRoom.jsx";
+import Users from "./Users.jsx";
 import Loader from "../components/Loader";
 import { Tabs } from "antd";
 
@@ -20,10 +21,10 @@ function Adminscreen() {
           <Szobak />
         </TabPane>
         <TabPane tab="Szoba hozzáadása" key="3">
-          <h1>Szoba hozzáadása</h1>
+          <AddRoom />
         </TabPane>
         <TabPane tab="Felhasználók" key="4">
-          <Users/>
+          <Users />
         </TabPane>
       </Tabs>
     </div>

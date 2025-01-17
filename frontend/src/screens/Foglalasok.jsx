@@ -41,27 +41,32 @@ const Foglalasok = () => {
 
   return (
     <div>
-      {rooms.map((elem) => (
-        <div className="row justify-content-center mt-5" key={elem._id}>
-          <div className="col-md-9 mt-3">
-            Hotel: <h1>{elem.room}</h1>
-            Ettől: <h3>{elem.fromdate}</h3>
-            Eddig: <h3>{elem.todate}</h3>
-            Ár: <h3>{elem.totalamount}€</h3>
-            Status: <h1>{elem.status == "booked" ? "LEFOGLALT" : "TÖRÖLT"}</h1>
-            <div style={{ float: "right" }}>
-              <button
-                className="btn btn-primary"
-                onClick={() => {
-                  cancelBooking(elem._id);
-                }}
-              >
-                FOGLALÁS TÖRLÉSE
-              </button>
+      {rooms.length === 0 ? (
+        <p>Nincsenek foglalások</p>
+      ) : (
+        rooms.map((elem) => (
+          <div className="row justify-content-center mt-5" key={elem._id}>
+            <div className="col-md-9 mt-3">
+              Hotel: <h1>{elem.room}</h1>
+              Ettől: <h3>{elem.fromdate}</h3>
+              Eddig: <h3>{elem.todate}</h3>
+              Ár: <h3>{elem.totalamount}€</h3>
+              Status:{" "}
+              <h1>{elem.status == "booked" ? "LEFOGLALT" : "TÖRÖLT"}</h1>
+              <div style={{ float: "right" }}>
+                <button
+                  className="btn btn-primary"
+                  onClick={() => {
+                    cancelBooking(elem._id);
+                  }}
+                >
+                  FOGLALÁS TÖRLÉSE
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))
+      )}
     </div>
   );
 };

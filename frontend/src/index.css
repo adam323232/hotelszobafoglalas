@@ -88,10 +88,10 @@ i {
   border: 1 px solid black !important;
   border-radius: 10px black !important;
 }
-.col-md-12 {
-  background-color: white !important;
-  border: 1 px solid black !important;
-  border-radius: 10px black !important;
+.col-md-11 {
+  background-color: white ;
+  border: 1 px solid black ;
+  border-radius: 10px black ;
 }
 
 .asd {

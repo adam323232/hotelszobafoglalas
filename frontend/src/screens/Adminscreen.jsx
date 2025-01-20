@@ -59,6 +59,12 @@ export function Bookings() {
     return <Loader />;
   }
 
+  async function torol(id){
+    let response = await fetch(`http://localhost:5000/api/bookings/${id}`
+      
+    ) 
+  };
+
   return (
     <div className="row justify-content-center mt-5">
       <div className="col-md-10">
@@ -72,6 +78,7 @@ export function Bookings() {
               <th>Eddig</th>
               <th>Ár</th>
               <th>Státusz</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -82,7 +89,8 @@ export function Bookings() {
                 <td>{elem.fromdate}</td>
                 <td>{elem.todate}</td>
                 <td>{elem.totalamount}€</td>
-                <td>{elem.status === "booked" ? "LEFOGLALT" : "TÖRÖLT"}</td>
+                <td>{elem.status === "booked" ? "LEFOGLALT" : "VISSZA MONDOTT"}</td>
+                <td><button className="btn" onClick={() => torol(elem._id)}>Töröl</button></td>
               </tr>
             ))}
           </tbody>

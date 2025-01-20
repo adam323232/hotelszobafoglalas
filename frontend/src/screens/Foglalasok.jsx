@@ -45,13 +45,13 @@ const Foglalasok = () => {
       ) : (
         rooms.map((elem) => (
           <div className="foglalasok row justify-content-center mt-5" key={elem._id}>
-            <div className="col-md-12 mt-3">
+            <div className="col-md-11 mt-3">
               Hotel: <h1>{elem.room}</h1>
               Ettől: <h3>{elem.fromdate}</h3>
               Eddig: <h3>{elem.todate}</h3>
               Ár: <h3>{elem.totalamount}€</h3>
               Status:{" "}
-              <h1>{elem.status == "booked" ? "LEFOGLALT" : "TÖRÖLT"}</h1>
+              <h1>{elem.status == "booked" ? "LEFOGLALT" : "VISSZA MONDOTT"}</h1>
               <div style={{ float: "right" }}>
                 <button
                   className="btn btn-primary"

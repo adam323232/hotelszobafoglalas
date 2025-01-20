@@ -21,7 +21,7 @@ const Profilescreen = () => {
           <br />
 
           <h1>Név: {user.user.name}</h1>
-          <h1>Email: {user.user.email}</h1>
+          <h1>Email: {user.user.email}</h1> 
         </TabPane>
         <TabPane tab="Foglalásaim" key="2">
           <Foglalasok />

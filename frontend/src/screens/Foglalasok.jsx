@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 const Foglalasok = () => {
   const user = JSON.parse(localStorage.getItem("currentUser")).user;
-  console.log(user._id);
   const [rooms, setRooms] = useState([]);
 
   useEffect(() => {
@@ -40,17 +39,13 @@ const Foglalasok = () => {
   }
 
   return (
-<<<<<<< HEAD
-    <div className="foglalasok">
-=======
-    <div>
->>>>>>> 3007c86c0f3588255633b5bde841e53ea9d2e30a
+    <div className="container">
       {rooms.length === 0 ? (
         <p>Nincsenek foglalások</p>
       ) : (
         rooms.map((elem) => (
-          <div className="row justify-content-center mt-5" key={elem._id}>
-            <div className="col-md-9 mt-3">
+          <div className="foglalasok row justify-content-center mt-5" key={elem._id}>
+            <div className="col-md-12 mt-3">
               Hotel: <h1>{elem.room}</h1>
               Ettől: <h3>{elem.fromdate}</h3>
               Eddig: <h3>{elem.todate}</h3>

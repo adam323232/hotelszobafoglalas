@@ -2,11 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Loader from "../components/Loader";
 import moment from "moment";
-<<<<<<< HEAD
-=======
-import StripeCheckout from "react-stripe-checkout";
-import Swal from "sweetalert2";
->>>>>>> 3007c86c0f3588255633b5bde841e53ea9d2e30a
+
 
 const Bookingscreen = ({}) => {
   const [loading, setLoading] = useState(true);
@@ -81,20 +77,14 @@ const Bookingscreen = ({}) => {
         window.alert(result.msg);
       }
       setLoading(false);
-      Swal.fire("Gratulálok", "A szobafoglalás sikeresen megtörtént");
     } catch (error) {
       console.log("Nem sikerült a rendelést felvenni!");
-      Swal.fire("Nem sikerült a rendelést felvenni!");
     }
     console.log(bookingDetails);
   }
 
   return (
-<<<<<<< HEAD
     <div className="booking m-5">
-=======
-    <div className="m-5">
->>>>>>> 3007c86c0f3588255633b5bde841e53ea9d2e30a
       {loading ? (
         <Loader />
       ) : room ? (

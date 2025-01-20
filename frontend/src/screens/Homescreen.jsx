@@ -14,8 +14,8 @@ const Homescreen = () => {
   const [todate, settodate] = useState();
   const [duplicaterooms, setduplicaterooms] = useState([]);
 
-  const [searchkey, setsearchkey] = useState('');
-  const [type, settype] = useState('all')
+  const [searchkey, setsearchkey] = useState("");
+  const [type, settype] = useState("all");
 
   useEffect(() => {
     const fgv = async () => {
@@ -40,67 +40,94 @@ const Homescreen = () => {
     setfromdate(moment(dates[0].$d).format("DD-MM-YYYY"));
     settodate(moment(dates[1].$d).format("DD-MM-YYYY"));
 
-    var temprooms = []
-    var availability = false
+    var temprooms = [];
+    var availability = false;
 
-    for(const room of duplicaterooms){
-      
+    for (const room of duplicaterooms) {
       if (room.currentbookings.length > 0) {
         for (const booking of room.currentbookings) {
-          
-          if(!moment(moment(dates[0]).format("DD-MM-YYYY")).isBetween(booking.fromdate , booking.todate)
-          && !moment(moment(dates[1]).format("DD-MM-YYYY")).isBetween(booking.fromdate , booking.todate))
-          
-          {
+          if (
+            !moment(moment(dates[0]).format("DD-MM-YYYY")).isBetween(
+              booking.fromdate,
+              booking.todate
+            ) &&
+            !moment(moment(dates[1]).format("DD-MM-YYYY")).isBetween(
+              booking.fromdate,
+              booking.todate
+            )
+          ) {
             if (
-              
               moment(dates[0]).format("DD-MM-YYYY") !== booking.fromdate &&
               moment(dates[0]).format("DD-MM-YYYY") !== booking.todate &&
               moment(dates[1]).format("DD-MM-YYYY") !== booking.fromdate &&
-              moment(dates[1]).format("DD-MM-YYYY") !== booking.todate 
-            
+              moment(dates[1]).format("DD-MM-YYYY") !== booking.todate
             ) {
-              availability = true
+              availability = true;
             }
           }
         }
       }
-        if (availability == true || room.currentbookings.length==0) {
-          temprooms.push(room)
-        }
-        setRoom(temprooms)
+      if (availability == true || room.currentbookings.length == 0) {
+        temprooms.push(room);
+      }
+      setRoom(temprooms);
     }
   }
 
-  function filterBySearch(){
+  function filterBySearch(e) {
     const value = e.target.value;
-    setsearchkey(value);
-    const temprooms = duplicaterooms.filter(room=>room.name.toLowerCase().includes(searchkey.toLocaleLowerCase()))
-
-    setRoom(temprooms)
+    setsearchkey(value); // Frissíti a keresési kulcsot
+    const temprooms = duplicaterooms.filter((room) =>
+      room.name.toLowerCase().includes(value.toLowerCase())
+    );
+    setRoom(temprooms); // Azonnal szűri a szobákat
+  }
+  function filterByType(e) {
+    settype(e);
+    if (e !== "all") {
+      const temprooms = duplicaterooms.filter(
+        (room) => room.type.toLowerCase() == e.toLowerCase()
+      );
+      setRoom(temprooms);
+    } else {
+      setRoom(duplicaterooms);
+    }
   }
 
   return (
     <div className="container">
-      <div className="row mt-5 bs">
+      <div className="asd row mt-5 bs">
         <div className="col-md-3">
           <RangePicker format="DD-MM-YYYY" onChange={filterByDate} />
         </div>
 
         <div className="col-md-5">
-          <input type="text" className="form-control" placeholder="search rooms" value={searchkey} onChange={(e)=>{setsearchkey(e.target.value)}} onKeyUp={filterBySearch}/>
+          <input
+            type="text"
+            className="form-control"
+            placeholder="search rooms"
+            value={searchkey}
+            onChange={(e) => {
+              setsearchkey(e.target.value);
+            }}
+            onKeyUp={filterBySearch}
+          />
         </div>
 
         <div className="col-md-3">
-        <select className="form-control">
-          <option value="all">Mindent mutat</option>
-          <option value="delux">Delux</option>
-          <option value="nondelux">Non-Delux</option>
-          <option value="old">Old style</option>
-        </select>
+          <select
+            className="form-control"
+            value={type}
+            onChange={(e) => {
+              filterByType(e.target.value);
+            }}
+          >
+            <option value="all">Mindent mutat</option>
+            <option value="delux">Delux</option>
+            <option value="non-delux">Non-Delux</option>
+            <option value="old style">Old style</option>
+          </select>
         </div>
-
-
       </div>
 
       <div className="row justify-content-center mt-5">
@@ -110,11 +137,7 @@ const Homescreen = () => {
           rooms.map((room) => {
             return (
               <div className="col-md-9 mt-3" key={room._id}>
-                <Room
-                  room={room}
-                  fromdate={fromdate}
-                  todate={todate}
-                />
+                <Room room={room} fromdate={fromdate} todate={todate} />
               </div>
             );
           })

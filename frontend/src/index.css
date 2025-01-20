@@ -2,8 +2,8 @@
 .App {
   text-align: left;
 }
+
 body {
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Droid Sans", "Helvetica Neue", sans-serif, "Fira Sans";
   -webkit-font-smoothing: antialiased;
@@ -17,6 +17,10 @@ code {
 
 .navbar {
   background-color: black !important;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 10;
 }
 .nav-link {
   color: white !important;
@@ -44,8 +48,7 @@ h1 {
 
 .bs {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  margin-top: 20px !important;
-  border-radius: 5px !important;
+  border-radius: 10px !important;
   padding: 20px !important;
 }
 
@@ -54,7 +57,9 @@ h1 {
   border-radius: 5px !important;
 }
 
-input, select, ant-picker{
+input,
+select,
+ant-picker {
   box-shadow: none !important;
   margin-top: 5px !important;
   border: 1 px solid black !important;
@@ -64,6 +69,8 @@ input, select, ant-picker{
 }
 
 h2 {
+  font-size: 30px;
+  padding: 2em;
   padding-bottom: 10px;
   font-weight: bold;
 }
@@ -71,7 +78,35 @@ i {
   padding-right: 8px;
 }
 
-.ant-picker-input input{
+.ant-picker-input input {
   border: none !important;
+}
 
+.col-md-9 {
+  background-color: white !important;
+  border-radius: 10px !important;
+}
+
+.asd {
+  background-color: white !important;
+  margin-top: 6.9em !important;
+}
+
+.admin {
+  background-color: white !important;
+}
+
+.landing {
+  background-color: black !important;
+  height: 100vh;
+}
+
+.landingbtn {
+  background-color: white !important;
+  color: black !important;
+  margin-top: 20px !important;
+}
+.profil {
+  margin: 20px;
+  margin-top: 4em;
 }

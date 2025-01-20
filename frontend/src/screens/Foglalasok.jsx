@@ -40,7 +40,11 @@ const Foglalasok = () => {
   }
 
   return (
+<<<<<<< HEAD
     <div className="foglalasok">
+=======
+    <div>
+>>>>>>> 3007c86c0f3588255633b5bde841e53ea9d2e30a
       {rooms.length === 0 ? (
         <p>Nincsenek foglalások</p>
       ) : (

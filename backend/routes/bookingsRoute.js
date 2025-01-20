@@ -60,6 +60,15 @@ router.put("/cancelbooking", async (req, res) => {
     return res.status(400).json({ error });
   }
 });
+router.delete('/:id', async (req, res) => {
+  try {
+    const bookingId = req.params.id;
+    await Booking.findByIdAndDelete(bookingId);
+    res.status(200).send({ message: "Foglalás törölve" });
+  } catch (error) {
+    res.status(500).send({ error: "Hiba történt a törlés során" });
+  }
+});
 
 // router.get("/bookings", (req, res) => {
 

@@ -59,12 +59,29 @@ export function Bookings() {
     return <Loader />;
   }
 
-  async function torol(id){
-    let response = await fetch(`http://localhost:5000/api/bookings/${id}`
+  async function torol(id) {
+    try {
+      const response = await fetch(`http://localhost:5000/api/bookings/:id`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+  
+      if (response.ok) {
+        console.log(`Foglalás törölve: ${id}`);
+        setRooms(rooms.filter(room => room._id !== id));
+      } else if (response.status === 404) {
+        console.error("Foglalás nem található.");
+      } else {
+        console.error(`Hiba történt: ${response.status}`);
+      }
+    } catch (error) {
+      console.log("Hiba történt a törlés során:", error);
+    }
+  }
+  
       
-    ) 
-  };
-
   return (
     <div className="row justify-content-center mt-5">
       <div className="col-md-10">

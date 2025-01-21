@@ -61,7 +61,7 @@ export function Bookings() {
 
   async function torol(id) {
     try {
-      const response = await fetch(`http://localhost:5000/api/bookings/:id`, {
+      const response = await fetch(`http://localhost:5000/api/bookings/${id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -103,8 +103,8 @@ export function Bookings() {
               <tr key={elem._id}>
                 <td>{elem._id}</td>
                 <td>{elem.room}</td>
-                <td>{elem.fromdate}</td>
-                <td>{elem.todate}</td>
+                <td>{elem.fromDate}</td>
+                <td>{elem.toDate}</td>
                 <td>{elem.totalamount}€</td>
                 <td>{elem.status === "booked" ? "LEFOGLALT" : "VISSZA MONDOTT"}</td>
                 <td><button className="btn" onClick={() => torol(elem._id)}>Töröl</button></td>

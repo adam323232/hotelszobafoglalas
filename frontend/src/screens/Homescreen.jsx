@@ -148,19 +148,3 @@ const Homescreen = () => {
 };
 
 export default Homescreen;
-
-//   return (
-//     <div className="container">
-//       <div className="row justify-content-center">
-//         {loading ? (
-//           <h1>Loading....</h1>
-//         ) : error ? (
-//           <h1>Hiba történt a szobák betöltésekor!</h1>
-//         ) : rooms.length > 0 ? (
-//           rooms.map((room) => <Room key={room.id} room={room} />) // Használj Room komponenst
-//         ) : (
-//           <h1>Nincsenek elérhető szobák!</h1>
-//         )}
-//       </div>
-//     </div>
-//   );

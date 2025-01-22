@@ -42,6 +42,7 @@ export function Bookings() {
       try {
         const response = await fetch("http://localhost:5000/api/bookings");
         const foglalasok = await response.json();
+        console.log(foglalasok);
 
         if (response.ok) {
           setRooms(foglalasok.bookings);
@@ -57,7 +58,6 @@ export function Bookings() {
   if (loading) {
     return <Loader />;
   }
-
   async function torol(id) {
     try {
       const response = await fetch(`http://localhost:5000/api/bookings/${id}`, {
@@ -81,42 +81,44 @@ export function Bookings() {
   }
 
   return (
-    <div className="row justify-content-center mt-5">
-      <div className="col-md-10">
-        <h1>Foglalások</h1>
-        <table className="table table-bordered table-dark">
-          <thead className="bs">
-            <tr>
-              <th>Szoba Id</th>
-              <th>Hotel</th>
-              <th>Ettől</th>
-              <th>Eddig</th>
-              <th>Ár</th>
-              <th>Státusz</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {rooms.map((elem) => (
-              <tr key={elem._id}>
-                <td>{elem._id}</td>
-                <td>{elem.room}</td>
-                <td>{elem.fromdate}</td>
-                <td>{elem.todate}</td>
-                <td>{elem.totalamount}€</td>
-                <td>
-                  {elem.status === "booked" ? "LEFOGLALT" : "VISSZA MONDOTT"}
-                </td>
-                <td>
-                  <button className="btn" onClick={() => torol(elem._id)}>
-                    Töröl
-                  </button>
-                </td>
+    <>
+      <div className="row justify-content-center mt-5">
+        <div className="col-md-10">
+          <h1>Foglalások</h1>
+          <table className="table table-bordered table-dark">
+            <thead className="bs">
+              <tr>
+                <th>Szoba Id</th>
+                <th>Hotel</th>
+                <th>Ettől</th>
+                <th>Eddig</th>
+                <th>Ár</th>
+                <th>Státusz</th>
+                <th></th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {rooms.map((elem) => (
+                <tr key={elem._id}>
+                  <td>{elem._id}</td>
+                  <td>{elem.room}</td>
+                  <td>{elem.todate}</td>
+                  <td>{elem.fromdate}</td>
+                  <td>{elem.totalamount}€</td>
+                  <td>
+                    {elem.status === "booked" ? "LEFOGLALT" : "VISSZA MONDOTT"}
+                  </td>
+                  <td>
+                    <button className="btn" onClick={() => torol(elem._id)}>
+                      Töröl
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

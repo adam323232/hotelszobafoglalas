@@ -8,15 +8,15 @@ router.post("/bookroom", async (req, res) => {
   try {
     const rooms = req.body.bookingDetails.room;
     const others = req.body.bookingDetails;
-    // console.log(rooms);
-    // console.log(others);
+    // console.log("Rooms" + rooms);
+    // console.log("Others" + others);
 
     const newbooking = new Booking({
       room: rooms.name,
       roomid: rooms._id,
       userid: others.userid,
-      fromdate: moment(others.fromdate).format("MM-DD-YYYY"),
-      todate: moment(others.todate).format("MM-DD-YYYY"),
+      fromdate: moment(others.fromDate).format("MM-DD-YYYY"),
+      todate: moment(others.toDate).format("MM-DD-YYYY"),
       totalamount: Number(others.totalamount),
       totaldays: Number(others.totaldays),
       transactionid: "1234",
@@ -69,7 +69,5 @@ router.delete("/:id", async (req, res) => {
     res.status(500).send({ error: "Hiba történt a törlés során" });
   }
 });
-
-
 
 module.exports = router;

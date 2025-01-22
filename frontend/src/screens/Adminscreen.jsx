@@ -54,7 +54,6 @@ export function Bookings() {
     };
     foglalasleker();
   }, []);
-
   if (loading) {
     return <Loader />;
   }
@@ -67,10 +66,10 @@ export function Bookings() {
           "Content-Type": "application/json",
         },
       });
-  
+
       if (response.ok) {
         console.log(`Foglalás törölve: ${id}`);
-        setRooms(rooms.filter(room => room._id !== id));
+        setRooms(rooms.filter((room) => room._id !== id));
       } else if (response.status === 404) {
         console.error("Foglalás nem található.");
       } else {
@@ -80,8 +79,7 @@ export function Bookings() {
       console.log("Hiba történt a törlés során:", error);
     }
   }
-  
-      
+
   return (
     <div className="row justify-content-center mt-5">
       <div className="col-md-10">
@@ -103,11 +101,17 @@ export function Bookings() {
               <tr key={elem._id}>
                 <td>{elem._id}</td>
                 <td>{elem.room}</td>
-                <td>{elem.fromDate}</td>
-                <td>{elem.toDate}</td>
+                <td>{elem.fromdate}</td>
+                <td>{elem.todate}</td>
                 <td>{elem.totalamount}€</td>
-                <td>{elem.status === "booked" ? "LEFOGLALT" : "VISSZA MONDOTT"}</td>
-                <td><button className="btn" onClick={() => torol(elem._id)}>Töröl</button></td>
+                <td>
+                  {elem.status === "booked" ? "LEFOGLALT" : "VISSZA MONDOTT"}
+                </td>
+                <td>
+                  <button className="btn" onClick={() => torol(elem._id)}>
+                    Töröl
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>

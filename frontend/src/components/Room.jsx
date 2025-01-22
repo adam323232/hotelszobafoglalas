@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Modal, Button, Carousel } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-function Room({ room , fromdate, todate}) {
+function Room({ room, fromdate, todate }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -21,19 +21,15 @@ function Room({ room , fromdate, todate}) {
           <p>Type: {room.type}</p>
         </b>
         <div style={{ float: "right" }}>
-
-          {(fromdate && todate) && (
-          <Link to={`/book/${room._id}/${fromdate}/${todate}`}>
-            <button className="btn btn-primary m-2" >
-              Foglalás
-            </button>
-          </Link>
+          {fromdate && todate && (
+            <Link to={`/book/${room._id}/${fromdate}/${todate}`}>
+              <button className="btn btn-primary m-2">Foglalás</button>
+            </Link>
           )}
 
           <button className="btn btn-primary" onClick={handleShow}>
             Részletek
           </button>
-          
         </div>
       </div>
       <Modal show={show} onHide={handleClose} size="lg">

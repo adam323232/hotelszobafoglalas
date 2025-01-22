@@ -60,7 +60,7 @@ router.put("/cancelbooking", async (req, res) => {
     return res.status(400).json({ error });
   }
 });
-router.delete('/:id', async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     const bookingId = req.params.id;
     await Booking.findByIdAndDelete(bookingId);
@@ -69,5 +69,7 @@ router.delete('/:id', async (req, res) => {
     res.status(500).send({ error: "Hiba történt a törlés során" });
   }
 });
+
+
 
 module.exports = router;

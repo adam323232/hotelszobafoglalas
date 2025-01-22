@@ -33,4 +33,28 @@ router.post("/addroom", async (req, res) => {
   }
 });
 
+router.put("/updatebooking/:id", async (req, res) => {
+  const { id } = req.params;
+  const { updatedRoom } = req.body;
+  console.log(updatedRoom);
+
+  try {
+    const roomitem = await Room.findByIdAndUpdate(
+      { _id: id },
+      {
+        name: updatedRoom.name,
+        maxcount: updatedRoom.maxcount,
+        rentperday: updatedRoom.rentperday,
+        type: updatedRoom.type,
+        phonenumber: updatedRoom.phonenumber,
+      },
+      { new: true }
+    );
+
+    return res.status(200).json({ msg: "Sikeres szoba frissítés", roomitem });
+  } catch (error) {
+    return res.status(400).json({ error });
+  }
+});
+
 module.exports = router;

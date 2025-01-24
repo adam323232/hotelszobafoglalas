@@ -9,8 +9,8 @@ router.post('/register', async (req, res) => {
             email: req.body.email,
             password: req.body.password,
         });
-        console.log('regisztráció');
-        console.log(newuser);
+        // console.log('regisztráció');
+        // console.log(newuser);
         const user = await newuser.save();
         res.status(200).json({ msg: 'Sikeres regisztráció' });
     } catch (error) {
@@ -23,7 +23,7 @@ router.post('/login', async (req, res) => {
     console.log(email, password);
     try {
         const user = await User.findOne({ email: email, password: password });
-        console.log(user);
+        // console.log(user);
         if (user) {
             res.status(200).json({ msg: 'Sikeres belépés!', user });
         } else {

@@ -36,7 +36,7 @@ router.post("/addroom", async (req, res) => {
 router.put("/updatebooking/:id", async (req, res) => {
   const { id } = req.params;
   const { updatedRoom } = req.body;
-  console.log(updatedRoom);
+  // console.log(updatedRoom);
 
   try {
     const roomitem = await Room.findByIdAndUpdate(

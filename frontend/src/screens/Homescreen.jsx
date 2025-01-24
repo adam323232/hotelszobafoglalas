@@ -96,7 +96,7 @@ const Homescreen = () => {
 
   return (
     <div className="container">
-      <div className="asd row mt-5 bs">
+      <div className="search row col-md-8 mt-5 bs">
         <div className="col-md-3">
           <RangePicker format="DD-MM-YYYY" onChange={filterByDate} />
         </div>
@@ -105,7 +105,7 @@ const Homescreen = () => {
           <input
             type="text"
             className="form-control"
-            placeholder="search rooms"
+            placeholder="Keresés"
             value={searchkey}
             onChange={(e) => {
               setsearchkey(e.target.value);
@@ -130,7 +130,7 @@ const Homescreen = () => {
         </div>
       </div>
 
-      <div className="row justify-content-center mt-5">
+      <div className="room row justify-content-center mt-5">
         {loading ? (
           <Loader />
         ) : (

@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import Loader from "../components/Loader";
 import moment from "moment";
 
-
 const Bookingscreen = ({}) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -84,12 +83,12 @@ const Bookingscreen = ({}) => {
   }
 
   return (
-    <div className="booking m-5">
+    <div className="m-5">
       {loading ? (
         <Loader />
       ) : room ? (
         <div>
-          <div className="row justify-content-center mt-5 bs">
+          <div className="booking row justify-content-center mt-5 bs">
             <div className="col-md-7">
               <h1>{room.name}</h1>
               <img src={room.imageurls[0]} className="bigimg" />

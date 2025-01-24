@@ -21,7 +21,7 @@ router.post("/bookroom", async (req, res) => {
       totaldays: Number(others.totaldays),
       transactionid: "1234",
     });
-    console.log(newbooking);
+    // console.log(newbooking);
 
     const booking = await newbooking.save();
     console.log(booking);
@@ -43,7 +43,7 @@ router.get("/", async (req, res) => {
 
 router.put("/cancelbooking", async (req, res) => {
   const { bookingid } = req.body;
-  console.log(req.body);
+  // console.log(req.body);
 
   try {
     const bookingitem = await Booking.findByIdAndUpdate(
@@ -51,7 +51,7 @@ router.put("/cancelbooking", async (req, res) => {
       { status: "cancelled" }
     );
 
-    console.log(bookingitem);
+    // console.log(bookingitem);
 
     return res
       .status(200)

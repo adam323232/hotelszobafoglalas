@@ -8,6 +8,12 @@ const Loginscreen = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
 
+  const [passwordVisible, setPasswordVisible] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible((prevState) => !prevState);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -26,10 +32,9 @@ const Loginscreen = () => {
       console.log(result);
 
       if (response.ok) {
-        alert("Sikeres bejelentkezés!");
         setLoading(false);
         localStorage.setItem("currentUser", JSON.stringify(result));
-        window.location.href = "/";
+        window.location.href = "/home";
       } else {
         alert(result.msg);
         setLoading(false);
@@ -43,28 +48,48 @@ const Loginscreen = () => {
     <div>
       {loading && <Loader />}
       <div className="row justify-content-center mt-5">
-        <div className="col-md-5 mt-5">
+        <div className="col-md-3 mt-5">
           {error && <Error message="Nem létezik ilyen felhasználó" />}
           <div className="bs">
             <h2>Bejelentkezés</h2>
             <input
               type="text"
               className="form-control"
-              placeholder="email"
+              placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <input
-              type="password"
-              className="form-control"
-              placeholder="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            <div className="input">
+              <input
+                type={passwordVisible ? "text" : "password"}
+                placeholder="Írd be a jelszót"
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+                className="form-control"
+              />
+              <button
+                onClick={togglePasswordVisibility}
+                style={{
+                  marginLeft: "10px",
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  fontSize: "20px",
+                  padding: "5px",
+                }}
+                aria-label="Jelszó megjelenítése/elrejtése"
+              >
+                {passwordVisible ? "🙈" : "👁️"}
+              </button>
+            </div>
             <br />
-            <button className="btn btn-primary" onClick={handleSubmit}>
-              Login
-            </button>
+            <div className="loginbtn">
+              <button className="btn btn-primary" onClick={handleSubmit}>
+                Login
+              </button>
+            </div>
           </div>
         </div>
       </div>

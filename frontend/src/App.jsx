@@ -9,6 +9,7 @@ import Loginscreen from "./screens/Loginscreen";
 import Profilescreen from "./screens/Profilescreen";
 import Adminscreen from "./screens/Adminscreen";
 import Landingscreen from "./screens/Landingscreen"
+import ProtectedRoutes from "./ProtectedRoutes";
 
 function App() {
   return (
@@ -23,9 +24,12 @@ function App() {
               element={<Bookingscreen />}
             ></Route>
             <Route path="/register" element={<Registerscreen />}></Route>
+            <Route element={<ProtectedRoutes />}>
+            <Route path="/admin" element={<Adminscreen />}></Route>
+              <Route path="*" element={<Loginscreen />}></Route>
+            </Route>
             <Route path="/login" element={<Loginscreen />}></Route>
             <Route path="/profile" element={<Profilescreen />}></Route>
-            <Route path="/admin" element={<Adminscreen />}></Route>
             <Route path="/" element={<Landingscreen/>}></Route>
           </Routes>
         </BrowserRouter>

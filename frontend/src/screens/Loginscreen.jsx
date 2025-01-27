@@ -7,7 +7,7 @@ const Loginscreen = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
-
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -33,6 +33,7 @@ const Loginscreen = () => {
 
       if (response.ok) {
         setLoading(false);
+        localStorage.setItem('isLoggedIn', 1)
         localStorage.setItem("currentUser", JSON.stringify(result));
         window.location.href = "/home";
       } else {

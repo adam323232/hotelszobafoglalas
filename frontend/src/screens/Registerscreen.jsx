@@ -52,7 +52,7 @@ const Register = () => {
           console.log(result);
           setLoading(false);
           setsuccess(true);
-          window.location.href = "/home";
+          window.location.href = "/login";
         }
 
         setname("");

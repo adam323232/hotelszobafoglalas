@@ -162,3 +162,12 @@ i {
   display: flex;
   align-items: center;
 }
+
+.adminbtn button{
+  border: solid 1px white !important;
+  padding: 2px;
+}
+.adminbtn{
+  display: flex;
+  flex-direction: column;
+}

@@ -56,7 +56,17 @@ h1 {
 .bs {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 10px !important;
-  padding: 20px !important;
+  padding: 15px !important;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.room {
+  margin-top: 10em !important;
+  display: grid !important;
+  flex-wrap: nowrap;
+  grid-template: 1fr 1fr / 1fr 1fr !important;
+  justify-items: center;
 }
 
 .bigimg {
@@ -95,6 +105,9 @@ i {
   border: 1 px solid black !important;
   border-radius: 10px black !important;
 }
+.col-md-4 {
+  width: 50%;
+}
 .col-md-11 {
   background-color: white;
   border: 1 px solid black;
@@ -105,10 +118,9 @@ i {
   background-color: white !important;
   margin-top: 3.7em !important;
   position: fixed !important;
+  justify-content: center !important;
+  /* display: grid; */
   /* width: 70%; */
-}
-.room {
-  margin-top: 10em !important;
 }
 .admin {
   background-color: white !important;
@@ -149,7 +161,11 @@ i {
   text-align: center !important;
 }
 .container {
-  padding: 20px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
 }
 
 .admin-view-toggle {
@@ -163,11 +179,11 @@ i {
   align-items: center;
 }
 
-.adminbtn button{
+.adminbtn button {
   border: solid 1px white !important;
   padding: 2px;
 }
-.adminbtn{
+.adminbtn {
   display: flex;
   flex-direction: column;
 }

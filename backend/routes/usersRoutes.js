@@ -46,7 +46,7 @@ router.delete("/:id", async (req, res) => {
   try {
     const userId = req.params.id;
     console.log(userId);
-    await User.findByIdAndDelete({_id:userId});
+    await User.findByIdAndDelete({ _id: userId });
     return res.status(200).send({ message: "Profil törölve" });
   } catch (error) {
     res.status(500).send({ error: "Hiba történt a törlés során" });
@@ -61,7 +61,7 @@ router.put("/updateuseradmin/:id", async (req, res) => {
     const useritem = await User.findByIdAndUpdate(
       { _id: id },
       {
-        isAdmin : updatedUser.isadmin,
+        isAdmin: !updatedUser.isAdmin,
       },
       { new: true }
     );

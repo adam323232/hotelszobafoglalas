@@ -13,7 +13,6 @@ const Homescreen = () => {
   const [fromdate, setfromdate] = useState();
   const [todate, settodate] = useState();
   const [duplicaterooms, setduplicaterooms] = useState([]);
-
   const [searchkey, setsearchkey] = useState("");
   const [type, settype] = useState("all");
 
@@ -82,6 +81,7 @@ const Homescreen = () => {
     );
     setRoom(temprooms); // Azonnal szűri a szobákat
   }
+
   function filterByType(e) {
     settype(e);
     if (e !== "all") {
@@ -130,13 +130,13 @@ const Homescreen = () => {
         </div>
       </div>
 
-      <div className="room row justify-content-center mt-5">
+      <div className="room m-10">
         {loading ? (
           <Loader />
         ) : (
           rooms.map((room) => {
             return (
-              <div className="col-md-9 mt-3" key={room._id}>
+              <div className="col-md-11 mt-3" key={room._id}>
                 <Room room={room} fromdate={fromdate} todate={todate} />
               </div>
             );

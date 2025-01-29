@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const Navbar = () => {
   const user = JSON.parse(localStorage.getItem("currentUser"));
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(false);
+  useEffect(() => {
+    const is = Boolean(Number(localStorage.getItem("isLoggedIn")));
+    setIsLoggedIn(is);
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    console.log(currentUser);
+    if (currentUser && currentUser.user.isAdmin) {
+      setIsAdmin(true);
+    }
+  }, []);
+
   function logout() {
     localStorage.removeItem("currentUser");
+    localStorage.removeItem("isLoggedIn");
     window.location.href = "/login";
   }
 
@@ -13,6 +26,14 @@ const Navbar = () => {
         <a className="navbar-brand" href="/home">
           ReZsoBa Rooms
         </a>
+        {isAdmin && isLoggedIn && (
+          <a
+            href="/admin"
+            className="text-white font-bold bg-red-500 px-4 py-2 rounded"
+          >
+            Admin
+          </a>
+        )}
         <button
           className="navbar-toggler"
           type="button"

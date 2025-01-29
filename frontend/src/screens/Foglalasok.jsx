@@ -66,7 +66,7 @@ const Foglalasok = () => {
                     cancelBooking(elem._id);
                   }}
                 >
-                  FOGLALÁS TÖRLÉSE
+                  Foglalás lemondása
                 </button>
               </div>
             </div>

@@ -47,11 +47,9 @@ const Users = () => {
   }
 
   const handleUpdate = async (id) => {
-    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-    console.log(currentUser);
-    const updatedUser = {
-      isadmin: currentUser.user.isAdmin,
-    };
+    const users = JSON.parse(localStorage.getItem("users"));
+    const updatedUser = users.filter((elem) => elem._id === id);
+    console.log(updatedUser[0]);
 
     try {
       console.log(updatedUser);
@@ -62,20 +60,23 @@ const Users = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ updatedUser }),
+          body: JSON.stringify({ updatedUser: updatedUser[0] }),
         }
       );
 
+      const valasz = await response.json();
+
       if (response.ok) {
+        console.log(valasz.useritem);
         const updatedUsers = users.map((u) =>
-          u._id === id ? { ...u, ...updatedUser } : u
+          u._id === id ? { ...u, ...valasz.useritem } : u
         );
+        console.log(updatedUsers);
         setUsers(updatedUsers);
         // setUsers(users.filter((users) => users._id !== id));
 
         handleClose();
         console.log(`Admin jogok frissítve: ${id}`);
-        // window.location.href = "/admin";
       } else {
         console.error("Failed to update user");
       }

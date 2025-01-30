@@ -53,12 +53,21 @@ h1 {
   box-shadow: none !important;
 }
 
-.bs {
+.roombs {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 10px !important;
   padding: 25px !important;
   flex-wrap: nowrap;
   height: 250px;
+  justify-content: center;
+  align-items: center;
+}
+
+.bs{
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px !important;
+  padding: 25px !important;
+  flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
 }
@@ -93,10 +102,10 @@ ant-picker {
 
 h2 {
   font-size: 30px;
-  padding: 2em;
   padding-bottom: 10px;
   font-weight: bold;
   text-align: center;
+  padding-top: 2em ;
 }
 i {
   padding-right: 8px;
@@ -137,6 +146,7 @@ i {
 }
 .admin {
   background-color: white !important;
+  padding-top: 4em !important;
 }
 
 .landing {
@@ -200,3 +210,30 @@ i {
   display: flex;
   flex-direction: column;
 }
+
+.input-container {
+  position: relative;
+  width: 100%;
+}
+
+.input-container input {
+  width: 100%;
+  padding-right: 40px; /* Hely az ikon számára */
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #6c757d;
+}
+
+.toggle-password:hover {
+  color: #343a40;
+}
+

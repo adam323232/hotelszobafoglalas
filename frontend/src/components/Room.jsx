@@ -8,7 +8,7 @@ function Room({ room, fromdate, todate }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   return (
-    <div className="row bs">
+    <div className="row roombs">
       <div className="col-md-4">
         <img src={room.imageurls[0]} className="smallimg" />
       </div>

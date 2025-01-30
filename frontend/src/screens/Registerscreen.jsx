@@ -18,10 +18,14 @@ const Register = () => {
   const [passwordVisibles, setPasswordVisibles] = useState(false);
 
   const togglePasswordVisibility = () => {
-    setPasswordVisible((prevState) => !prevState);
+    const cursorPosition = document.activeElement.selectionStart;
+    setPasswordVisible((prev) => !prev);
+    setTimeout(() => document.activeElement.setSelectionRange(cursorPosition, cursorPosition), 0);
   };
   const togglePasswordVisibilitys = () => {
-    setPasswordVisibles((prevState) => !prevState);
+    const cursorPosition = document.activeElement.selectionStart;
+    setPasswordVisibles((prev) => !prev);
+    setTimeout(() => document.activeElement.setSelectionRange(cursorPosition, cursorPosition), 0);
   };
 
   async function register() {
@@ -76,7 +80,7 @@ const Register = () => {
         <div className="col-md-3 mt-5">
           {succes && <Success message="Sikeres regisztráció" />}
 
-          <div className="bs">
+          <div>
             <h2>Regisztráció</h2>
 
             <input
@@ -97,51 +101,38 @@ const Register = () => {
                 setemail(e.target.value);
               }}
             />
-            <div className="input">
+
+            <div className="input-container">
               <input
                 type={passwordVisible ? "text" : "password"}
-                placeholder="Írd be a jelszót"
-                value={password}
-                onChange={(e) => {
-                  setpassword(e.target.value);
-                }}
                 className="form-control"
+                placeholder="Jelszó"
+                value={password}
+                onChange={(e) => setpassword(e.target.value)}
               />
               <button
+                className="toggle-password"
                 onClick={togglePasswordVisibility}
-                style={{
-                  marginLeft: "10px",
-                  background: "none",
-                  border: "none",
-                  cursor: "pointer",
-                  fontSize: "20px",
-                  padding: "5px",
-                }}
+                onMouseDown={(e) => e.preventDefault()}
+                tabIndex="-1"
                 aria-label="Jelszó megjelenítése/elrejtése"
               >
                 {passwordVisible ? "🙈" : "👁️"}
               </button>
             </div>
-            <div className="input">
+            <div className="input-container mt-2">
               <input
                 type={passwordVisibles ? "text" : "password"}
-                placeholder="Írd be a jelszót"
-                value={cpassword}
-                onChange={(e) => {
-                  setcpassword(e.target.value);
-                }}
                 className="form-control"
+                placeholder="Jelszó megerősítése"
+                value={cpassword}
+                onChange={(e) => setcpassword(e.target.value)}
               />
               <button
+                className="toggle-password"
                 onClick={togglePasswordVisibilitys}
-                style={{
-                  marginLeft: "10px",
-                  background: "none",
-                  border: "none",
-                  cursor: "pointer",
-                  fontSize: "20px",
-                  padding: "5px",
-                }}
+                onMouseDown={(e) => e.preventDefault()}
+                tabIndex="-1"
                 aria-label="Jelszó megjelenítése/elrejtése"
               >
                 {passwordVisibles ? "🙈" : "👁️"}
@@ -151,7 +142,7 @@ const Register = () => {
             <br />
             <div className="registerbtn">
               <button
-                className="btn btn-primary"
+                className="btn btn-primary w-100"
                 onClick={register}
                 style={{
                   textAlign: "center !important",

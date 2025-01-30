@@ -11,7 +11,16 @@ const Loginscreen = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
 
   const togglePasswordVisibility = () => {
-    setPasswordVisible((prevState) => !prevState);
+    const cursorPosition = document.activeElement.selectionStart;
+    setPasswordVisible((prev) => !prev);
+    setTimeout(
+      () =>
+        document.activeElement.setSelectionRange(
+          cursorPosition,
+          cursorPosition
+        ),
+      0
+    );
   };
 
   const handleSubmit = (e) => {
@@ -33,7 +42,7 @@ const Loginscreen = () => {
 
       if (response.ok) {
         setLoading(false);
-        localStorage.setItem('isLoggedIn', 1)
+        localStorage.setItem("isLoggedIn", 1);
         localStorage.setItem("currentUser", JSON.stringify(result));
         window.location.href = "/home";
       } else {
@@ -48,52 +57,52 @@ const Loginscreen = () => {
   return (
     <div>
       {loading && <Loader />}
-      <div className="row justify-content-center mt-5">
-        <div className="col-md-3 mt-5">
-          {error && <Error message="Nem létezik ilyen felhasználó" />}
-          <div className="bs">
-            <h2>Bejelentkezés</h2>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <div className="input">
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          register();
+        }}
+      >
+        <div className="row justify-content-center mt-5">
+          <div className="col-md-3 mt-5">
+            {error && <Error message="Nem létezik ilyen felhasználó" />}
+            <div className="bs">
+              <h2>Bejelentkezés</h2>
               <input
-                type={passwordVisible ? "text" : "password"}
-                placeholder="Írd be a jelszót"
-                value={password}
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
+                type="text"
                 className="form-control"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
-              <button
-                onClick={togglePasswordVisibility}
-                style={{
-                  marginLeft: "10px",
-                  background: "none",
-                  border: "none",
-                  cursor: "pointer",
-                  fontSize: "20px",
-                  padding: "5px",
-                }}
-                aria-label="Jelszó megjelenítése/elrejtése"
-              >
-                {passwordVisible ? "🙈" : "👁️"}
-              </button>
-            </div>
-            <br />
-            <div className="loginbtn">
-              <button className="btn btn-primary" onClick={handleSubmit}>
-                Login
-              </button>
+              <div className="input-container">
+                <input
+                  type={passwordVisible ? "text" : "password"}
+                  className="form-control"
+                  placeholder="Jelszó"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <button
+                  className="toggle-password"
+                  onClick={togglePasswordVisibility}
+                  onMouseDown={(e) => e.preventDefault()}
+                  tabIndex="-1"
+                  aria-label="Jelszó megjelenítése/elrejtése"
+                >
+                  {passwordVisible ? "🙈" : "👁️"}
+                </button>
+              </div>
+              <br />
+              <div className="loginbtn">
+                <button className="btn btn-primary" onClick={handleSubmit}>
+                  Login
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   );
 };

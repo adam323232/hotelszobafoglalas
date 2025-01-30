@@ -56,17 +56,23 @@ h1 {
 .bs {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 10px !important;
-  padding: 15px !important;
+  padding: 25px !important;
   flex-wrap: nowrap;
+  height: 250px;
   justify-content: center;
   align-items: center;
 }
+
+/* .bs:first-of-type {
+  height: 20px;
+} */
 .room {
   margin-top: 10em !important;
   display: grid !important;
   flex-wrap: nowrap;
   grid-template: 1fr 1fr / 1fr 1fr !important;
   justify-items: center;
+  /* padding-top: 10em; */
 }
 
 .bigimg {
@@ -119,6 +125,13 @@ i {
   margin-top: 3.7em !important;
   position: fixed !important;
   justify-content: center !important;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px !important;
+  padding: 25px !important;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  display: flex;
   /* display: grid; */
   /* width: 70%; */
 }
@@ -163,7 +176,7 @@ i {
 .container {
   padding: 10px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   flex-direction: row-reverse;
 }

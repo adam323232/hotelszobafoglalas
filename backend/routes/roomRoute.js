@@ -57,5 +57,14 @@ router.put("/updatebooking/:id", async (req, res) => {
     return res.status(400).json({ error });
   }
 });
+router.delete("/:id", async (req, res) => {
+  try {
+    const roomid = req.params.id;
+    await Room.findByIdAndDelete(roomid);
+    res.status(200).send({ message: "Szoba törölve" });
+  } catch (error) {
+    res.status(500).send({ error: "Hiba történt a törlés során" });
+  }
+});
 
 module.exports = router;

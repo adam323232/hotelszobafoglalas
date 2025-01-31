@@ -2,18 +2,23 @@ const express = require("express");
 const router = express.Router();
 const Booking = require("../models/booking");
 const Room = require("../models/room");
+const User = require("../models/user");
 const moment = require("moment");
 
 router.post("/bookroom", async (req, res) => {
-  try {
+  try {a
     const rooms = req.body.bookingDetails.room;
     const others = req.body.bookingDetails;
+    const users = await User.find({});
+    const felhasznalo = users.filter((elem) => elem._id === others.userid);
+    console.log(felhasznalo);
     // console.log("Rooms" + rooms);
     // console.log("Others" + others);
 
     const newbooking = new Booking({
       room: rooms.name,
       roomid: rooms._id,
+      felhasznalo,
       userid: others.userid,
       fromdate: moment(others.fromDate).format("MM-DD-YYYY"),
       todate: moment(others.toDate).format("MM-DD-YYYY"),
@@ -34,7 +39,8 @@ router.post("/bookroom", async (req, res) => {
 // GET kérés az összes foglalás lekéréséhez
 router.get("/", async (req, res) => {
   try {
-    const bookings = await Booking.find({});
+    const bookings = await Booking.find({}).populate("felhasznalo");
+    console.log(bookings);
     return res.status(200).json({ bookings });
   } catch (error) {
     return res.status(400).json({ error: error.message });

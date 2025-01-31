@@ -70,6 +70,27 @@ const Szobak = () => {
     const { name, value } = event.target;
     setCurrentRoom({ ...currentRoom, [name]: value });
   };
+  async function torol(id) {
+    try {
+      const response = await fetch(`http://localhost:5000/api/rooms/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.ok) {
+        console.log(`Foglalás törölve: ${id}`);
+        setRooms(rooms.filter((room) => room._id !== id));
+      } else if (response.status === 404) {
+        console.error("Szoba nem található.");
+      } else {
+        console.error(`Hiba történt: ${response.status}`);
+      }
+    } catch (error) {
+      console.log("Hiba történt a törlés során:", error);
+    }
+  }
 
   return (
     <div className="row">
@@ -100,9 +121,13 @@ const Szobak = () => {
                     <td>{room.rentperday}</td>
                     <td>{room.maxcount}</td>
                     <td>{room.phonenumber}</td>
-                    <td>
+                    <td className="adminbtn">
                       <button className="btn" onClick={() => handleShow(room)}>
                         Szerkeszt
+                      </button>
+                      <br />
+                      <button className="btn" onClick={() => torol(room._id)}>
+                        Töröl
                       </button>
                     </td>
                   </tr>

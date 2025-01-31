@@ -20,12 +20,26 @@ const Register = () => {
   const togglePasswordVisibility = () => {
     const cursorPosition = document.activeElement.selectionStart;
     setPasswordVisible((prev) => !prev);
-    setTimeout(() => document.activeElement.setSelectionRange(cursorPosition, cursorPosition), 0);
+    setTimeout(
+      () =>
+        document.activeElement.setSelectionRange(
+          cursorPosition,
+          cursorPosition
+        ),
+      0
+    );
   };
   const togglePasswordVisibilitys = () => {
     const cursorPosition = document.activeElement.selectionStart;
     setPasswordVisibles((prev) => !prev);
-    setTimeout(() => document.activeElement.setSelectionRange(cursorPosition, cursorPosition), 0);
+    setTimeout(
+      () =>
+        document.activeElement.setSelectionRange(
+          cursorPosition,
+          cursorPosition
+        ),
+      0
+    );
   };
 
   async function register() {
@@ -77,7 +91,7 @@ const Register = () => {
       {error && <Error />}
 
       <div className="row justify-content-center mt-5">
-        <div className="col-md-3 mt-5">
+        <div className="col-md-3 mt-5 bs">
           {succes && <Success message="Sikeres regisztráció" />}
 
           <div>

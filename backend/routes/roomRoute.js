@@ -26,6 +26,7 @@ router.post("/getroombyid", async (req, res) => {
 router.post("/addroom", async (req, res) => {
   try {
     const newRoom = new Room(req.body);
+    console.log(newRoom);
     await newRoom.save();
     res.send("A szoba felvétele sikeresen megtörtént");
   } catch (error) {

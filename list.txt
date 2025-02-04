@@ -1,0 +1,2 @@
+reszletek: stilus lehtosegek bovitese
+gombok: stilus

@@ -11,6 +11,24 @@ body {
   font-family: "Geist Mono", monospace !important;
 }
 
+.input {
+  border: none !important;
+  padding: 1rem !important;
+  border-radius: 1rem !important;
+  background: #e8e8e8 !important;
+  box-shadow: 20px 20px 60px #c5c5c5,
+     -20px -20px 60px #ffffff !important;
+  transition: 0.3s !important;
+ }
+ 
+ .input:focus {
+  outline-color: #e8e8e8 !important;
+  background: #e8e8e8 !important;
+  box-shadow: inset 20px 20px 60px #c5c5c5,
+     inset -20px -20px 60px #ffffff !important;
+  transition: 0.3s !important;
+ }
+
 code {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
@@ -130,7 +148,7 @@ i {
 }
 
 .search {
-  background-color: white !important;
+  background-color: black !important;
   margin-top: 3.7em !important;
   position: fixed !important;
   justify-content: center !important;

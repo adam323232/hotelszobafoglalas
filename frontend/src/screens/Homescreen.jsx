@@ -104,7 +104,7 @@ const Homescreen = () => {
         <div className="col-md-5">
           <input
             type="text"
-            className="form-control"
+            className="input"
             placeholder="Keresés"
             value={searchkey}
             onChange={(e) => {

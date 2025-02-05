@@ -50,6 +50,7 @@ const Bookingscreen = ({}) => {
     const bookingDetails = {
       room,
       userid: JSON.parse(localStorage.getItem("currentUser")).user._id,
+      felhasznalo: JSON.parse(localStorage.getItem("currentUser")).user.name,
       fromDate,
       toDate,
       totalamount,
@@ -73,13 +74,13 @@ const Bookingscreen = ({}) => {
 
       if (response.ok) {
         console.log(result.msg);
-        window.alert(result.msg);
+        // window.alert(result.msg);
       }
       setLoading(false);
     } catch (error) {
       console.log("Nem sikerült a rendelést felvenni!");
     }
-    console.log(bookingDetails);
+    // console.log(bookingDetails);
   }
 
   return (

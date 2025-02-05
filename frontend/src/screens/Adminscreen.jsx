@@ -88,6 +88,7 @@ export function Bookings() {
           <table className="table table-bordered table-dark">
             <thead className="bs">
               <tr>
+                <th>Felhasználó</th>
                 <th>Szoba Id</th>
                 <th>Hotel</th>
                 <th>Ettől</th>
@@ -100,6 +101,7 @@ export function Bookings() {
             <tbody>
               {rooms.map((elem) => (
                 <tr key={elem._id}>
+                  <td>{elem.felhasznalo.name}</td>
                   <td>{elem._id}</td>
                   <td>{elem.room}</td>
                   <td>{elem.todate}</td>

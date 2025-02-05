@@ -6,32 +6,34 @@ const User = require("../models/user");
 const moment = require("moment");
 
 router.post("/bookroom", async (req, res) => {
-  try {a
+  try {
     const rooms = req.body.bookingDetails.room;
     const others = req.body.bookingDetails;
-    const users = await User.find({});
-    const felhasznalo = users.filter((elem) => elem._id === others.userid);
-    console.log(felhasznalo);
+    // console.log(others.felhasznalo);
+    const user = await User.findById({ _id: others.userid });
+    // console.log(user);
+    // const users = await User.find({});
+    // const felhasznalo = users.filter((elem) => elem._id === others.userid);
     // console.log("Rooms" + rooms);
     // console.log("Others" + others);
 
     const newbooking = new Booking({
       room: rooms.name,
       roomid: rooms._id,
-      felhasznalo,
       userid: others.userid,
+      felhasznalo: user,
       fromdate: moment(others.fromDate).format("MM-DD-YYYY"),
       todate: moment(others.toDate).format("MM-DD-YYYY"),
       totalamount: Number(others.totalamount),
       totaldays: Number(others.totaldays),
       transactionid: "1234",
     });
-    // console.log(newbooking);
+    console.log(newbooking);
 
     const booking = await newbooking.save();
-    console.log(booking);
+    // console.log(booking);
 
-    return res.status(201).json({ msg: "Sikeres szobafoglalás!" });
+    return res.status(201).json({ msg: "Sikeres szobafoglalás!", booking });
   } catch (error) {
     return res.status(400).json({ error });
   }

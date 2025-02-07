@@ -16,12 +16,30 @@ const Profilescreen = () => {
     <div className="profil ml-3 ml-3">
       <Tabs defaultActiveKey="2">
         <TabPane tab="Profil" key="1">
-          <h1>Profilom</h1>
-
-          <br />
-
-          <h1>Név: {user.user.name}</h1>
-          <h1>Email: {user.user.email}</h1>
+          <div className="profile-container">
+            <div className="profile-header">
+              <img src="" alt="Background" className="background-image" />
+              <div className="profile-info">
+                <img src="" alt="Profile" className="profile-pic" />
+                <h2>{user.user.name}</h2>
+                <p>{user.user.email}</p>
+              </div>
+            </div>
+            <div className="profile-stats">
+              <div className="stat">
+                <strong>120</strong>
+                <span>Courses enrolled</span>
+              </div>
+              <div className="stat">
+                <strong>2.8k</strong>
+                <span>Hours spent learning</span>
+              </div>
+              <div className="stat">
+                <strong>26</strong>
+                <span>Tasks completed</span>
+              </div>
+            </div>
+          </div>
         </TabPane>
         <TabPane tab="Foglalásaim" key="2">
           <Foglalasok />

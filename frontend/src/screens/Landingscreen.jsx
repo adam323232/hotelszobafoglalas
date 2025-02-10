@@ -5,15 +5,16 @@ const Landingscreen = () => {
   return (
     <div className="landing mt-5">
       <div className="col-md-12 text-center">
-        <h2 style={{ color: "white", fontSize: "120px" }}>ReZsoBa Rooms</h2>
-        <h1 style={{ color: "white" }}>Itt a vendég a főnök.</h1>
+        <div class="text-container">
+          <h1>ReZsoBa Rooms</h1>
+              </div>
 
-        <Link to="/register">
-          <button className="btn landingbtn">Kezdés</button>
-        </Link>
-      </div>
-      <footer>
-        <>
+          <Link to="/register">
+            <button className="btn landingbtn">Kezdés</button>
+          </Link>
+        </div>
+
+        <footer>
           {/* From Uiverse.io by Praashoo7 */}
           <div className="main">
             <div className="card">
@@ -55,7 +56,7 @@ const Landingscreen = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 className="twitter"
               >
-                <path d="M42,12.429c-1.323,0.586-2.746,0.977-4.247,1.162c1.526-0.906,2.7-2.351,3.251-4.058c-1.428,0.837-3.01,1.452-4.693,1.776C34.967,9.884,33.05,9,30.926,9c-4.08,0-7.387,3.278-7.387,7.32c0,0.572,0.067,1.129,0.193,1.67c-6.138-0.308-11.582-3.226-15.224-7.654c-0.64,1.082-1,2.349-1,3.686c0,2.541,1.301,4.778,3.285,6.096c-1.211-0.037-2.351-0.374-3.349-0.914c0,0.022,0,0.055,0,0.086c0,3.551,2.547,6.508,5.923,7.181c-0.617,0.169-1.269,0.263-1.941,0.263c-0.477,0-0.942-0.054-1.392-0.135c0.94,2.902,3.667,5.023,6.898,5.086c-2.528,1.96-5.712,3.134-9.174,3.134c-0.598,0-1.183-0.034-1.761-0.104C9.268,36.786,13.152,38,17.321,38c13.585,0,21.017-11.156,21.017-20.834c0-0.317-0.01-0.633-0.025-0.945C39.763,15.197,41.013,13.905,42,12.429" />
+                <path d="M 5.9199219 6 L 20.582031 27.375 L 6.2304688 44 L 9.4101562 44 L 21.986328 29.421875 L 31.986328 44 L 44 44 L 28.681641 21.669922 L 42.199219 6 L 39.029297 6 L 27.275391 19.617188 L 17.933594 6 L 5.9199219 6 z M 9.7167969 8 L 16.880859 8 L 40.203125 42 L 33.039062 42 L 9.7167969 8 z"></path>
               </svg>
             </div>
             <div className="card">
@@ -267,8 +268,7 @@ const Landingscreen = () => {
             </p>
             <div className="main_back" />
           </div>
-        </>
-      </footer>
+        </footer>
     </div>
   );
 };

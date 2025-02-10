@@ -7,13 +7,12 @@ const Landingscreen = () => {
       <div className="col-md-12 text-center">
         <div class="text-container">
           <h1>ReZsoBa Rooms</h1>
-              </div>
-
           <Link to="/register">
             <button className="btn landingbtn">Kezdés</button>
           </Link>
         </div>
 
+        </div>
         <footer>
           {/* From Uiverse.io by Praashoo7 */}
           <div className="main">

@@ -57,12 +57,12 @@ const Loginscreen = () => {
   return (
     <div>
       {loading && <Loader />}
-      <form
+      {/* <form
         onSubmit={(e) => {
           e.preventDefault();
           register();
         }}
-      >
+      > */}
         <div className="row justify-content-center mt-5">
           <div className="col-md-3 mt-5">
             {error && <Error message="Nem létezik ilyen felhasználó" />}
@@ -102,7 +102,7 @@ const Loginscreen = () => {
             </div>
           </div>
         </div>
-      </form>
+      {/* </form> */}
     </div>
   );
 };

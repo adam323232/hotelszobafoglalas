@@ -21,23 +21,23 @@ body {
     ),
     linear-gradient(#e1e1e1 0.1em, transparent 0.1em);
   background-size: 100% 30px;
-  padding-top: 4em;
+  /* padding-top: 0em; */
 }
 
 
 .text-container {
+  margin: 0 !important;
   height: 100vh;
   width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding-top: 15em;
 }
 
 .text-container h1{
-  margin: 2;
-  font-size: 5em !important ;
+  margin-top: 0em !important;
+  margin-bottom: 0.5em !important;
+  font-size: 8em !important ;
   color: rgba(225,225,225, .01);
-  background-image: url("https://images.unsplash.com/photo-1499195333224-3ce974eecb47?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2cf549433129d4227d1879347b9e78ce&auto=format&fit=crop&w=1248&q=80");
+  background-image: url("https://img.freepik.com/free-photo/luxury-classic-modern-bedroom-suite-hotel_105762-1787.jpg");
   background-repeat: repeat;
   -webkit-background-clip:text;
   animation: animate 15s ease-in-out infinite;
@@ -391,12 +391,13 @@ i {
   background-size: 100%;
   height: 100vh;
   padding: 0px !important;
+  margin: 0 !important;
 }
 
 .landingbtn {
   background-color: white !important;
   color: black !important;
-  margin-top: 20px !important;
+  /* margin-top: 20px !important; */
 }
 .profil {
   margin: 20px;

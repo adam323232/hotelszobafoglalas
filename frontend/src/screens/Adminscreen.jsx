@@ -9,7 +9,7 @@ const { TabPane } = Tabs;
 
 function Adminscreen() {
   return (
-    <div className="admin mt-3 ml-3 mr-3 bs">
+    <div className="admin bs">
       <h1 className="text-center" style={{ fontSize: "30px" }}>
         <b>Admin Panel</b>
       </h1>

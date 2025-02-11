@@ -11,19 +11,18 @@ body {
   font-family: "Geist Mono", monospace !important;
   width: 100%;
   height: 100%;
-  background: #f1f1f1;
-  background-image: linear-gradient(
-      90deg,
-      transparent 50px,
-      #ffb4b8 50px,
-      #ffb4b8 52px,
-      transparent 52px
-    ),
-    linear-gradient(#e1e1e1 0.1em, transparent 0.1em);
-  background-size: 100% 30px;
+  --s: 15em;
+  --o: 0.5;
+  --c1: rgba(244, 235, 208, var(--o));
+  --c2: rgba(194, 178, 163, var(--o));
+
+  background-image: linear-gradient(var(--c1) 50%, var(--c2) 50%),
+    linear-gradient(45deg, var(--c1) 50%, var(--c2) 50%),
+    linear-gradient(90deg, var(--c1) 50%, var(--c2) 50%),
+    linear-gradient(135deg, var(--c1) 50%, var(--c2) 50%);
+  background-size: var(--s) var(--s);
   /* padding-top: 0em; */
 }
-
 
 .text-container {
   margin: 0 !important;
@@ -32,44 +31,36 @@ body {
   padding-top: 15em;
 }
 
-.text-container h1{
+.text-container h1 {
   margin-top: 0em !important;
   margin-bottom: 0.5em !important;
   font-size: 8em !important ;
-  color: rgba(225,225,225, .01);
+  color: rgba(225, 225, 225, 0.01);
   background-image: url("https://img.freepik.com/free-photo/luxury-classic-modern-bedroom-suite-hotel_105762-1787.jpg");
   background-repeat: repeat;
-  -webkit-background-clip:text;
+  -webkit-background-clip: text;
   animation: animate 15s ease-in-out infinite;
   text-align: center;
   text-transform: uppercase;
   font-weight: 900;
 }
 
-  @keyframes animate {
-    0%, 100% {
-      background-position: left top;
-    }
-    25%{
-      background-position: right bottom;
-     }
-    50% {
-      background-position: left bottom;
-    }
-    75% {
-      background-position: right top;
-    }   
+@keyframes animate {
+  0%,
+  100% {
+    background-position: left top;
+  }
+  25% {
+    background-position: right bottom;
+  }
+  50% {
+    background-position: left bottom;
+  }
+  75% {
+    background-position: right top;
+  }
 }
 
-footer {
-  margin: 0;
-  position: fixed;
-  bottom: 1px;
-  right: 1px;
-  transform: translate(-10%, -10%);
-}
-
-/* From Uiverse.io by 1osm */
 .profilcard {
   width: 190px;
   padding: 3em !important;
@@ -380,16 +371,12 @@ i {
   /* display: grid; */
   /* width: 70%; */
 }
-.admin {
-  /* background-color: white !important; */
-  /* padding-top: 4em !important; */
-}
 
 .landing {
   position: relative;
-  background-color: rgb(53, 53, 53) !important;
+  /* background-color: rgb(53, 53, 53) !important; */
   background-size: 100%;
-  height: 100vh;
+  height: 100%;
   padding: 0px !important;
   margin: 0 !important;
 }
@@ -780,9 +767,9 @@ i {
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.35);
   cursor: pointer;
-  }
-  
-  .cta span {
+}
+
+.cta span {
   padding-bottom: 7px;
   letter-spacing: 4px;
   font-size: 14px;
@@ -825,4 +812,31 @@ i {
 .cta:hover .hover-underline-animation:after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+
+.footermain {
+  color: black;
+}
+
+.footermaindiv {
+  margin: 0;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -0%);
+  display: grid;
+  justify-content: center;
+}
+.footerp{
+  border: solid 1px black;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.footer {
+  margin: 0;
+  position: fixed;
+  bottom: 1px;
+  right: 1px;
+  transform: translate(-10%, -10%);
 }

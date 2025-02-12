@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const footer = () => {
   return (
@@ -8,7 +9,7 @@ const footer = () => {
           <p className="footerp">
             Szerzői jog © 2024–2025 ReZsoBa.hu™. Minden jog fenntartva.
             <br />
-            Rólunk - Adatvédelem - FAQ
+            Rólunk - Adatvédelem - <Link to="/faq">FAQ</Link>
           </p>
         </div>
         <footer className="footer bs">

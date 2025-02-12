@@ -374,7 +374,7 @@ i {
 
 .landing {
   position: relative;
-  /* background-color: rgb(53, 53, 53) !important; */
+  background-color: rgb(77, 76, 76) !important;
   background-size: 100%;
   height: 100%;
   padding: 0px !important;
@@ -827,9 +827,10 @@ i {
   display: grid;
   justify-content: center;
 }
-.footerp{
-  border: solid 1px black;
+.footerp {
+  border: solid 1px white;
   padding: 5px;
+  color: white;
   border-radius: 8px;
 }
 

@@ -5,7 +5,11 @@ const footer = () => {
     <div>
       <footer className="footermain">
         <div className="footermaindiv">
-          <p className="footerp">Szerzői jog © 2024–2025 ReZsoBa.hu™. Minden jog fenntartva.</p>
+          <p className="footerp">
+            Szerzői jog © 2024–2025 ReZsoBa.hu™. Minden jog fenntartva.
+            <br />
+            Rólunk - Adatvédelem - FAQ
+          </p>
         </div>
         <footer className="footer bs">
           <div className="main">

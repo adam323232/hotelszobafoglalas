@@ -9,7 +9,8 @@ const footer = () => {
           <p className="footerp">
             Szerzői jog © 2024–2025 ReZsoBa.hu™. Minden jog fenntartva.
             <br />
-            Rólunk - Adatvédelem - <Link to="/faq">FAQ</Link>
+            Rólunk - <Link to="/privacy">Adatvédelem</Link> -{" "}
+            <Link to="/faq">FAQ</Link>
           </p>
         </div>
         <footer className="footer bs">

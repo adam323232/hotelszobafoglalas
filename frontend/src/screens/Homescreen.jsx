@@ -96,7 +96,7 @@ const Homescreen = () => {
 
   return (
     <div className="container">
-      <div className="search row col-md-8 mt-5 ">
+      <div className="search row col-md-8 mt-10 ">
         <div className="col-md-3">
           <RangePicker format="DD-MM-YYYY" onChange={filterByDate} />
         </div>

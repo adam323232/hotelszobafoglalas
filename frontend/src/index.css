@@ -24,6 +24,10 @@ body {
   /* padding-top: 0em; */
 }
 
+.container {
+  padding-top: 5em !important;
+}
+
 .text-container {
   margin: 0 !important;
   height: 100vh;

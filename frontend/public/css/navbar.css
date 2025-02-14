@@ -1,0 +1,27 @@
+.navbar {
+  background-color: black !important;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 10;
+  justify-content: space-between;
+}
+.nav-link {
+  color: white !important;
+}
+.navbar-brand {
+  color: white !important;
+}
+.navbar-nav {
+  margin-left: auto;
+}
+.dropdown-menu {
+  margin-left: auto !important;
+  position: absolute;
+  right: 0;
+}
+.smallimg {
+  height: 200px;
+  width: 100% !important;
+  border-radius: 5px !important;
+}

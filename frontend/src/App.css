@@ -1,5 +1,57 @@
+@import url("/css/booking.css");
+@import url("/css/bs.css");
+@import url("/css/btn.css");
+@import url("/css/faq.css");
+@import url("/css/foglalasok.css");
 @import url("/css/footer.css");
 @import url("/css/homescreen.css");
-@import url("/css/room.css");
-@import url("/css/btn.css");
+@import url("/css/inputpasscol.css");
+@import url("/css/landing.css");
+@import url("/css/navbar.css");
+@import url("/css/privacy.css");
 @import url("/css/profile.css");
+@import url("/css/room.css");
+@import url("/css/selectorok.css");
+@import url("/css/socialcard.css");
+
+@import url("https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Geist+Mono:wght@100..900&display=swap");
+.App {
+  text-align: left;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Droid Sans", "Helvetica Neue", sans-serif, "Fira Sans";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: greyscale;
+  font-family: "Geist Mono", monospace !important;
+  width: 100%;
+  height: 100%;
+  --s: 15em;
+  --o: 0.5;
+  --c1: rgba(244, 235, 208, var(--o));
+  --c2: rgba(194, 178, 163, var(--o));
+
+  background-image: linear-gradient(var(--c1) 50%, var(--c2) 50%),
+    linear-gradient(45deg, var(--c1) 50%, var(--c2) 50%),
+    linear-gradient(90deg, var(--c1) 50%, var(--c2) 50%),
+    linear-gradient(135deg, var(--c1) 50%, var(--c2) 50%);
+  background-size: var(--s) var(--s);
+  /* padding-top: 0em; */
+}
+
+/* @keyframes animate {
+  0%,
+  100% {
+    background-position: left top;
+  }
+  25% {
+    background-position: right bottom;
+  }
+  50% {
+    background-position: left bottom;
+  }
+  75% {
+    background-position: right top;
+  }
+} */

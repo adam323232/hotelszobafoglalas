@@ -1,0 +1,72 @@
+/* col-md */
+.col-md-9 {
+  background-color: white !important;
+  border: 1 px solid black !important;
+  border-radius: 10px black !important;
+}
+.col-md-4 {
+  width: 50%;
+}
+.col-md-11 {
+  background-color: white;
+  border: 1 px solid black;
+  border-radius: 10px black;
+}
+
+/* password */
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #6c757d;
+}
+
+.toggle-password:hover {
+  color: #343a40;
+}
+/* input  */
+.input {
+  border: none !important;
+  padding: 1rem !important;
+  border-radius: 1rem !important;
+  background: #e8e8e8 !important;
+  box-shadow: 20px 20px 60px #c5c5c5, -20px -20px 60px #ffffff !important;
+  transition: 0.3s !important;
+}
+
+.input:focus {
+  outline-color: #e8e8e8 !important;
+  background: #e8e8e8 !important;
+  box-shadow: inset 20px 20px 60px #c5c5c5, inset -20px -20px 60px #ffffff !important;
+  transition: 0.3s !important;
+}
+
+input,
+select {
+  box-shadow: none !important;
+  margin-top: 5px !important;
+  border: 1 px solid black !important;
+  width: 100% !important;
+  border-radius: 3px !important;
+  height: 35px !important;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+}
+
+.input-container {
+  position: relative;
+  width: 100%;
+}
+
+.input-container input {
+  width: 100%;
+  padding-right: 40px; /* Hely az ikon számára */
+}

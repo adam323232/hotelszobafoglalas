@@ -11,7 +11,6 @@ import ProtectedRoutes from "./ProtectedRoutes";
 import FAQ from "./components/FAQ";
 import Adatvedelem from "./components/Adatvedelem";
 import "./App.css";
-import "./index.css";
 
 function App() {
   return (

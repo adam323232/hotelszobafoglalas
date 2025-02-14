@@ -1,3 +1,5 @@
-.read-the-docs {
-  color: #888;
-}
+@import url("/css/footer.css");
+@import url("/css/homescreen.css");
+@import url("/css/room.css");
+@import url("/css/btn.css");
+@import url("/css/profile.css");

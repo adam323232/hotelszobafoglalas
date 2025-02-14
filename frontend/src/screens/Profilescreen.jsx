@@ -14,7 +14,7 @@ const Profilescreen = () => {
 
   return (
     <div className="profil ml-3 ml-3">
-      <Tabs defaultActiveKey="2">
+      <Tabs defaultActiveKey="1">
         <TabPane tab="Profil" key="1">
           <div className="profile-container">
             <div className="profile-header">

@@ -24,9 +24,7 @@ body {
   /* padding-top: 0em; */
 }
 
-.container {
-  padding-top: 5em !important;
-}
+
 
 .text-container {
   margin: 0 !important;
@@ -274,23 +272,6 @@ h1 {
   font-size: 20px !important;
 }
 
-.btn {
-  background-color: black !important;
-  color: white !important;
-  border: 0px !important;
-  box-shadow: none !important;
-}
-
-.roombs {
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  border-radius: 10px !important;
-  padding: 25px !important;
-  flex-wrap: nowrap;
-  height: 250px;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-}
 
 .bs {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -306,14 +287,6 @@ h1 {
 /* .bs:first-of-type {
   height: 20px;
 } */
-.room {
-  margin-top: 6.5em !important;
-  display: grid !important;
-  flex-wrap: nowrap;
-  grid-template: 1fr 1fr / 1fr 1fr !important;
-  justify-items: center;
-  /* padding-top: 10em; */
-}
 
 .bigimg {
   height: 410px !important;
@@ -360,22 +333,6 @@ i {
   border-radius: 10px black;
 }
 
-.search {
-  background-color: rgba(0, 0, 0, 0.333) !important;
-  margin-top: 0 !important;
-  position: fixed !important;
-  justify-content: center !important;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  border-radius: 10px !important;
-  padding: 25px !important;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  /* display: grid; */
-  /* width: 70%; */
-}
-
 .landing {
   position: relative;
   background-color: rgb(77, 76, 76) !important;
@@ -385,11 +342,6 @@ i {
   margin: 0 !important;
 }
 
-.landingbtn {
-  background-color: white !important;
-  color: black !important;
-  /* margin-top: 20px !important; */
-}
 .profil {
   margin: 20px;
   margin-top: 4em;
@@ -407,12 +359,6 @@ i {
   padding: 10px;
 }
 
-.registerbtn {
-  text-align: center !important;
-}
-.loginbtn {
-  text-align: center !important;
-}
 .container {
   padding: 10px;
   display: flex;
@@ -430,15 +376,6 @@ i {
 .input {
   display: flex;
   align-items: center;
-}
-
-.adminbtn button {
-  border: solid 1px white !important;
-  padding: 2px;
-}
-.adminbtn {
-  display: flex;
-  flex-direction: column;
 }
 
 .input-container {
@@ -818,34 +755,6 @@ i {
   transform-origin: bottom left;
 }
 
-.footermain {
-  color: black;
-}
-
-.footermaindiv {
-  margin: 0;
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%, -0%);
-  display: grid;
-  justify-content: center;
-}
-.footerp {
-  border: solid 1px white;
-  padding: 5px;
-  color: white;
-  border-radius: 8px;
-}
-
-.footer {
-  margin: 0;
-  position: fixed;
-  bottom: 1px;
-  right: 1px;
-  transform: translate(-10%, -10%);
-}
-
 .faq-container {
   width: 80%;
   margin: 0 auto;
@@ -908,10 +817,4 @@ ul {
 
 ul {
   padding-left: 20px;
-}
-
-footer {
-  text-align: center;
-  margin-top: 20px;
-  color: #7f8c8d;
 }

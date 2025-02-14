@@ -1,5 +1,3 @@
-import "./index.css";
-import "./App.css";
 import Navbar from "./components/Navbar";
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import Homescreen from "./screens/Homescreen";
@@ -12,6 +10,8 @@ import Landingscreen from "./screens/Landingscreen";
 import ProtectedRoutes from "./ProtectedRoutes";
 import FAQ from "./components/FAQ";
 import Adatvedelem from "./components/Adatvedelem";
+import "./App.css";
+import "./index.css";
 
 function App() {
   return (

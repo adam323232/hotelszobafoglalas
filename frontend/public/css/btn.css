@@ -1,0 +1,30 @@
+.landingbtn {
+  background-color: white !important;
+  color: black !important;
+  /* margin-top: 20px !important; */
+}
+
+.btn {
+  background-color: black !important;
+  color: white !important;
+  border: 0px !important;
+  box-shadow: none !important;
+}
+
+.registerbtn {
+  text-align: center !important;
+}
+
+.loginbtn {
+  text-align: center !important;
+}
+
+.adminbtn button {
+  border: solid 1px white !important;
+  padding: 2px;
+}
+
+.adminbtn {
+  display: flex;
+  flex-direction: column;
+}

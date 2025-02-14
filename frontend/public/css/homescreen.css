@@ -1,0 +1,28 @@
+.container {
+  padding-top: 5em !important;
+}
+
+.search {
+  background-color: rgba(0, 0, 0, 0.333) !important;
+  margin-top: 0 !important;
+  position: fixed !important;
+  justify-content: center !important;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px !important;
+  padding: 25px !important;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  /* display: grid; */
+  /* width: 70%; */
+}
+
+.room {
+  margin-top: 6.5em !important;
+  display: grid !important;
+  flex-wrap: nowrap;
+  grid-template: 1fr 1fr / 1fr 1fr !important;
+  justify-items: center;
+  /* padding-top: 10em; */
+}

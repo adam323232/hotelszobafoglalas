@@ -18,27 +18,22 @@ const Profilescreen = () => {
         <TabPane tab="Profil" key="1">
           <div className="profile-container">
             <div className="profile-header">
-              <img src="" alt="Background" className="background-image" />
+              <img
+                src="public/img/profile.png"
+                alt="Background"
+                className="background-image"
+              />
               <div className="profile-info">
-                <img src="" alt="Profile" className="profile-pic" />
+                <img
+                  src="public/img/profile.png"
+                  alt="Profile"
+                  className="profile-pic"
+                />
                 <h2>{user.user.name}</h2>
                 <p>{user.user.email}</p>
               </div>
             </div>
-            <div className="profile-stats">
-              <div className="stat">
-                <strong>120</strong>
-                <span>Courses enrolled</span>
-              </div>
-              <div className="stat">
-                <strong>2.8k</strong>
-                <span>Hours spent learning</span>
-              </div>
-              <div className="stat">
-                <strong>26</strong>
-                <span>Tasks completed</span>
-              </div>
-            </div>
+            <div className="profile-stats"></div>
           </div>
         </TabPane>
         <TabPane tab="Foglalásaim" key="2">

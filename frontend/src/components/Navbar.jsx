@@ -24,7 +24,12 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
         <a className="navbar-brand" href="/home">
-          ReZsoBa Rooms
+          <button class="button" data-text="Awesome">
+            <span class="actual-text">&nbsp;ReZsoBa Rooms&nbsp;</span>
+            <span aria-hidden="true" class="hover-text">
+              &nbsp;ReZsoBa Rooms&nbsp;
+            </span>
+          </button>
         </a>
         {isAdmin && isLoggedIn && (
           <a

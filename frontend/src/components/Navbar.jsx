@@ -34,7 +34,7 @@ const Navbar = () => {
         {isAdmin && isLoggedIn && (
           <a
             href="/admin"
-            className="text-white font-bold bg-red-500 px-4 py-2 rounded"
+            className="text-white font-bold bg-red-500 px-4 py-2 rounded btn"
           >
             Admin
           </a>

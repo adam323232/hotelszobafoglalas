@@ -5,45 +5,38 @@ const FAQ = () => {
 
   const faqs = [
     {
-      question: "Hogyan lehet foglalni?",
+      question: "Hogyan tudok szállást foglalni?",
       answer:
-        "",
+        "A főoldalon  lévő keresőmező, illetve naptár segítségével kényelmesen kereshet szállásokat a kívánt helyszín és dátumok megadásával, majd a 'Részletek' gombal minden tudnivalót és képet láthat a szállásrol.",
     },
     {
-      question: "",
+      question: "Biztonságos az online szállásfoglalás?",
       answer:
-        ".",
+        "Igen, munkatársaink személyesen győződtek meg arról hogy az ön adatait ne lehessen ellopni. Így ",
     },
     {
-      question: "",
+      question: "Mi történik, ha a foglalás után megváltoznak a terveim? Hogyan mondhatom le a foglalásomat?",
       answer:
-        "",
+        "Minden szállás részleteinél jelen vannak az elérhetési adatai a szállodának, telefonon és e-mailben egyaránt le lehet mondani perceken belül.",
+    },
+
+    {
+      question: "Kapok visszaigazolást a foglalásról?",
+      answer:
+        "Igen, e-mailen keresztül értesítik a sikeres foglalásrol.",
     },
     {
-      question: "",
+      question: "Mi a teendő, ha a szállás nem felel meg az elvárásaimnak?",
       answer:
-        "",
+        "Mindent megteszünk hogy a partnereink akik az oldalunkon hírdethetnek szabványnak megfelelően működtetik a szállásait. Amennyiben ezt nem így tapasztalja kérjük hogy lépjen kapcsolatba velünk a főoldalon látható kapcsolatainkon keresztül.",
     },
+    
     {
-      question: "",
+      question: "Kapok visszaigazolást a foglalásról?",
       answer:
-        "",
+        "Igen, e-mailen keresztül értesítik a sikeres foglalásról.",
     },
-    {
-      question: "",
-      answer:
-        "",
-    },
-    {
-      question: "",
-      answer:
-        "",
-    },
-    {
-      question: "",
-      answer:
-        "",
-    },
+
   ];
 
   const toggleAnswer = (index) => {

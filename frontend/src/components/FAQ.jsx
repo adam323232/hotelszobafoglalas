@@ -5,19 +5,44 @@ const FAQ = () => {
 
   const faqs = [
     {
-      question: "Mi az a React?",
+      question: "Hogyan lehet foglalni?",
       answer:
-        "A React egy JavaScript könyvtár, amit UI komponensek építésére használnak.",
+        "",
     },
     {
-      question: "Hogyan telepíthetem a React-et?",
+      question: "",
       answer:
-        "A React-et a `npx create-react-app` parancs segítségével telepítheted, vagy a Node.js és npm segítségével.",
+        ".",
     },
     {
-      question: "Mi az a JSX?",
+      question: "",
       answer:
-        "A JSX egy szintaktikai kiterjesztés a JavaScript-ben, amely lehetővé teszi HTML struktúrák írását JavaScript-ben.",
+        "",
+    },
+    {
+      question: "",
+      answer:
+        "",
+    },
+    {
+      question: "",
+      answer:
+        "",
+    },
+    {
+      question: "",
+      answer:
+        "",
+    },
+    {
+      question: "",
+      answer:
+        "",
+    },
+    {
+      question: "",
+      answer:
+        "",
     },
   ];
 

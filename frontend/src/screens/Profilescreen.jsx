@@ -19,13 +19,13 @@ const Profilescreen = () => {
           <div className="profile-container">
             <div className="profile-header">
               <img
-                src="public/img/profile.png"
+                src="/img/profile.png"
                 alt="Background"
                 className="background-image"
               />
               <div className="profile-info">
                 <img
-                  src="public/img/profile.png"
+                  src="/img/profile.png"
                   alt="Profile"
                   className="profile-pic"
                 />

@@ -5,7 +5,7 @@
 @import url("/css/foglalasok.css");
 @import url("/css/footer.css");
 @import url("/css/homescreen.css");
-@import url("/css/inputpasscol.css");
+@import url("/css/inputpasscolant.css");
 @import url("/css/landing.css");
 @import url("/css/navbar.css");
 @import url("/css/privacy.css");
@@ -37,6 +37,5 @@ body {
     linear-gradient(90deg, var(--c1) 50%, var(--c2) 50%),
     linear-gradient(135deg, var(--c1) 50%, var(--c2) 50%);
   background-size: var(--s) var(--s);
-  /* padding-top: 0em; */
 }
 

@@ -3,6 +3,7 @@ import Loader from "../components/Loader.jsx";
 import Room from "../components/Room.jsx";
 import { DatePicker, Space } from "antd";
 import moment from "moment";
+import Dropdown from "../components/dropdown.jsx"
 
 const { RangePicker } = DatePicker;
 
@@ -96,9 +97,12 @@ const Homescreen = () => {
 
   return (
     <div className="container">
-      <div className="search row col-md-8 mt-10 ">
-        <div className="col-md-3">
-          <RangePicker format="DD-MM-YYYY" onChange={filterByDate} />
+      <div>
+        <Dropdown />
+      </div>
+      <div className="search row col-md-10">
+        <div className="rangepickerdiv col-md-4" style={{width : "25%"}}>
+          <RangePicker className="rangepicker" format="DD-MM-YYYY" onChange={filterByDate} />
         </div>
 
         <div className="col-md-5">

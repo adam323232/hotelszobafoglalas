@@ -16,11 +16,10 @@
   border-radius: 10px !important;
   padding: 25px !important;
   flex-wrap: nowrap;
-  justify-content: center;
   align-items: center;
   display: flex;
   /* display: grid; */
-  /* width: 70%; */
+  /* width: auto; */
 }
 
 .room {
@@ -30,4 +29,8 @@
   grid-template: 1fr 1fr / 1fr 1fr !important;
   justify-items: center;
   /* padding-top: 10em; */
+}
+
+.rangepicker {
+  width: auto;
 }

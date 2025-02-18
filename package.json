@@ -8,6 +8,8 @@
     "concurrently": "^9.1.2"
   },
   "dependencies": {
-    "react-tabs": "^6.1.0"
+    "component": "^1.1.0",
+    "react-tabs": "^6.1.0",
+    "styled": "^1.0.0"
   }
 }

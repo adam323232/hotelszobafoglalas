@@ -36,6 +36,11 @@ const FAQ = () => {
       answer:
         "Igen, e-mailen keresztül értesítik a sikeres foglalásról.",
     },
+    {
+      question: "Milyen szabályok vonatkoznak háziállatokkal történő szállásfoglalásra?",
+      answer:
+        ".",
+    },
 
   ];
 

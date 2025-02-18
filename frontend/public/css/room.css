@@ -6,5 +6,11 @@
   height: 250px;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: rgb(0, 0, 0);
+  color: white !important;
+}
+
+.smallimg {
+  width: 200px !important;
+  height: 200px !important;
 }

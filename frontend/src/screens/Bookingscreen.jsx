@@ -88,7 +88,7 @@ const Bookingscreen = ({}) => {
       {loading ? (
         <Loader />
       ) : room ? (
-        <div>
+        <div className="bookingbody ">
           <div className="booking row justify-content-center mt-5 bs">
             <div className="col-md-7">
               <h1>{room.name}</h1>

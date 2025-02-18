@@ -5,7 +5,10 @@
   border-radius: 10px black !important;
 }
 .col-md-4 {
-  width: 50%;
+  width: 45%;
+}
+.col-md-3 {
+  width: 20%;
 }
 .col-md-11 {
   background-color: white;
@@ -74,4 +77,8 @@ select {
 .ant-tabs{
   padding-left: 5px;
   padding-top: 4em;
+}
+
+.ant-checkbox+span{
+  color: white;
 }

@@ -74,11 +74,19 @@ select {
   padding-right: 40px; /* Hely az ikon számára */
 }
 
-.ant-tabs{
+.ant-tabs {
   padding-left: 5px;
   padding-top: 4em;
 }
 
-.ant-checkbox+span{
+.ant-checkbox + span {
   color: white;
+}
+
+.ant-tabs-tab-btn {
+  color: white;
+}
+
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #82c1ff !important;
 }

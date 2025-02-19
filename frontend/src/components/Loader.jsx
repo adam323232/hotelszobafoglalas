@@ -6,7 +6,7 @@ function Loader() {
   return (
     <div style={{ marginTop: "150px" }}>
       <div className="sweet-loading text-center">
-        <PropagateLoader color="#000" loading={loading} css="" size={100} />
+        <PropagateLoader color="#000" loading={loading} size={100} />
       </div>
     </div>
   );

@@ -13,7 +13,7 @@ const footer = () => {
             <Link to="/faq">FAQ</Link>
           </p>
         </div>
-        <footer className="footer bs">
+        <footer className="footer">
           <div className="main">
             <div className="card">
               <svg

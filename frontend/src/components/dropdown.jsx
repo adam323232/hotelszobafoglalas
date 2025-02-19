@@ -11,8 +11,8 @@ const plainOptions = [
   "Fitneszterem belépő",
   "Parkoló",
   "Étkezés",
-  "Reggeli az árban"
-
+  "Reggeli az árban",
+  "Wifi",
 ];
 
 const CheckboxGroup = styled(Checkbox.Group)`
@@ -34,25 +34,25 @@ export default class App extends Component {
       checkedList: [],
       indeterminate: false,
       checkAll: false,
-      DropdownStatus: false
+      DropdownStatus: false,
     };
   }
 
-  onChange = checkedList => {
+  onChange = (checkedList) => {
     console.log("checkedList", checkedList);
     this.setState({
       checkedList,
       indeterminate:
         !!checkedList.length && checkedList.length < plainOptions.length,
-      checkAll: checkedList.length === plainOptions.length
+      checkAll: checkedList.length === plainOptions.length,
     });
   };
 
-  onCheckAllChange = e => {
+  onCheckAllChange = (e) => {
     this.setState({
       checkedList: e.target.checked ? plainOptions : [],
       indeterminate: false,
-      checkAll: e.target.checked
+      checkAll: e.target.checked,
     });
   };
 
@@ -62,14 +62,21 @@ export default class App extends Component {
 
   render() {
     return (
-      <div style={{
-        left: "50px",
-        bottom: "80%",
-        zIndex: "10",
-        position: "fixed",
-      }}>
+      <div
+        style={{
+          left: "50px",
+          bottom: "80%",
+          zIndex: "10",
+          position: "fixed",
+        }}
+      >
         <Badge count={this.state.checkedList.length}>
-          <Button onClick={() => this.onShowDropdown()} style={{backgroundColor: "black", color: "white", }}>Extrák</Button>
+          <Button
+            onClick={() => this.onShowDropdown()}
+            style={{ backgroundColor: "black", color: "white" }}
+          >
+            Extrák
+          </Button>
         </Badge>
         <div
           style={{
@@ -83,7 +90,7 @@ export default class App extends Component {
             zIndex: "10",
           }}
         >
-          <div style={{ overflow: "none", height: "auto", maxHeight: "300px"}}>
+          <div style={{ overflow: "none", height: "auto", maxHeight: "300px" }}>
             <Checkbox
               indeterminate={this.state.indeterminate}
               onChange={this.onCheckAllChange}
@@ -103,11 +110,9 @@ export default class App extends Component {
               display: "flex",
               alignSelf: "flex-end",
               justifyContent: "space-around",
-              width: "50%"
+              width: "50%",
             }}
-          >
-
-          </div>
+          ></div>
         </div>
       </div>
     );

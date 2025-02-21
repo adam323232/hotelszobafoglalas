@@ -1,108 +1,122 @@
 import { useState, useEffect, useContext } from "react";
 import Loader from "../components/Loader.jsx";
 import Room from "../components/Room.jsx";
-import { DatePicker, Space } from "antd";
+import { DatePicker } from "antd";
 import moment from "moment";
-import Dropdown from "../components/dropdown.jsx"
+import Dropdown from "../components/dropdown.jsx";
+import { DropDownContext } from "../context/DropDownContext.jsx";
 
 const { RangePicker } = DatePicker;
 
+const plainOptions = [
+  "Szobaszerviz",
+  "Mini bár igény szerint",
+  "Fitneszterem belépő",
+  "Parkoló",
+  "Étkezés",
+  "Reggeli az árban",
+  "Wifi",
+];
+
 const Homescreen = () => {
-  const [rooms, setRoom] = useState([]);
+  const [rooms, setRooms] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-  const [fromdate, setfromdate] = useState();
-  const [todate, settodate] = useState();
-  const [duplicaterooms, setduplicaterooms] = useState([]);
-  const [searchkey, setsearchkey] = useState("");
-  const [type, settype] = useState("all");
+  const [duplicaterooms, setDuplicateRooms] = useState([]);
+  const [fromdate, setFromDate] = useState();
+  const [todate, setToDate] = useState();
+  const [searchkey, setSearchKey] = useState("");
+  const [type, setType] = useState("all");
+
+  const { extras } = useContext(DropDownContext);
 
   useEffect(() => {
-    const fgv = async () => {
+    const fetchRooms = async () => {
+      setLoading(true);
       try {
-        const data = await fetch("http://localhost:5000/api/rooms");
+        const response = await fetch("http://localhost:5000/api/rooms");
+        if (!response.ok) throw new Error("Hálózati hiba");
 
-        if (data.ok) {
-          const szobak = await data.json();
-          localStorage.setItem("rooms", JSON.stringify(szobak.rooms));
-          setRoom(szobak.rooms);
-          setduplicaterooms(szobak.rooms);
-        }
+        const data = await response.json();
+        setRooms(data.rooms);
+        setDuplicateRooms(data.rooms);
       } catch (error) {
-        console.log(error);
+        console.error("Hiba:", error);
       }
+      setLoading(false);
     };
 
-    fgv();
+    fetchRooms();
+  }, []);
+
+  // **Szűrés extrák alapján**
+  useEffect(() => {
+    // console.log(extras);
+    if (extras.length > 0) {
+      let filteredRooms = duplicaterooms.filter((room) => {
+        // Ha a "Mindent kérem" be van pipálva, akkor minden extra legyen `true`
+        if (extras.includes("Mindet kérem")) {
+          return room.extrak.every((value) => value === true);
+        }
+
+        // Egyébként csak a kiválasztott extrákra szűrjünk
+        return extras.every((extra) => {
+          const index = plainOptions.indexOf(extra); // Extra indexének keresése
+          return room.extrak[index] === true; // Csak akkor engedjük át, ha `true`
+        });
+      });
+
+      setRooms(filteredRooms);
+    } else {
+      setRooms(duplicaterooms);
+    }
   }, []);
 
   function filterByDate(dates) {
-    setfromdate(moment(dates[0].$d).format("DD-MM-YYYY"));
-    settodate(moment(dates[1].$d).format("DD-MM-YYYY"));
+    setFromDate(moment(dates[0].$d).format("DD-MM-YYYY"));
+    setToDate(moment(dates[1].$d).format("DD-MM-YYYY"));
 
-    var temprooms = [];
-    var availability = false;
+    const filteredRooms = duplicaterooms.filter((room) => {
+      return room.currentbookings.every((booking) => {
+        return (
+          !moment(dates[0]).isBetween(booking.fromdate, booking.todate) &&
+          !moment(dates[1]).isBetween(booking.fromdate, booking.todate) &&
+          dates[0].format("DD-MM-YYYY") !== booking.fromdate &&
+          dates[1].format("DD-MM-YYYY") !== booking.todate
+        );
+      });
+    });
 
-    for (const room of duplicaterooms) {
-      if (room.currentbookings.length > 0) {
-        for (const booking of room.currentbookings) {
-          if (
-            !moment(moment(dates[0]).format("DD-MM-YYYY")).isBetween(
-              booking.fromdate,
-              booking.todate
-            ) &&
-            !moment(moment(dates[1]).format("DD-MM-YYYY")).isBetween(
-              booking.fromdate,
-              booking.todate
-            )
-          ) {
-            if (
-              moment(dates[0]).format("DD-MM-YYYY") !== booking.fromdate &&
-              moment(dates[0]).format("DD-MM-YYYY") !== booking.todate &&
-              moment(dates[1]).format("DD-MM-YYYY") !== booking.fromdate &&
-              moment(dates[1]).format("DD-MM-YYYY") !== booking.todate
-            ) {
-              availability = true;
-            }
-          }
-        }
-      }
-      if (availability == true || room.currentbookings.length == 0) {
-        temprooms.push(room);
-      }
-      setRoom(temprooms);
-    }
+    setRooms(filteredRooms);
   }
 
   function filterBySearch(e) {
-    const value = e.target.value;
-    setsearchkey(value); // Frissíti a keresési kulcsot
-    const temprooms = duplicaterooms.filter((room) =>
-      room.name.toLowerCase().includes(value.toLowerCase())
+    const value = e.target.value.toLowerCase();
+    setSearchKey(value);
+
+    const filteredRooms = duplicaterooms.filter((room) =>
+      room.name.toLowerCase().includes(value)
     );
-    setRoom(temprooms); // Azonnal szűri a szobákat
+    setRooms(filteredRooms);
   }
 
   function filterByType(e) {
-    settype(e);
+    setType(e);
     if (e !== "all") {
-      const temprooms = duplicaterooms.filter(
-        (room) => room.type.toLowerCase() == e.toLowerCase()
+      const filteredRooms = duplicaterooms.filter(
+        (room) => room.type.toLowerCase() === e.toLowerCase()
       );
-      setRoom(temprooms);
+      setRooms(filteredRooms);
     } else {
-      setRoom(duplicaterooms);
+      setRooms(duplicaterooms);
     }
   }
 
   return (
     <div className="container">
-      <div>
-        <Dropdown />
-      </div>
+      <Dropdown />
       <div className="search row col-md-10">
-        <div className="rangepickerdiv col-md-4" style={{width : "25%"}}>
-          <RangePicker className="rangepicker" format="DD-MM-YYYY" onChange={filterByDate} />
+        <div className="rangepickerdiv col-md-4" style={{ width: "25%" }}>
+          <RangePicker format="DD-MM-YYYY" onChange={filterByDate} />
         </div>
 
         <div className="col-md-5">
@@ -111,9 +125,7 @@ const Homescreen = () => {
             className="input"
             placeholder="Keresés"
             value={searchkey}
-            onChange={(e) => {
-              setsearchkey(e.target.value);
-            }}
+            onChange={(e) => setSearchKey(e.target.value)}
             onKeyUp={filterBySearch}
           />
         </div>
@@ -122,9 +134,7 @@ const Homescreen = () => {
           <select
             className="form-control"
             value={type}
-            onChange={(e) => {
-              filterByType(e.target.value);
-            }}
+            onChange={(e) => filterByType(e.target.value)}
           >
             <option value="all">Mindent mutat</option>
             <option value="delux">Delux</option>
@@ -137,14 +147,19 @@ const Homescreen = () => {
       <div className="room m-10">
         {loading ? (
           <Loader />
+        ) : rooms.length > 0 ? (
+          rooms.map((room) => (
+            <div className="col-md-11 mt-3" key={room._id}>
+              <Room
+                room={room}
+                fromdate={fromdate}
+                todate={todate}
+                extras={extras}
+              />
+            </div>
+          ))
         ) : (
-          rooms.map((room) => {
-            return (
-              <div className="col-md-11 mt-3" key={room._id}>
-                <Room room={room} fromdate={fromdate} todate={todate} />
-              </div>
-            );
-          })
+          <h3 style={{ color: "red", textAlign: "center" }}>Nincs találat!</h3>
         )}
       </div>
     </div>

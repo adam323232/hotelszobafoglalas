@@ -44,6 +44,11 @@ const bookingSchema = new mongoose.Schema(
       required: true,
       default: "booked",
     },
+    extrak: [
+      {
+        type: Boolean,
+      },
+    ],
   },
   {
     timestamps: true,

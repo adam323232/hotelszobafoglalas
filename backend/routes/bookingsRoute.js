@@ -9,7 +9,8 @@ router.post("/bookroom", async (req, res) => {
   try {
     const rooms = req.body.bookingDetails.room;
     const others = req.body.bookingDetails;
-    // console.log(others.felhasznalo);
+    console.log(rooms);
+    // console.log(others);
     const user = await User.findById({ _id: others.userid });
     // console.log(user);
     // const users = await User.find({});
@@ -27,8 +28,9 @@ router.post("/bookroom", async (req, res) => {
       totalamount: Number(others.totalamount),
       totaldays: Number(others.totaldays),
       transactionid: "1234",
+      extrak: others.extras,
     });
-    console.log(newbooking);
+    // console.log(newbooking);
 
     const booking = await newbooking.save();
     // console.log(booking);
@@ -40,6 +42,15 @@ router.post("/bookroom", async (req, res) => {
 });
 // GET kérés az összes foglalás lekéréséhez
 router.get("/", async (req, res) => {
+  const plainOptions = [
+    "Szobaszerviz",
+    "Mini bár igény szerint",
+    "Fitneszterem belépő",
+    "Parkoló",
+    "Étkezés",
+    "Reggeli az árban",
+    "Wifi",
+  ];
   try {
     const bookings = await Booking.find({}).populate("felhasznalo");
     console.log(bookings);

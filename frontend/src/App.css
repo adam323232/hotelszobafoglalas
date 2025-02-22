@@ -13,6 +13,7 @@
 @import url("/css/room.css");
 @import url("/css/selectorok.css");
 @import url("/css/socialcard.css");
+@import url("/css/login.css");
 
 @import url("https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Geist+Mono:wght@100..900&display=swap");
 .App {

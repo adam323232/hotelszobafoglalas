@@ -63,11 +63,15 @@ const Loginscreen = () => {
           register();
         }}
       > */}
-        <div className="row justify-content-center mt-5">
-          <div className="col-md-3 mt-5">
+        <div className="row logindiv justify-content-center mt-5">
+          <div className="">
             {error && <Error message="Nem létezik ilyen felhasználó" />}
-            <div className="bs">
-              <h2>Bejelentkezés</h2>
+            <div className="bs" style={{
+              width: "400px",
+              margin: "10em auto",
+              
+            }}>
+              <h3 style={{width: "auto"}}>Bejelentkezés</h3>
               <input
                 type="text"
                 className="form-control"

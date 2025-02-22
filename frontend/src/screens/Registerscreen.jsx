@@ -91,7 +91,11 @@ const Register = () => {
       {error && <Error />}
 
       <div className="row justify-content-center mt-5">
-        <div className="col-md-3 mt-5 bs">
+        <div className="col-md-3 mt-5 bs" style={{
+              width: "400px",
+              margin: "10em auto",
+              
+            }}>
           {succes && <Success message="Sikeres regisztráció" />}
 
           <div>
@@ -164,11 +168,11 @@ const Register = () => {
               >
                 Register{" "}
               </button>
+            </div>
               <p className="p">
                 Ha már be vagy jelentkezve akkor:{" "}
                 <Link to="/login">Belepés</Link>
               </p>
-            </div>
           </div>
         </div>
       </div>

@@ -14,10 +14,17 @@ i {
 }
 .p {
   padding: 10px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 h1,
 h2 {
+  color: #82c1ff;
+}
+h3{
+  text-align: center;
+  padding: 1em;
   color: #82c1ff;
 }
 

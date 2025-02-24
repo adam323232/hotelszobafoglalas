@@ -11,7 +11,7 @@ const plainOptions = [
     'Fitneszterem belépő',
     'Parkoló',
     'Étkezés',
-    'Reggeli az árban',
+    'Reggeli az ágyban',
     'Wifi',
 ];
 

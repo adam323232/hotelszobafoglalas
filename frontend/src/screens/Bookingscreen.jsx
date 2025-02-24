@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Loader from '../components/Loader';
 import moment from 'moment';
+import { convertLegacyProps } from 'antd/es/button';
 
 const Bookingscreen = ({}) => {
     const [loading, setLoading] = useState(true);
@@ -15,7 +16,48 @@ const Bookingscreen = ({}) => {
     const toDate = moment(todate, 'DD-MM-YYYY');
 
     const totaldays = moment.duration(toDate.diff(fromDate)).asDays();
-    const totalamount = totaldays * room.rentperday;
+    let totalamount = totaldays * room.rentperday;
+    const extrasTomb = extras.split(',');
+
+
+    const plainOptions = [
+        {
+          nev: "Szobaszerviz",
+          ar: 21,
+        },
+        {
+          nev: "Mini bár igény szerint",
+          ar: 100,
+        },
+        {
+          nev: "Fitneszterem belépő",
+          ar: 50,
+        },
+        {
+          nev: "Parkoló",
+          ar: 7,
+        },
+        {
+          nev: "Étkezés",
+          ar: 16,
+        },
+        {
+          nev: "Reggeli az ágyban",
+          ar: 9,
+        },
+        {
+          nev: "Wifi",
+          ar: 4,
+        },
+      ];
+
+      for( let i = 0; i< plainOptions.length; i++){
+        for(let j = 0; j < extrasTomb.length; j++ ){
+            if(plainOptions[i].nev === extrasTomb[j]){
+                totalamount += plainOptions[i].ar * totaldays 
+            }
+        }
+      }      
 
     useEffect(() => {
         const fgv = async () => {

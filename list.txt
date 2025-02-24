@@ -1,4 +1,4 @@
-reszletek: stilus lehtosegek bovitese
-gombok: stilus
-
-https://uiverse.io/ilkhoeri/curvy-newt-49
+datum 
+admin oldal
++ extrak megmagyarazasa
+stilus

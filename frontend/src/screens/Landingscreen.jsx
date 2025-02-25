@@ -9,7 +9,7 @@ const Landingscreen = () => {
         <div class="text-container">
           <h1 className="">ReZsoBa Rooms</h1>
           <Link to="/register">
-            <button className="btn landingbtn">Kezdés</button>
+            <button className="landingbtn"></button>
           </Link>
           <Footer />
         </div>

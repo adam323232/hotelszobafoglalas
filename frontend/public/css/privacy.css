@@ -4,4 +4,14 @@
   margin: 0 auto;
   padding: 20px;
   font-family: Arial, sans-serif;
+  color: white;
+  text-align: center;
+}
+
+.privacy-policy-container ul {
+  list-style-type: none;
+}
+
+.privacy-policy-container h1 {
+  font-size: 3em;
 }

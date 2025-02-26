@@ -11,6 +11,7 @@ import ProtectedRoutes from "./ProtectedRoutes";
 import FAQ from "./components/FAQ";
 import Adatvedelem from "./components/Adatvedelem";
 import "./App.css";
+import AboutUs from "./components/AboutUs";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
             <Route path="/" element={<Landingscreen />}></Route>
             <Route path="/faq" element={<FAQ />}></Route>
             <Route path="/privacy" element={<Adatvedelem />}></Route>
+            <Route path="/about" element={<AboutUs />}></Route>
           </Routes>
         </BrowserRouter>
       </div>

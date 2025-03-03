@@ -11,11 +11,11 @@ const footer = () => {
             <br />
             <Link to="/about">Rólunk</Link> - <Link to="/privacy">Adatvédelem</Link> -{" "}
             <Link to="/faq">FAQ</Link>
-          </p>
-        </div>
-        <footer className="footer">
 
-<ul class="wrapper">
+            
+
+          </p>
+        <ul class="wrapper">
   <li class="icon facebook">
     <span class="tooltip">Facebook</span>
     <svg
@@ -60,8 +60,8 @@ const footer = () => {
     </a>
   </li>
 </ul>
-
-        </footer>
+         
+        </div>
       </footer>
     </div>
   );

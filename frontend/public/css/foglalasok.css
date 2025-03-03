@@ -3,3 +3,24 @@
   padding: 2px;
   padding-left: 2px;
 }
+/* .foglalasok {
+  border: 2px solid black !important;
+  padding: 2px;
+  padding-left: 2px;
+  max-width: 100%; Ne lógjon ki a képernyőről
+  box-sizing: border-box; Padding és border is számít a méretbe
+}
+
+Reszponzív töréspontok
+@media (max-width: 768px) {
+  .foglalasok {
+    padding: 4px; Kicsit nagyobb padding tableten
+  }
+}
+
+@media (max-width: 480px) {
+  .foglalasok {
+    padding: 6px; Még nagyobb padding mobilon
+    font-size: 0.9em; Kisebb betűméret a helyspórolásért
+  }
+} */

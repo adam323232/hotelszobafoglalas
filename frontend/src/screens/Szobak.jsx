@@ -37,6 +37,7 @@ const Szobak = () => {
       rentperday: currentRoom.rentperday,
       maxcount: currentRoom.maxcount,
       phonenumber: currentRoom.phonenumber,
+      extrak: currentRoom.extrak,
     };
 
     try {
@@ -70,6 +71,7 @@ const Szobak = () => {
     const { name, value } = event.target;
     setCurrentRoom({ ...currentRoom, [name]: value });
   };
+
   async function torol(id) {
     try {
       const response = await fetch(`http://localhost:5000/api/rooms/${id}`, {
@@ -121,6 +123,7 @@ const Szobak = () => {
                     <td>{room.rentperday}</td>
                     <td>{room.maxcount}</td>
                     <td>{room.phonenumber}</td>
+                    <td>{room.extrak}</td>
                     <td className="adminbtn">
                       <button className="btn" onClick={() => handleShow(room)}>
                         Szerkeszt
@@ -149,7 +152,7 @@ const Szobak = () => {
               </label>
               <input
                 type="text"
-                className="form-control"
+                className="form-check-input"
                 id="name"
                 name="name"
                 value={currentRoom && currentRoom.name}
@@ -205,6 +208,75 @@ const Szobak = () => {
                 id="phonenumber"
                 name="phonenumber"
                 value={currentRoom && currentRoom.phonenumber}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="extrak" className="form-label">
+                Extra szolgáltatások:
+              </label>
+              <br />
+              <p>Szobaszerviz</p>
+              <input
+                type="checkbox"
+                className="form-check-input"
+                id="extrak"
+                name="extrak"
+                checked={currentRoom && currentRoom.extrak[0]}
+                onChange={handleInputChange}
+              />
+              <p>Minibár</p>
+              <input
+                type="checkbox"
+                className="form-check-input"
+                id="extrak2"
+                name="extrak2"
+                checked={currentRoom && currentRoom.extrak[1]}
+                onChange={handleInputChange}
+              />
+              <p>Fitneszterem</p>
+              <input
+                type="checkbox"
+                className="form-check-input"
+                id="extrak3"
+                name="extrak3"
+                checked={currentRoom && currentRoom.extrak[2]}
+                onChange={handleInputChange}
+              />
+              <p>Parkoló</p>
+              <input
+                type="checkbox"
+                className="form-check-input"
+                id="extrak4"
+                name="extrak4"
+                checked={currentRoom && currentRoom.extrak[3]}
+                onChange={handleInputChange}
+              />
+              <p>Étkezés</p>
+              <input
+                type="checkbox"
+                className="form-check-input"
+                id="extrak5"
+                name="extrak5"
+                checked={currentRoom && currentRoom.extrak[4]}
+                onChange={handleInputChange}
+              />
+              <p>Reggeli</p>
+              <input
+                type="checkbox"
+                className="form-check-input"
+                id="extrak6"
+                name="extrak6"
+                checked={currentRoom && currentRoom.extrak[5]}
+                onChange={handleInputChange}
+              />
+              <p>Wifi</p>
+              <input
+                type="checkbox"
+                className="form-check-input"
+                id="extrak7"
+                name="extrak7"
+                checked={currentRoom && currentRoom.extrak[6]}
                 onChange={handleInputChange}
               />
             </div>

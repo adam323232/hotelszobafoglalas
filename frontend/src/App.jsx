@@ -12,6 +12,8 @@ import FAQ from "./components/FAQ";
 import Adatvedelem from "./components/Adatvedelem";
 import "./App.css";
 import AboutUs from "./components/AboutUs";
+// import Extrakscreen from "./screens/Extrakscreen";
+import Extrak from "./components/Extrak";
 
 function App() {
   return (
@@ -36,6 +38,7 @@ function App() {
             <Route path="/faq" element={<FAQ />}></Route>
             <Route path="/privacy" element={<Adatvedelem />}></Route>
             <Route path="/about" element={<AboutUs />}></Route>
+            <Route path="/extrak" element={<Extrak />}></Route>
           </Routes>
         </BrowserRouter>
       </div>

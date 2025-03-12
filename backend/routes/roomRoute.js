@@ -12,6 +12,17 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const room = await Room.findById({ _id: id });
+    // console.log(room);
+    return res.status(200).json({ room });
+  } catch (error) {
+    return res.status(400).json({ message: error });
+  }
+});
+
 router.post("/getroombyid", async (req, res) => {
   const roomid = req.body.roomid;
 

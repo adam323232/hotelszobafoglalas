@@ -24,7 +24,7 @@
   .roombs {
     flex-wrap: wrap; /* Tartalom törhet, ha kell */
     height: auto; /* Magasság igazodik */
-    padding: 20px; 
+    padding: 20px;
   }
 
   .smallimg {

@@ -3,3 +3,12 @@
   margin: 0 auto;
   padding: 20px;
 }
+
+body {
+  /* color: white; */
+}
+
+h4 {
+  text-align: left;
+  color: #82c1ff;
+}

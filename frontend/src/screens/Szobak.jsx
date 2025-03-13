@@ -95,7 +95,7 @@ const Szobak = () => {
   }
 
   return (
-    <div className="row">
+    <div className="row" style={{ color: "black" }}>
       <div className="col-md-10">
         <h1>Szobák</h1>
 

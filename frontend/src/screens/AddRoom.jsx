@@ -7,6 +7,7 @@ const AddRoom = () => {
   const [description, setDescription] = useState("");
   const [phonenumber, setPhoneNumber] = useState("");
   const [type, setType] = useState("");
+  const [extrak, setExtrak] = useState("");
   const [imageurl1, setImageUrl1] = useState("");
   const [imageurl2, setImageUrl2] = useState("");
   const [imageurl3, setImageUrl3] = useState("");
@@ -24,6 +25,7 @@ const AddRoom = () => {
       description,
       phonenumber,
       type,
+      extrak,
       imageurls: [imageurl1, imageurl2, imageurl3, imageurl4, imageurl5],
     };
 
@@ -97,6 +99,33 @@ const AddRoom = () => {
             value={type}
             onChange={(e) => setType(e.target.value)}
           />
+          <br />
+          <h4>Extra szolgáltatások</h4>
+
+          <br />
+          <ul className="extraLista">
+            <ol>Szobaszerviz</ol>
+            <input
+              type="checkbox"
+              name="szobaszerviz"
+              value={extrak}
+              onChange={(e) => setExtrak(e.target.value)}
+            />
+            <ol>Minibár</ol>
+            <input
+              type="checkbox"
+              name="minibar"
+              value={extrak}
+              onChange={(e) => setExtrak(e.target.value)}
+            />
+            <ol>Fitneszterem</ol>
+            <input
+              type="checkbox"
+              name="fitneszterem"
+              value={extrak}
+              onChange={(e) => setExtrak(e.target.value)}
+            />
+          </ul>
         </form>
       </div>
 
@@ -137,6 +166,34 @@ const AddRoom = () => {
             value={imageurl5}
             onChange={(e) => setImageUrl5(e.target.value)}
           />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <ul className="extraLista">
+            <ol>Parkoló</ol>
+            <input
+              type="checkbox"
+              name="parkolo"
+              value={extrak}
+              onChange={(e) => setExtrak(e.target.value)}
+            />
+            <ol>Étkezés</ol>
+            <input
+              type="checkbox"
+              name="etkezes"
+              value={extrak}
+              onChange={(e) => setExtrak(e.target.value)}
+            />
+            <ol>WiFi</ol>
+            <input
+              type="checkbox"
+              name="wifi"
+              value={extrak}
+              onChange={(e) => setExtrak(e.target.value)}
+            />
+          </ul>
         </form>
       </div>
 

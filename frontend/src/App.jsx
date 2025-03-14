@@ -14,6 +14,7 @@ import "./App.css";
 import AboutUs from "./components/AboutUs";
 // import Extrakscreen from "./screens/Extrakscreen";
 import Extrak from "./components/Extrak";
+import ProtectedAdmin from "./ProtectedAdmin";
 
 function App() {
   return (
@@ -29,8 +30,10 @@ function App() {
             ></Route>
             <Route path="/register" element={<Registerscreen />}></Route>
             <Route element={<ProtectedRoutes />}>
-              <Route path="/admin" element={<Adminscreen />}></Route>
               <Route path="*" element={<Loginscreen />}></Route>
+            </Route>
+            <Route element={<ProtectedAdmin />}>
+              <Route path="/admin" element={<Adminscreen />}></Route>
             </Route>
             <Route path="/login" element={<Loginscreen />}></Route>
             <Route path="/profile" element={<Profilescreen />}></Route>

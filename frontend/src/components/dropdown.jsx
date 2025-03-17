@@ -7,11 +7,11 @@ const { Search } = Input;
 
 const plainOptions = [
     'Szobaszerviz',
-    'Mini bár igény szerint',
+    'Minibár',
     'Fitneszterem belépő',
     'Parkoló',
     'Étkezés',
-    'Reggeli az ágyban',
+    'Reggeli',
     'Wifi',
 ];
 

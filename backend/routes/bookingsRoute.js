@@ -45,7 +45,7 @@ router.post("/bookroom", async (req, res) => {
         ar: 21,
       },
       {
-        nev: "Mini bár igény szerint",
+        nev: "Minibár",
         ar: 100,
       },
       {
@@ -61,7 +61,7 @@ router.post("/bookroom", async (req, res) => {
         ar: 16,
       },
       {
-        nev: "Reggeli az ágyban",
+        nev: "Reggeli",
         ar: 9,
       },
       {

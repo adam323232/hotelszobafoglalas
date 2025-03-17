@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Loader from '../components/Loader';
 import moment from 'moment';
-import { convertLegacyProps } from 'antd/es/button';
+// import { convertLegacyProps } from 'antd/es/button';
 
 const Bookingscreen = ({}) => {
     const [loading, setLoading] = useState(true);
@@ -26,7 +26,7 @@ const Bookingscreen = ({}) => {
           ar: 21,
         },
         {
-          nev: "Mini bár igény szerint",
+          nev: "Minibár",
           ar: 100,
         },
         {
@@ -42,7 +42,7 @@ const Bookingscreen = ({}) => {
           ar: 16,
         },
         {
-          nev: "Reggeli az ágyban",
+          nev: "Reggeli",
           ar: 9,
         },
         {

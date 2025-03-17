@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Modal, Button, Carousel } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import axios from "axios"; // Axios az API-hívásokhoz
 
 function Room({ room, fromdate, todate }) {
   // Extrák sablonja
@@ -64,7 +63,7 @@ function Room({ room, fromdate, todate }) {
         </b>
         <div style={{ float: "right" }}>
           {fromdate && todate && (
-            <Link to={`/book/${room._id}/${fromdate}/${todate}`}>
+            <Link to={`/book/${room._id}/${fromdate}/${todate}/${extras}`}>
               <button className="btn btn-primary m-2">Foglalás</button>
             </Link>
           )}

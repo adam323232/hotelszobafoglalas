@@ -7,11 +7,11 @@ const { Search } = Input;
 
 const plainOptions = [
     'Szobaszerviz',
-    'Mini bár igény szerint',
+    'Minibár',
     'Fitneszterem belépő',
     'Parkoló',
     'Étkezés',
-    'Reggeli az ágyban',
+    'Reggeli',
     'Wifi',
 ];
 
@@ -57,14 +57,7 @@ const App = () => {
     };
 
     return (
-        <div
-            style={{
-                left: '50px',
-                bottom: '80%',
-                zIndex: '10',
-                position: 'fixed',
-            }}
-        >
+        <div className="dropdown-kontener">
             <Badge count={checkedList.length}>
                 <Button
                     onClick={onShowDropdown}
@@ -75,6 +68,7 @@ const App = () => {
             </Badge>
             {dropdownStatus && (
                 <div
+                    className="dropdown-list-kontener"
                     style={{
                         width: '200px',
                         height: 'auto',

@@ -1,87 +1,89 @@
-@import url("/css/booking.css");
-@import url("/css/bs.css");
-@import url("/css/btn.css");
-@import url("/css/faq.css");
-@import url("/css/foglalasok.css");
-@import url("/css/footer.css");
-@import url("/css/homescreen.css");
-@import url("/css/inputpasscolant.css");
-@import url("/css/landing.css");
-@import url("/css/navbar.css");
-@import url("/css/privacy.css");
-@import url("/css/profile.css");
-@import url("/css/room.css");
-@import url("/css/selectorok.css");
-@import url("/css/socialcard.css");
-@import url("/css/login.css");
-@import url("/css/about.css");
-@import url("/css/extrak.css");
+@import url('/css/booking.css');
+@import url('/css/bs.css');
+@import url('/css/btn.css');
+@import url('/css/faq.css');
+@import url('/css/foglalasok.css');
+@import url('/css/footer.css');
+@import url('/css/homescreen.css');
+@import url('/css/inputpasscolant.css');
+@import url('/css/landing.css');
+@import url('/css/navbar.css');
+@import url('/css/privacy.css');
+@import url('/css/profile.css');
+@import url('/css/room.css');
+@import url('/css/selectorok.css');
+@import url('/css/socialcard.css');
+@import url('/css/login.css');
+@import url('/css/about.css');
+@import url('/css/extrak.css');
+@import url('/css/dropdown.css');
 
-@import url("https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Geist+Mono:wght@100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Geist+Mono:wght@100..900&display=swap');
 .App {
-  text-align: left;
+    text-align: left;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Droid Sans", "Helvetica Neue", sans-serif, "Fira Sans";
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: greyscale;
-  font-family: "Geist Mono", monospace !important;
-  width: 100%;
-  height: 100%;
-  --s: 37px; /* control the size */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+        Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', sans-serif,
+        'Fira Sans';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: greyscale;
+    font-family: 'Geist Mono', monospace !important;
+    width: 100%;
+    height: 100%;
+    --s: 37px; /* control the size */
 
-  --c: #0000, #282828 0.5deg 119.5deg, #0000 120deg;
-  --g1: conic-gradient(from 60deg at 56.25% calc(425% / 6), var(--c));
-  --g2: conic-gradient(from 180deg at 43.75% calc(425% / 6), var(--c));
-  --g3: conic-gradient(from -60deg at 50% calc(175% / 12), var(--c));
-  background: var(--g1), var(--g1) var(--s) calc(1.73 * var(--s)), var(--g2),
-    var(--g2) var(--s) calc(1.73 * var(--s)), var(--g3) var(--s) 0,
-    var(--g3) 0 calc(1.73 * var(--s)) #1e1e1e;
-  background-size: calc(2 * var(--s)) calc(3.46 * var(--s));
+    --c: #0000, #282828 0.5deg 119.5deg, #0000 120deg;
+    --g1: conic-gradient(from 60deg at 56.25% calc(425% / 6), var(--c));
+    --g2: conic-gradient(from 180deg at 43.75% calc(425% / 6), var(--c));
+    --g3: conic-gradient(from -60deg at 50% calc(175% / 12), var(--c));
+    background: var(--g1), var(--g1) var(--s) calc(1.73 * var(--s)), var(--g2),
+        var(--g2) var(--s) calc(1.73 * var(--s)), var(--g3) var(--s) 0,
+        var(--g3) 0 calc(1.73 * var(--s)) #1e1e1e;
+    background-size: calc(2 * var(--s)) calc(3.46 * var(--s));
 }
 
 /* === removing default button style ===*/
 .button {
-  margin: 0;
-  height: auto;
-  background: transparent;
-  padding: 0;
-  border: none;
-  cursor: pointer;
+    margin: 0;
+    height: auto;
+    background: transparent;
+    padding: 0;
+    border: none;
+    cursor: pointer;
 }
 
 /* button styling */
 .button {
-  --border-right: 6px;
-  --text-stroke-color: rgba(255, 255, 255, 0.6);
-  --animation-color: #ffffff;
-  --fs-size: 25px;
-  letter-spacing: 3px;
-  text-decoration: none;
-  font-size: var(--fs-size);
-  font-family: "Arial";
-  position: relative;
-  text-transform: uppercase;
-  color: transparent;
-  -webkit-text-stroke: 1px var(--text-stroke-color);
+    --border-right: 6px;
+    --text-stroke-color: rgba(255, 255, 255, 0.6);
+    --animation-color: #ffffff;
+    --fs-size: 25px;
+    letter-spacing: 3px;
+    text-decoration: none;
+    font-size: var(--fs-size);
+    font-family: 'Arial';
+    position: relative;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--text-stroke-color);
 }
 /* this is the text, when you hover on button */
 .hover-text {
-  position: absolute;
-  box-sizing: border-box;
-  content: attr(data-text);
-  color: var(--animation-color);
-  width: 0%;
-  inset: 0;
-  border-right: var(--border-right) solid var(--animation-color);
-  overflow: hidden;
-  transition: 0.5s;
-  -webkit-text-stroke: 1px var(--animation-color);
+    position: absolute;
+    box-sizing: border-box;
+    content: attr(data-text);
+    color: var(--animation-color);
+    width: 0%;
+    inset: 0;
+    border-right: var(--border-right) solid var(--animation-color);
+    overflow: hidden;
+    transition: 0.5s;
+    -webkit-text-stroke: 1px var(--animation-color);
 }
 /* hover */
 .button:hover .hover-text {
-  width: 100%;
-  filter: drop-shadow(0 0 23px var(--animation-color));
+    width: 100%;
+    filter: drop-shadow(0 0 23px var(--animation-color));
 }

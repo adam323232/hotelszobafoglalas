@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Loader from '../components/Loader';
 import moment from 'moment';
+import Navbar from '../components/Navbar';
 // import { convertLegacyProps } from 'antd/es/button';
 
 const Bookingscreen = ({}) => {
@@ -19,45 +20,44 @@ const Bookingscreen = ({}) => {
     let totalamount = totaldays * room.rentperday;
     const extrasTomb = extras.split(',');
 
-
     const plainOptions = [
         {
-          nev: "Szobaszerviz",
-          ar: 21,
+            nev: 'Szobaszerviz',
+            ar: 21,
         },
         {
-          nev: "Minibár",
-          ar: 100,
+            nev: 'Minibár',
+            ar: 100,
         },
         {
-          nev: "Fitneszterem belépő",
-          ar: 50,
+            nev: 'Fitneszterem belépő',
+            ar: 50,
         },
         {
-          nev: "Parkoló",
-          ar: 7,
+            nev: 'Parkoló',
+            ar: 7,
         },
         {
-          nev: "Étkezés",
-          ar: 16,
+            nev: 'Étkezés',
+            ar: 16,
         },
         {
-          nev: "Reggeli",
-          ar: 9,
+            nev: 'Reggeli',
+            ar: 9,
         },
         {
-          nev: "Wifi",
-          ar: 4,
+            nev: 'Wifi',
+            ar: 4,
         },
-      ];
+    ];
 
-      for( let i = 0; i< plainOptions.length; i++){
-        for(let j = 0; j < extrasTomb.length; j++ ){
-            if(plainOptions[i].nev === extrasTomb[j]){
-                totalamount += plainOptions[i].ar * totaldays 
+    for (let i = 0; i < plainOptions.length; i++) {
+        for (let j = 0; j < extrasTomb.length; j++) {
+            if (plainOptions[i].nev === extrasTomb[j]) {
+                totalamount += plainOptions[i].ar * totaldays;
             }
         }
-      }      
+    }
 
     useEffect(() => {
         const fgv = async () => {
@@ -131,10 +131,11 @@ const Bookingscreen = ({}) => {
 
     return (
         <div className="m-5">
+            <Navbar />
             {loading ? (
                 <Loader />
             ) : room ? (
-                <div className="bookingbody ">
+                <div className="bookingbody">
                     <div className="booking row justify-content-center mt-5 bs">
                         <div className="col-md-7">
                             <h1>{room.name}</h1>
@@ -144,7 +145,7 @@ const Bookingscreen = ({}) => {
                             />
                         </div>
 
-                        <div className="col-md-5">
+                        <div className="col-md-5 booking-adatok">
                             <div style={{ textAlign: 'right' }}>
                                 <h1>Foglalási adatok</h1>
                                 <hr />

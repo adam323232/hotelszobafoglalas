@@ -1,0 +1,27 @@
+.dropdown-kontener {
+    left: 50px;
+    bottom: 80%;
+    z-index: 10;
+    position: fixed;
+}
+
+@media screen and (max-width: 768px) {
+    .dropdown-kontener {
+        top: 15em;
+    }
+
+    .ant-picker-panels {
+        flex-direction: column;
+        height: 560px;
+    }
+
+    .ant-picker-header {
+        height: 35px;
+    }
+
+    .ant-picker-body,
+    .ant-picker-content {
+        padding: 0px;
+        height: 235px;
+    }
+}

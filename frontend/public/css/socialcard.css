@@ -73,13 +73,13 @@
 .wrapper .twitter:hover,
 .wrapper .twitter:hover .tooltip,
 .wrapper .twitter:hover .tooltip::before {
-  background: #1da1f2;
+  background: #e4405f;
   color: #fff;
 }
 
 .wrapper .instagram:hover,
 .wrapper .instagram:hover .tooltip,
 .wrapper .instagram:hover .tooltip::before {
-  background: #e4405f;
+  background: #ff8800;
   color: #fff;
 }

@@ -131,7 +131,6 @@ const Bookingscreen = ({}) => {
 
     return (
         <div className="m-5">
-            <Navbar />
             {loading ? (
                 <Loader />
             ) : room ? (

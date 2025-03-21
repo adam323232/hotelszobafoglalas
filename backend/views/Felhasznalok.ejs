@@ -1,0 +1,27 @@
+<div>
+  <h1>Felhasználók</h1>
+  <table class="table table-bordered table-dark">
+    <thead>
+      <tr>
+        <th>Név</th>
+        <th>Email</th>
+        <th>Regisztráció dátuma</th>
+        <th>Műveletek</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% users.forEach(function(user) { %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.registrationDate %></td>
+        <td>
+          <form action="/api/users/<%= user._id %>?_method=DELETE" method="POST">
+            <button type="submit" class="btn">Töröl</button>
+          </form>
+        </td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</div>

@@ -91,7 +91,7 @@ router.post("/bookroom", async (req, res) => {
           quantity: 1,
     }
     tetelek.push(napiObi);
-    console.log(napiObi);
+    // console.log(napiObi);
 
     for (let i = 0; i < extrakTomb.length; i++) {
       let obj = {
@@ -105,7 +105,7 @@ router.post("/bookroom", async (req, res) => {
         quantity: Number(others.totaldays),
       };
       tetelek.push(obj);
-    console.log(obj);
+    // console.log(obj);
    }
 
 
@@ -138,7 +138,7 @@ router.get("/", async (req, res) => {
   ];
   try {
     const bookings = await Booking.find({}).populate("felhasznalo");
-    console.log(bookings);
+    // console.log(bookings);
     return res.status(200).json({ bookings });
   } catch (error) {
     return res.status(400).json({ error: error.message });

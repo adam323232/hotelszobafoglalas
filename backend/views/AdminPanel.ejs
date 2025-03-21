@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/css/stilus.css" />
+  </head>
+  <body>
+    <div class="admin bs">
+      <h1 class="text-center" style="font-size: 30px"><b>Admin Panel</b></h1>
+      <div class="tabs">
+        <button onclick="showTab('foglalasok')">Foglalások</button>
+        <button onclick="showTab('szobak')">Szobák</button>
+        <button onclick="showTab('addroom')">Szoba hozzáadása</button>
+        <button onclick="showTab('users')">Felhasználók</button>
+        <a href="http://localhost:5173/">Vissza</a>
+      </div>
+
+      <div id="foglalasok" class="tab-content">
+        <h1>Foglalások</h1>
+        <table class="table table-bordered table-dark">
+          <thead>
+            <tr>
+              <th>Felhasználó</th>
+              <th>Szoba Id</th>
+              <th>Hotel</th>
+              <th>Ettől</th>
+              <th>Eddig</th>
+              <th>Ár</th>
+              <th>Státusz</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% bookings.forEach(function(elem) { %>
+            <tr>
+              <td><%= elem.felhasznalo.name %></td>
+              <td><%= elem._id %></td>
+              <td><%= elem.room %></td>
+              <td><%= elem.fromdate %></td>
+              <td><%= elem.todate %></td>
+              <td><%= elem.totalamount %>€</td>
+              <td>
+                <%= elem.status === 'booked' ? 'LEFOGLALT' : 'VISSZA MONDOTT' %>
+              </td>
+              <td>
+                <form
+                  action="/api/bookings/<%= elem._id %>?_method=DELETE"
+                  method="POST"
+                >
+                  <button type="submit" class="btn">Töröl</button>
+                </form>
+              </td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="szobak" class="tab-content" style="display: none">
+        <!-- Szobák adatokat az AJAX hívással fogjuk betölteni -->
+      </div>
+
+      <div id="addroom" class="tab-content" style="display: none"></div>
+
+      <div id="users" class="tab-content" style="display: none"></div>
+    </div>
+
+    <script>
+      function showTab(tabId) {
+        // Minden tab elrejtése
+        document.querySelectorAll(".tab-content").forEach((tab) => {
+          tab.style.display = "none";
+        });
+
+        // Az aktuális tab megjelenítése
+        document.getElementById(tabId).style.display = "block";
+
+        // Ha a "Szobák" tabot választjuk, betöltjük az adatokat
+        if (tabId === "szobak") {
+          loadRooms();
+        }
+
+        // Ha a "Szoba hozzáadása" tabot választjuk, betöltjük az űrlapot
+        if (tabId === "addroom") {
+          loadAddRoom();
+        }
+
+        if (tabId === "users") {
+          loadUsers();
+        }
+      }
+      function loadAddRoom() {
+        // AJAX hívás a SzobaHozzadasa.ejs betöltéséhez
+        fetch("/admin/addroom")
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById("addroom").innerHTML = data;
+          })
+          .catch((error) =>
+            console.error("Error loading add room form:", error)
+          );
+      }
+
+      function loadRooms() {
+        // Ha a Szobák tabot választjuk, AJAX hívással töltjük be a szobák adatokat
+        fetch("/admin/rooms")
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById("szobak").innerHTML = data;
+          })
+          .catch((error) => console.error("Error loading rooms:", error));
+      }
+
+      function loadUsers() {
+        // AJAX hívás a Users.ejs betöltéséhez
+        fetch("/admin/users")
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById("users").innerHTML = data;
+          })
+          .catch((error) => console.error("Error loading users:", error));
+      }
+    </script>
+  </body>
+</html>

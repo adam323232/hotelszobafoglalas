@@ -33,7 +33,7 @@ const Navbar = () => {
         </a>
         {isAdmin && isLoggedIn && (
           <a
-            href="/admin"
+            href="http://localhost:5000/admin"
             className="text-white font-bold bg-red-500 px-4 py-2 rounded btn"
           >
             Admin

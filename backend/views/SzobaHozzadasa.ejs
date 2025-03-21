@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Szoba hozzáadása</title>
+  </head>
+  <body>
+    <h1>Szoba hozzáadása</h1>
+    <form action="/api/rooms/addroom" method="POST">
+      <div>
+        <label for="name">Szoba neve:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Szoba neve"
+          required
+        />
+      </div>
+      <div>
+        <label for="rentperday">Ár egy éjszakára:</label>
+        <input
+          type="number"
+          id="rentperday"
+          name="rentperday"
+          placeholder="Ár egy éjszakára"
+          required
+        />
+      </div>
+      <div>
+        <label for="maxcount">Maximális férőhely:</label>
+        <input
+          type="number"
+          id="maxcount"
+          name="maxcount"
+          placeholder="Maximális férőhely"
+          required
+        />
+      </div>
+      <div>
+        <label for="description">Leírás:</label>
+        <textarea
+          id="description"
+          name="description"
+          placeholder="Leírás"
+          required
+        ></textarea>
+      </div>
+      <div>
+        <label for="phonenumber">Telefonszám:</label>
+        <input
+          type="tel"
+          id="phonenumber"
+          name="phonenumber"
+          placeholder="Telefonszám"
+          required
+        />
+      </div>
+      <div>
+        <label for="type">Típus:</label>
+        <input type="text" id="type" name="type" placeholder="Típus" required />
+      </div>
+
+      <h4>Extra szolgáltatások</h4>
+      <div>
+        <label for="szobaszerviz">Szobaszerviz</label>
+        <input
+          type="checkbox"
+          id="szobaszerviz"
+          name="extrak[szobaszerviz]"
+          value="true"
+        />
+      </div>
+      <div>
+        <label for="minibar">Minibár</label>
+        <input
+          type="checkbox"
+          id="minibar"
+          name="extrak[minibar]"
+          value="true"
+        />
+      </div>
+      <div>
+        <label for="fitneszterem">Fitneszterem</label>
+        <input
+          type="checkbox"
+          id="fitneszterem"
+          name="extrak[fitneszterem]"
+          value="true"
+        />
+      </div>
+      <div>
+        <label for="parkolo">Parkoló</label>
+        <input
+          type="checkbox"
+          id="parkolo"
+          name="extrak[parkolo]"
+          value="true"
+        />
+      </div>
+      <div>
+        <label for="etkezes">Étkezés</label>
+        <input
+          type="checkbox"
+          id="etkezes"
+          name="extrak[etkezes]"
+          value="true"
+        />
+      </div>
+      <div>
+        <label for="wifi">WiFi</label>
+        <input type="checkbox" id="wifi" name="extrak[wifi]" value="true" />
+      </div>
+
+      <h4>Szoba képek</h4>
+      <div>
+        <label for="imageurl1">Kép link 1:</label>
+        <input
+          type="text"
+          id="imageurl1"
+          name="imageurls[0]"
+          placeholder="Kép link 1"
+        />
+      </div>
+      <div>
+        <label for="imageurl2">Kép link 2:</label>
+        <input
+          type="text"
+          id="imageurl2"
+          name="imageurls[1]"
+          placeholder="Kép link 2"
+        />
+      </div>
+      <div>
+        <label for="imageurl3">Kép link 3:</label>
+        <input
+          type="text"
+          id="imageurl3"
+          name="imageurls[2]"
+          placeholder="Kép link 3"
+        />
+      </div>
+      <div>
+        <label for="imageurl4">Kép link 4:</label>
+        <input
+          type="text"
+          id="imageurl4"
+          name="imageurls[3]"
+          placeholder="Kép link 4"
+        />
+      </div>
+      <div>
+        <label for="imageurl5">Kép link 5:</label>
+        <input
+          type="text"
+          id="imageurl5"
+          name="imageurls[4]"
+          placeholder="Kép link 5"
+        />
+      </div>
+
+      <button type="submit">Szoba hozzáadása</button>
+    </form>
+  </body>
+</html>

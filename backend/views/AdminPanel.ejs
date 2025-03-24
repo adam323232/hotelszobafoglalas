@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Panel</title>
     <link rel="stylesheet" href="/css/stilus.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
     <div class="admin bs">
-      <h1 class="text-center" style="font-size: 30px"><b>Admin Panel</b></h1>
+      <h1 class="text-center" style="text-align: center; font-size: 30px"><b>Admin Panel</b></h1>
       <div class="tabs">
-        <button onclick="showTab('foglalasok')">Foglalások</button>
-        <button onclick="showTab('szobak')">Szobák</button>
-        <button onclick="showTab('addroom')">Szoba hozzáadása</button>
-        <button onclick="showTab('users')">Felhasználók</button>
+        <button class="menubtn" onclick="showTab('foglalasok')">Foglalások</button>
+        <button class="menubtn" onclick="showTab('szobak')">Szobák</button>
+        <button class="menubtn" onclick="showTab('addroom')">Szoba hozzáadása</button>
+        <button class="menubtn" onclick="showTab('users')">Felhasználók</button>
         <a href="http://localhost:5173/">Vissza</a>
       </div>
 
@@ -45,11 +46,8 @@
                 <%= elem.status === 'booked' ? 'LEFOGLALT' : 'VISSZA MONDOTT' %>
               </td>
               <td>
-                <form
-                  action="/api/bookings/<%= elem._id %>?_method=DELETE"
-                  method="POST"
-                >
-                  <button type="submit" class="btn">Töröl</button>
+                <form>
+                  <button type="submit" class="btn" onclick="foglalastorol('<%= elem._id %>')"><i class="fa fa-trash"></i>   Töröl</button>
                 </form>
               </td>
             </tr>
@@ -121,6 +119,12 @@
             document.getElementById("users").innerHTML = data;
           })
           .catch((error) => console.error("Error loading users:", error));
+      }
+      async function foglalastorol(id) {
+        const response = await fetch(`/api/bookings/torol/${id}`, {
+          method: 'DELETE',
+          headers: {'Content-Type': 'application/json'}
+        });
       }
     </script>
   </body>

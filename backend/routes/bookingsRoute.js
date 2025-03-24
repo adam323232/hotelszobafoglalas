@@ -164,9 +164,10 @@ router.put("/cancelbooking", async (req, res) => {
     return res.status(400).json({ error });
   }
 });
-router.delete("/:id", async (req, res) => {
+router.delete("/torol/:id", async (req, res) => {
   try {
     const bookingId = req.params.id;
+    console.log(bookingId);
     await Booking.findByIdAndDelete(bookingId);
     res.status(200).send({ message: "Foglalás törölve" });
   } catch (error) {

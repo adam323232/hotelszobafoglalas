@@ -17,15 +17,12 @@
 @import url("/css/about.css");
 @import url("/css/extrak.css");
 @import url("/css/dropdown.css");
+@import url("/css/register.css");
 
 
 @import url("https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Geist+Mono:wght@100..900&display=swap");
 .App {
   text-align: left;
-}
-
-* {
-  border: 1px solid black;
 }
 
 body {
@@ -48,7 +45,6 @@ body {
   background-size: calc(2 * var(--s)) calc(3.46 * var(--s));
 }
 
-/* === removing default button style ===*/
 .button {
   margin: 0;
   height: auto;
@@ -58,7 +54,7 @@ body {
   cursor: pointer;
 }
 
-/* button styling */
+
 .button {
   --border-right: 6px;
   --text-stroke-color: rgba(255, 255, 255, 0.6);
@@ -73,7 +69,7 @@ body {
   color: transparent;
   -webkit-text-stroke: 1px var(--text-stroke-color);
 }
-/* this is the text, when you hover on button */
+
 .hover-text {
   position: absolute;
   box-sizing: border-box;
@@ -86,7 +82,7 @@ body {
   transition: 0.5s;
   -webkit-text-stroke: 1px var(--animation-color);
 }
-/* hover */
+
 .button:hover .hover-text {
   width: 100%;
   filter: drop-shadow(0 0 23px var(--animation-color));

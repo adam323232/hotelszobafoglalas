@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
+import { Link } from "react-router-dom";
 
 const Loginscreen = () => {
   const [email, setEmail] = useState("");
@@ -28,6 +29,7 @@ const Loginscreen = () => {
 
     const login = async () => {
       setLoading(true);
+      setError(null); // Hibaüzenet törlése az új próbálkozás előtt
       const response = await fetch("http://localhost:5000/api/users/login", {
         method: "POST",
         headers: {
@@ -46,7 +48,7 @@ const Loginscreen = () => {
         localStorage.setItem("currentUser", JSON.stringify(result));
         window.location.href = "/home";
       } else {
-        alert(result.msg);
+        setError("Ilyen felhasználó nem létezik"); // Hibaüzenet beállítása
         setLoading(false);
       }
     };
@@ -65,7 +67,9 @@ const Loginscreen = () => {
       > */}
       <div className="row logindiv justify-content-center mt-5">
         <div>
-          {error && <Error message="Nem létezik ilyen felhasználó" />}
+          <div className="error">
+            {error && <Error message="Nem létezik ilyen felhasználó" />}
+          </div>
           <div
             className="bs"
             style={{
@@ -73,7 +77,7 @@ const Loginscreen = () => {
               margin: "10em auto",
             }}
           >
-            <h3 style={{ width: "auto" }}>Bejelentkezés</h3>
+            <h2 className="bh2">Bejelentkezés</h2>
             <input
               type="text"
               className="form-control"
@@ -105,6 +109,9 @@ const Loginscreen = () => {
                 Login
               </button>
             </div>
+            <p className="p">
+              Ha még nem vagy registrálva akkor: <Link to="/register">Regisztráció</Link>
+            </p>
           </div>
         </div>
       </div>

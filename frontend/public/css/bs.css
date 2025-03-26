@@ -3,6 +3,7 @@
   border-radius: 10px !important;
   padding: 25px !important;
   flex-wrap: nowrap;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 6em;

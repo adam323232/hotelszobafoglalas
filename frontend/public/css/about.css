@@ -1,4 +1,9 @@
   /* Rólunk oldal konténer */
+
+  p{
+text-align: center;
+    font-size: 20px;
+  }
   .AboutUs  {
     margin: 0 auto;
     padding: 2rem;
@@ -101,7 +106,7 @@
   
   .cardp {
     width: 190px;
-    height: 254px;
+    height: 284px;
     background: #FAF1F6;
     padding: 2rem 1.5rem;
     transition: box-shadow .3s ease, transform .2s ease;
@@ -160,7 +165,7 @@
   
   .card-titlep {
     color: #1b1b1b;
-    font-size: 1.5em;
+    font-size: 1em;
     font-weight: 600;
     line-height: 2rem;
     margin-top: 5px;
@@ -196,7 +201,7 @@
   
   .contact-titlep {
     color: #333;
-    font-size: 1.5em;
+    font-size: 1em;
     font-weight: 600;
     margin-top: 45%;
     padding-bottom: 5px;
@@ -274,3 +279,13 @@
     height: 200px;
   }
 }
+
+li {
+  font-size:10px;
+}
+
+ul{
+  font-size: 20px;
+  text-align: center;
+}
+

@@ -11,34 +11,46 @@ const AboutUs = () => {
         <h2>Oldalunk küldetése</h2>
         <p>
           A ReZsoBa.hu célja, hogy segítse a világ minden tájáról érkező
-          utazókat a legjobb szállások megtalálásában. Legyen szó egy kényelmes
-          pihenésről a tengerparton vagy egy kalanddal teli hegyi túráról,
-          nálunk mindenki megtalálja a számára legmegfelelőbb helyet.
+          utazókat a legjobb szállások megtalálásában.
+
         </p>
+        <br />
+        <p>          Legyen szó egy kényelmes
+          pihenésről a tengerparton vagy egy kalanddal teli hegyi túráról,
+          nálunk mindenki megtalálja a számára legmegfelelőbb helyet.</p>
 
         <h2>Miért válassz minket?</h2>
         <ul>
-          <li>
+          <li2>
             Kényelmes keresőfelület, amely gyorsan segít megtalálni a tökéletes
             szállást.
-          </li>
-          <li>Széles választék mindenféle utazási stílushoz és igényhez.</li>
-          <li>Átlátható és megbízható értékelések az egyes szállásokhoz.</li>
-          <li>
+          </li2>
+          <br />
+          <br />
+          <li2>Széles választék mindenféle utazási stílushoz és igényhez.</li2>
+          <br />
+          <br />
+          <li2>Átlátható és megbízható értékelések az egyes szállásokhoz.</li2>
+          <br />
+          <br />
+          <li2>
             24/7 ügyfélszolgálat, hogy bármilyen kérdése legyen, mindig
             segítségére legyünk.
-          </li>
+          </li2>
         </ul>
+        <br />
 
         <h2>A csapat</h2>
         <p>
           A ReZsoBa.hu csapata tapasztalt szakemberekből áll, akik mind
           elkötelezettek abban, hogy a legjobb élményt nyújtsák a
-          felhasználóknak. A csapatunk minden tagja hozzájárul ahhoz, hogy a
-          platformunk könnyen használható, gyors és biztonságos legyen.
+          felhasználóknak.
         </p>
+        <br />
+        <p> A csapatunk minden tagja hozzájárul ahhoz, hogy a
+          platformunk könnyen használható, gyors és biztonságos legyen.</p>
         <div className="cardProfiles">
-          
+
           <div class="mainp" st>
             <div id="c2" class="cardp">
               <div class="card-infop">
@@ -53,14 +65,14 @@ const AboutUs = () => {
                     </svg>
                     Tel:(+36) 000 99999-0000
                   </li>
-                  <li class="icon-contactp">
+                  <li class="icon-contactp" >
                     <svg
                       viewBox="0 0 512 512"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"></path>
                     </svg>
-                    Email: contact@mail.com
+                    Email: rekotye.adam@szbiszeged.hu
                   </li>
                 </div>
               </div>
@@ -99,12 +111,13 @@ const AboutUs = () => {
                   </li>
                   <li id="cs2" class="card-social-iconp">
                     <svg
-                      viewBox="0 0 448 512"
+                      viewBox="0 0 52 52"
                       xmlns="http://www.w3.org/2000/svg"
                     >
-                      <path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
-                    </svg>
-                    LinkedIn
+                       <path d="M40,0H10C4.486,0,0,4.486,0,10v30c0,5.514,4.486,10,10,10h30c5.514,0,10-4.486,10-10V10C50,4.486,45.514,0,40,0z M39,17h-3 c-2.145,0-3,0.504-3,2v3h6l-1,6h-5v20h-7V28h-3v-6h3v-3c0-4.677,1.581-8,7-8c2.902,0,6,1,6,1V17z"></path></svg>
+
+                    
+                    Facebook
                   </li>
                   <li id="cs3" class="card-social-iconp">
                     <svg
@@ -180,12 +193,12 @@ const AboutUs = () => {
                   </li>
                   <li id="cs2" class="card-social-iconp">
                     <svg
-                      viewBox="0 0 448 512"
+                      viewBox="0 0 52 52"
                       xmlns="http://www.w3.org/2000/svg"
                     >
-                      <path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+                      <path d="M40,0H10C4.486,0,0,4.486,0,10v30c0,5.514,4.486,10,10,10h30c5.514,0,10-4.486,10-10V10C50,4.486,45.514,0,40,0z M39,17h-3 c-2.145,0-3,0.504-3,2v3h6l-1,6h-5v20h-7V28h-3v-6h3v-3c0-4.677,1.581-8,7-8c2.902,0,6,1,6,1V17z"></path>
                     </svg>
-                    LinkedIn
+                    Facebook
                   </li>
                   <li id="cs3" class="card-social-iconp">
                     <svg
@@ -261,12 +274,12 @@ const AboutUs = () => {
                   </li>
                   <li id="cs2" class="card-social-iconp">
                     <svg
-                      viewBox="0 0 448 512"
+                      viewBox="0 0 52 52"
                       xmlns="http://www.w3.org/2000/svg"
                     >
-                      <path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+                      <path d="M40,0H10C4.486,0,0,4.486,0,10v30c0,5.514,4.486,10,10,10h30c5.514,0,10-4.486,10-10V10C50,4.486,45.514,0,40,0z M39,17h-3 c-2.145,0-3,0.504-3,2v3h6l-1,6h-5v20h-7V28h-3v-6h3v-3c0-4.677,1.581-8,7-8c2.902,0,6,1,6,1V17z"></path>
                     </svg>
-                    LinkedIn
+                    Facebook
                   </li>
                   <li id="cs3" class="card-social-iconp">
                     <svg

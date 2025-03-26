@@ -3,3 +3,16 @@
   margin: 0 auto;
   padding: 20px;
 }
+
+h4 {
+  text-align: left;
+  color: #82c1ff;
+}
+
+.extraSzoveg {
+  color: white;
+}
+
+.lista {
+  padding-left: 50px;
+}

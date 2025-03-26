@@ -23,6 +23,11 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
+        <div>
+          <a href="/">
+          <img className="homeicon" src="../public/img/house.png" alt="" />
+          </a>
+        </div>
         <a className="navbar-brand" href="/home">
           <button className="button" data-text="Awesome">
             <span className="actual-text">&nbsp;ReZsoBa Rooms&nbsp;</span>
@@ -33,7 +38,7 @@ const Navbar = () => {
         </a>
         {isAdmin && isLoggedIn && (
           <a
-            href="/admin"
+            href="http://localhost:5000/"
             className="text-white font-bold bg-red-500 px-4 py-2 rounded btn"
           >
             Admin

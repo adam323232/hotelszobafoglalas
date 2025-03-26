@@ -5,16 +5,17 @@ import { DatePicker } from 'antd';
 import moment from 'moment';
 import Dropdown from '../components/dropdown.jsx';
 import { DropDownContext } from '../context/DropDownContext.jsx';
+import Navbar from '../components/Navbar.jsx';
 
 const { RangePicker } = DatePicker;
 
 const plainOptions = [
     'Szobaszerviz',
-    'Mini bár igény szerint',
+    'Minibár',
     'Fitneszterem belépő',
     'Parkoló',
     'Étkezés',
-    'Reggeli az ágyban',
+    'Reggeli',
     'Wifi',
 ];
 
@@ -122,12 +123,10 @@ const Homescreen = () => {
 
     return (
         <div className="container">
+            <Navbar />
             {dropdown ? <Dropdown /> : null}
-            <div className="search row col-md-10">
-                <div
-                    className="rangepickerdiv col-md-4"
-                    style={{ width: '25%' }}
-                >
+            <div className="search row">
+                <div className="rangepickerdiv col-md-4">
                     <RangePicker
                         format="DD-MM-YYYY"
                         onChange={filterByDate}
@@ -165,7 +164,7 @@ const Homescreen = () => {
                 ) : rooms.length > 0 ? (
                     rooms.map((room) => (
                         <div
-                            className="col-md-11 mt-3"
+                            className="room-kontener"
                             key={room._id}
                         >
                             <Room

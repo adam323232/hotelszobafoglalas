@@ -1,0 +1,125 @@
+/* Alapértelmezett stílusok */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Fejléc stílus */
+header {
+  background: #333;
+  color: #fff;
+  padding: 1em 0;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2em;
+  
+}
+
+
+/* Gombok */
+.btn {
+  background-color: none;
+  border: solid 1px #358fe9;
+  color: #358fe9;
+  padding: 12px 16px;
+  width: 200px;
+  height: 40px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: #358fe9;
+  color: white;
+}
+
+/* Konténerek */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Kártyák */
+.card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px 0;
+}
+
+/* Rács elrendezés */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Linkek */
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Táblázat stílus */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 1em;
+  text-align: left;
+}
+
+table th,
+table td {
+  border: 2px solid #ddd; /* Keret a cellák körül */
+  padding: 20px;
+ 
+}
+
+table th {
+  background-color: #f4f4f4; /* Fejléc háttérszíne */
+  font-weight: bold;
+}
+
+table tr:nth-child(even) {
+  background-color: #e4e4e4; /* Páros sorok színezése */
+}
+
+table tr:hover {
+  background-color: #c2c2c2; /* Sor kiemelése hover esetén */
+}
+
+div {
+  margin: 2%;
+  align-content: center;
+}
+
+.menubtn  {
+  background-color: none;
+  border: solid 1px #358fe9;
+  color: #358fe9;
+  height: 45px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  
+}
+
+

@@ -3,7 +3,6 @@ import Loader from "../components/Loader";
 import Error from "../components/Error";
 import Success from "../components/Succes";
 import { Link } from "react-router-dom";
-// import axios from 'Axios';
 
 const Register = () => {
   const [name, setname] = useState("");
@@ -16,6 +15,11 @@ const Register = () => {
   const [succes, setsuccess] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [passwordVisibles, setPasswordVisibles] = useState(false);
+
+  const [nameError, setNameError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [cpasswordError, setCpasswordError] = useState("");
 
   const togglePasswordVisibility = () => {
     const cursorPosition = document.activeElement.selectionStart;
@@ -43,7 +47,42 @@ const Register = () => {
   };
 
   async function register() {
-    if (password == cpassword) {
+    let valid = true;
+
+    // Ellenőrzés minden mezőre
+    if (!name) {
+      setNameError("A kitöltése kötelező!");
+      valid = false;
+    } else {
+      setNameError("");
+    }
+
+    if (!email) {
+      setEmailError("Az kitöltése kötelező!");
+      valid = false;
+    } else {
+      setEmailError("");
+    }
+
+    if (!password) {
+      setPasswordError("A kitöltése kötelező!");
+      valid = false;
+    } else {
+      setPasswordError("");
+    }
+
+    if (!cpassword) {
+      setCpasswordError("A mező kitöltése kötelező!");
+      valid = false;
+    } else {
+      setCpasswordError("");
+    }
+
+    if (!valid) {
+      return; // Ha bármelyik mező hibás, ne folytassa a regisztrációt
+    }
+
+    if (password === cpassword) {
       const user = {
         name,
         email,
@@ -52,7 +91,8 @@ const Register = () => {
       };
       try {
         setLoading(true);
-        // const result = await axios.post('http://localhost:5000/api/users/register', user).data
+        setError(null); // Reset error state before making the request
+
         const response = await fetch(
           "http://localhost:5000/api/users/register",
           {
@@ -63,7 +103,6 @@ const Register = () => {
             body: JSON.stringify(user),
           }
         );
-        console.log(response);
 
         if (response.ok) {
           const result = await response.json();
@@ -71,6 +110,10 @@ const Register = () => {
           setLoading(false);
           setsuccess(true);
           window.location.href = "/login";
+        } else {
+          const errorData = await response.json();
+          setError(errorData.message || "Hiba történt a regisztráció során.");
+          setLoading(false);
         }
 
         setname("");
@@ -79,27 +122,27 @@ const Register = () => {
         setcpassword("");
       } catch (error) {
         console.log(error);
+        setError("Hiba történt a regisztráció során.");
+        setLoading(false);
       }
     } else {
-      alert("Passwords not matched");
+      setCpasswordError("A jelszavak nem egyeznek!");
     }
   }
 
   return (
     <div>
       {loading && <Loader />}
-      {error && <Error />}
+      {error && <Error message="Nem létezik ilyen felhasználó" />}
 
-      <div className="row justify-content-center mt-5">
-        <div className="col-md-3 mt-5 bs" style={{
-              width: "400px",
-              margin: "10em auto",
-              
-            }}>
+      <div className="row registerdiv justify-content-center mt-5">
+        <div
+          className="col-md-3 bsdiv mt-5 bs"
+        >
           {succes && <Success message="Sikeres regisztráció" />}
 
           <div>
-            <h2>Regisztráció</h2>
+            <h2 className="bh2">Regisztráció</h2>
 
             <input
               type="text"
@@ -108,8 +151,11 @@ const Register = () => {
               value={name}
               onChange={(e) => {
                 setname(e.target.value);
+                setNameError(""); // Hibaüzenet törlése gépeléskor
               }}
             />
+            {nameError && <small className="text-danger">{nameError}</small>}
+
             <input
               type="text"
               className="form-control"
@@ -117,8 +163,10 @@ const Register = () => {
               value={email}
               onChange={(e) => {
                 setemail(e.target.value);
+                setEmailError(""); // Hibaüzenet törlése gépeléskor
               }}
             />
+            {emailError && <small className="text-danger">{emailError}</small>}
 
             <div className="input-container">
               <input
@@ -126,7 +174,10 @@ const Register = () => {
                 className="form-control"
                 placeholder="Jelszó"
                 value={password}
-                onChange={(e) => setpassword(e.target.value)}
+                onChange={(e) => {
+                  setpassword(e.target.value);
+                  setPasswordError(""); // Hibaüzenet törlése gépeléskor
+                }}
               />
               <button
                 className="toggle-password"
@@ -138,13 +189,20 @@ const Register = () => {
                 {passwordVisible ? "🙈" : "👁️"}
               </button>
             </div>
+            {passwordError && (
+              <small className="text-danger">{passwordError}</small>
+            )}
+
             <div className="input-container mt-2">
               <input
                 type={passwordVisibles ? "text" : "password"}
                 className="form-control"
                 placeholder="Jelszó megerősítése"
                 value={cpassword}
-                onChange={(e) => setcpassword(e.target.value)}
+                onChange={(e) => {
+                  setcpassword(e.target.value);
+                  setCpasswordError(""); // Hibaüzenet törlése gépeléskor
+                }}
               />
               <button
                 className="toggle-password"
@@ -156,6 +214,9 @@ const Register = () => {
                 {passwordVisibles ? "🙈" : "👁️"}
               </button>
             </div>
+            {cpasswordError && (
+              <small className="text-danger">{cpasswordError}</small>
+            )}
 
             <br />
             <div className="registerbtn">
@@ -166,13 +227,12 @@ const Register = () => {
                   textAlign: "center !important",
                 }}
               >
-                Register{" "}
+                Regisztráció{" "}
               </button>
             </div>
-              <p className="p">
-                Ha már be vagy jelentkezve akkor:{" "}
-                <Link to="/login">Belepés</Link>
-              </p>
+            <p className="p" style={{textAlign: "center"}}>
+              Ha már be vagy jelentkezve akkor: <br /><Link to="/login">Belepés</Link>
+            </p>
           </div>
         </div>
       </div>

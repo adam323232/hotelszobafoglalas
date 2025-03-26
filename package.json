@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "component": "^1.1.0",
+    "cypress": "^14.2.0",
     "react-tabs": "^6.1.0",
     "styled": "^1.0.0"
   }

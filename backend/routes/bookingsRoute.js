@@ -45,7 +45,7 @@ router.post("/bookroom", async (req, res) => {
         ar: 21,
       },
       {
-        nev: "Mini bár igény szerint",
+        nev: "Minibár",
         ar: 100,
       },
       {
@@ -61,7 +61,7 @@ router.post("/bookroom", async (req, res) => {
         ar: 16,
       },
       {
-        nev: "Reggeli az ágyban",
+        nev: "Reggeli",
         ar: 9,
       },
       {
@@ -91,7 +91,7 @@ router.post("/bookroom", async (req, res) => {
           quantity: 1,
     }
     tetelek.push(napiObi);
-    console.log(napiObi);
+    // console.log(napiObi);
 
     for (let i = 0; i < extrakTomb.length; i++) {
       let obj = {
@@ -105,7 +105,7 @@ router.post("/bookroom", async (req, res) => {
         quantity: Number(others.totaldays),
       };
       tetelek.push(obj);
-    console.log(obj);
+    // console.log(obj);
    }
 
 
@@ -138,7 +138,7 @@ router.get("/", async (req, res) => {
   ];
   try {
     const bookings = await Booking.find({}).populate("felhasznalo");
-    console.log(bookings);
+    // console.log(bookings);
     return res.status(200).json({ bookings });
   } catch (error) {
     return res.status(400).json({ error: error.message });
@@ -164,9 +164,10 @@ router.put("/cancelbooking", async (req, res) => {
     return res.status(400).json({ error });
   }
 });
-router.delete("/:id", async (req, res) => {
+router.delete("/torol/:id", async (req, res) => {
   try {
     const bookingId = req.params.id;
+    console.log(bookingId);
     await Booking.findByIdAndDelete(bookingId);
     res.status(200).send({ message: "Foglalás törölve" });
   } catch (error) {

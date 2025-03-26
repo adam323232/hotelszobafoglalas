@@ -33,18 +33,6 @@
   transform: translate(-10%, -10%);
 }
 
-/* Árnyékolt doboz */
-.bs {
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  border-radius: 10px !important;
-  padding: 25px !important;
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-  margin: 6em;
-  padding-top: 2em !important;
-}
 
 /* Reszponzív töréspontok */
 @media (max-width: 768px) {

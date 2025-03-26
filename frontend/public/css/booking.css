@@ -2,16 +2,22 @@
     margin-top: 8em !important;
 }
 
+.extraLista {
+    color: white;
+}
+
 .bigimg {
     height: 410px !important;
     border-radius: 5px !important;
+    width: 100%;
+    object-fit: cover;
 }
 
 .cta {
     /* border: none; */
     /* color: white; */
     border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.35);
+    background-color: white;
     cursor: pointer;
 }
 
@@ -58,4 +64,13 @@
 .cta:hover .hover-underline-animation:after {
     transform: scaleX(1);
     transform-origin: bottom left;
+}
+
+@media screen and (max-width: 768px) {
+    .bs {
+        flex-direction: column;
+    }
+
+    .booking-adatok {
+    }
 }

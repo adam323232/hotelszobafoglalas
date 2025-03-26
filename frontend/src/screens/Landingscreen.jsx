@@ -8,7 +8,7 @@ const Landingscreen = () => {
       <div className="col-md-12 text-center">
         <div class="text-container">
           <h1 className="">ReZsoBa Rooms</h1>
-          <Link to="/register">
+          <Link to="/login">
             <button className="landingbtn"></button>
           </Link>
           <Footer />

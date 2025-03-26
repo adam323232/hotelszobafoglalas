@@ -5,7 +5,6 @@ import Bookingscreen from "./screens/Bookingscreen";
 import Registerscreen from "./screens/Registerscreen";
 import Loginscreen from "./screens/Loginscreen";
 import Profilescreen from "./screens/Profilescreen";
-import Adminscreen from "./screens/Adminscreen";
 import Landingscreen from "./screens/Landingscreen";
 import ProtectedRoutes from "./ProtectedRoutes";
 import FAQ from "./components/FAQ";
@@ -14,6 +13,7 @@ import "./App.css";
 import AboutUs from "./components/AboutUs";
 // import Extrakscreen from "./screens/Extrakscreen";
 import Extrak from "./components/Extrak";
+import ProtectedAdmin from "./ProtectedAdmin";
 
 function App() {
   return (
@@ -23,15 +23,14 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/home" element={<Homescreen />}></Route>
+            <Route path="/register" element={<Registerscreen />}></Route>
             <Route
               path="/book/:roomid/:fromdate/:todate/:extras"
               element={<Bookingscreen />}
             ></Route>
-            <Route path="/register" element={<Registerscreen />}></Route>
             <Route element={<ProtectedRoutes />}>
-              <Route path="/admin" element={<Adminscreen />}></Route>
               <Route path="*" element={<Loginscreen />}></Route>
-            </Route>
+            </Route> 
             <Route path="/login" element={<Loginscreen />}></Route>
             <Route path="/profile" element={<Profilescreen />}></Route>
             <Route path="/" element={<Landingscreen />}></Route>

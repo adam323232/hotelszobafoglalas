@@ -1,0 +1,38 @@
+<h1>Szobák</h1>
+<table class="table table-bordered table-dark">
+  <thead>
+    <tr>
+      <th>Szoba Id</th>
+      <th>Név</th>
+      <th>Típus</th>
+      <th>Ár/nap</th>
+      <th>Maximális férőhely</th>
+      <th>Telefonszám</th>
+      <th>Szerkesztés</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% rooms.forEach(function(room) { %>
+    <tr>
+      <td><%= room._id %></td>
+      <td><%= room.name %></td>
+      <td><%= room.type %></td>
+      <td><%= room.rentperday %></td>
+      <td><%= room.maxcount %></td>
+      <td><%= room.phonenumber %></td>
+      <td>
+        <a href="/admin/rooms/<%= room._id %>/edit" class="btn btn-warning"
+          >Szerkeszt</a
+        >
+        <form
+          action="/admin/rooms/<%= room._id %>/delete"
+          method="POST"
+          style="display: inline"
+        >
+          <button type="submit" class="btn btn-danger">Töröl</button>
+        </form>
+      </td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>

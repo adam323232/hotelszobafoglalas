@@ -14,10 +14,12 @@
   border-radius: 5px;
   padding: 10px;
   transition: background-color 0.3s;
+  color: white;
 }
 
 .faq-item:hover {
   background-color: #f9f9f9;
+  color: black;
 }
 
 .faq-question {

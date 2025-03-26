@@ -3,12 +3,12 @@
   border-radius: 10px !important;
   padding: 25px !important;
   flex-wrap: nowrap;
-  flex-direction: column;
+  /* flex-direction: column; */
   justify-content: center;
   align-items: center;
   margin: 6em;
   padding-top: 2em !important;
-  background-color: black;
-  color: white;
+  background-color: rgba(219, 219, 219);
+  color: black;
   min-width: 300px;
 }

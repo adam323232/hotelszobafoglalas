@@ -1,5 +1,5 @@
-/* h1 {
-  font-size: 20px ;
+h1 {
+  font-size: 20px;
 }
 
 h2 {
@@ -22,7 +22,7 @@ h1,
 h2 {
   color: #82c1ff;
 }
-h3{
+h3 {
   text-align: center;
   padding: 1em;
   color: #82c1ff;
@@ -36,4 +36,4 @@ ul {
 
 ul {
   padding-left: 20px;
-} */
+}

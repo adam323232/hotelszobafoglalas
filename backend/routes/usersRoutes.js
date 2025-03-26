@@ -42,10 +42,10 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/torol/:id", async (req, res) => {
   try {
     const userId = req.params.id;
-    // console.log(userId);
+    console.log(userId);
     await User.findByIdAndDelete({ _id: userId });
     return res.status(200).send({ message: "Profil törölve" });
   } catch (error) {

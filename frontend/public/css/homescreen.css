@@ -1,10 +1,9 @@
 .container {
-  padding-top: 5em !important;
+  padding-top: 6em !important;
   padding: 10px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  /* flex-direction: row-reverse; */
 }
 
 .search {
@@ -30,7 +29,7 @@
   column-gap: 2em; /* Növeljük az oszlopok közötti távolságot */
   grid-template-columns: repeat(2, 1fr);
   /* justify-items: center; */
-  /* padding-top: 10em; */
+  padding-top: 2em;
 }
 
 .room-kontener {

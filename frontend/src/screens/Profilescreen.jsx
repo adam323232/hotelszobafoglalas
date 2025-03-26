@@ -16,20 +16,27 @@ const Profilescreen = () => {
     <div className="profil ml-3 ml-3">
       <Tabs defaultActiveKey="1">
         <TabPane tab="Profil" key="1">
-          <div className="profile-container">
+          <div className="profile-container bs">
             <div className="profile-header">
-              <img
-                src="/img/profile.png"
-                alt="Background"
-                className="background-image"
-              />
               <div className="profile-info">
                 <img
                   src="/img/profile.png"
                   alt="Profile"
                   className="profile-pic"
                 />
-                <h2>{user.user.name}</h2>
+                <h3
+                  style={{
+                    width: "30%",
+                    height: "50px",
+                    padding: "5px",
+                    margin: "0 auto",
+                    borderRadius: "10px",
+                    backgroundColor: "rgba(137, 218, 255, 0.42)",
+                    color: "black",
+                  }}
+                >
+                  {user.user.name}
+                </h3>
                 <p>{user.user.email}</p>
               </div>
             </div>

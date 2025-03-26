@@ -5,15 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Panel</title>
     <link rel="stylesheet" href="/css/stilus.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
   <body>
     <div class="admin bs">
-      <h1 class="text-center" style="text-align: center; font-size: 30px"><b>Admin Panel</b></h1>
+      <h1 class="text-center" style="text-align: center; font-size: 30px">
+        <b>Admin Panel</b>
+      </h1>
       <div class="tabs">
-        <button class="menubtn" onclick="showTab('foglalasok')">Foglalások</button>
+        <button class="menubtn" onclick="showTab('foglalasok')">
+          Foglalások
+        </button>
         <button class="menubtn" onclick="showTab('szobak')">Szobák</button>
-        <button class="menubtn" onclick="showTab('addroom')">Szoba hozzáadása</button>
+        <button class="menubtn" onclick="showTab('addroom')">
+          Szoba hozzáadása
+        </button>
         <button class="menubtn" onclick="showTab('users')">Felhasználók</button>
         <a href="http://localhost:5173/">Vissza</a>
       </div>
@@ -47,7 +56,13 @@
               </td>
               <td>
                 <form>
-                  <button type="submit" class="btn" onclick="foglalastorol('<%= elem._id %>')"><i class="fa fa-trash"></i>   Töröl</button>
+                  <button
+                    type="submit"
+                    class="btn"
+                    onclick="foglalastorol('<%= elem._id %>')"
+                  >
+                    <i class="fa fa-trash"></i> Töröl
+                  </button>
                 </form>
               </td>
             </tr>
@@ -122,8 +137,8 @@
       }
       async function foglalastorol(id) {
         const response = await fetch(`/api/bookings/torol/${id}`, {
-          method: 'DELETE',
-          headers: {'Content-Type': 'application/json'}
+          method: "DELETE",
+          headers: { "Content-Type": "application/json" },
         });
       }
     </script>

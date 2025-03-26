@@ -25,7 +25,7 @@ const Navbar = () => {
       <div className="container-fluid">
         <div>
           <a href="/">
-          <img className="homeicon" src="../public/img/house.png" alt="" />
+            <img className="homeicon" src="/img/house.png" alt="" />
           </a>
         </div>
         <a className="navbar-brand" href="/home">
@@ -79,6 +79,11 @@ const Navbar = () => {
                     <li>
                       <a className="dropdown-item" href="/profile">
                         Profil
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="/extrak">
+                        Extrák
                       </a>
                     </li>
                     <li>

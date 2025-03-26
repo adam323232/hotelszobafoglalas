@@ -37,7 +37,6 @@ router.post("/bookroom", async (req, res) => {
     // console.log(booking);
     let extrak = others.extras.split(",");
     const extrakTomb = [];
-    
 
     const plainOptions = [
       {
@@ -70,26 +69,26 @@ router.post("/bookroom", async (req, res) => {
       },
     ];
 
-    for( let i = 0; i< plainOptions.length; i++){
-        for(let j = 0; j < extrak.length; j++ ){
-            if(plainOptions[i].nev === extrak[j]){
-                extrakTomb.push(plainOptions[i])
-            }
+    for (let i = 0; i < plainOptions.length; i++) {
+      for (let j = 0; j < extrak.length; j++) {
+        if (plainOptions[i].nev === extrak[j]) {
+          extrakTomb.push(plainOptions[i]);
         }
-      }  
+      }
+    }
 
     let tetelek = [];
 
     const napiObi = {
-        price_data: {
-            currency: "eur",
-            product_data: {
-              name: rooms.name,
-            },
-            unit_amount: Number(others.totaldays) * rooms.rentperday * 100,
-          },
-          quantity: 1,
-    }
+      price_data: {
+        currency: "eur",
+        product_data: {
+          name: rooms.name,
+        },
+        unit_amount: Number(others.totaldays) * rooms.rentperday * 100,
+      },
+      quantity: 1,
+    };
     tetelek.push(napiObi);
     // console.log(napiObi);
 
@@ -105,9 +104,8 @@ router.post("/bookroom", async (req, res) => {
         quantity: Number(others.totaldays),
       };
       tetelek.push(obj);
-    // console.log(obj);
-   }
-
+      // console.log(obj);
+    }
 
     const session = await stripe.checkout.sessions.create({
       line_items: tetelek,
@@ -167,7 +165,7 @@ router.put("/cancelbooking", async (req, res) => {
 router.delete("/torol/:id", async (req, res) => {
   try {
     const bookingId = req.params.id;
-    console.log(bookingId);
+    // console.log(bookingId);
     await Booking.findByIdAndDelete(bookingId);
     res.status(200).send({ message: "Foglalás törölve" });
   } catch (error) {

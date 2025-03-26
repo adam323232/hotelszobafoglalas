@@ -1,45 +1,45 @@
 .roombs {
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    border-radius: 10px;
-    padding: 25px;
-    display: flex;
-    flex-wrap: nowrap;
-    height: 250px;
-    justify-content: center;
-    align-items: center;
-    /* background-color: rgb(0, 0, 0); */
-    color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+  padding: 25px;
+  display: flex;
+  flex-wrap: nowrap;
+  height: 250px;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  color: black;
 }
 
 /* Képek reszponzív méretezése */
 .smallimg {
-    width: 100%;
-    max-width: 200px;
-    height: auto;
-    aspect-ratio: 1/1; /* Négyzetes arány megtartása */
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  aspect-ratio: 1/1; /* Négyzetes arány megtartása */
 }
 
 /* Reszponzív töréspontok */
 @media (max-width: 768px) {
-    .roombs {
-        flex-wrap: wrap; /* Tartalom törhet, ha kell */
-        height: auto; /* Magasság igazodik */
-        padding: 20px;
-    }
+  .roombs {
+    flex-wrap: wrap; /* Tartalom törhet, ha kell */
+    height: auto; /* Magasság igazodik */
+    padding: 20px;
+  }
 
-    .smallimg {
-        max-width: 150px; /* Kicsit kisebb képek tableten */
-    }
+  .smallimg {
+    max-width: 150px; /* Kicsit kisebb képek tableten */
+  }
 }
 
 @media (max-width: 480px) {
-    .roombs {
-        flex-direction: column; /* Mobilon egymás alá rendezés */
-        height: auto;
-        padding: 15px;
-    }
+  .roombs {
+    flex-direction: column; /* Mobilon egymás alá rendezés */
+    height: auto;
+    padding: 15px;
+  }
 
-    .smallimg {
-        max-width: 100px; /* Képek még kisebbek mobilon */
-    }
+  .smallimg {
+    max-width: 100px; /* Képek még kisebbek mobilon */
+  }
 }

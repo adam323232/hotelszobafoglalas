@@ -21,15 +21,17 @@
       <td><%= room.maxcount %></td>
       <td><%= room.phonenumber %></td>
       <td>
-        <a href="/admin/rooms/<%= room._id %>/edit" class="btn btn-warning"
+        <a onclick="szobafrissites('<%= room._id %>')" class="btn btn-warning"
           >Szerkeszt</a
         >
-        <form
-          action="/admin/rooms/<%= room._id %>/delete"
-          method="POST"
-          style="display: inline"
-        >
-          <button type="submit" class="btn btn-danger">Töröl</button>
+        <form>
+          <button
+            type="submit"
+            class="btn btn-danger"
+            onclick="szobatorol('<%= room._id %>')"
+          >
+            Töröl
+          </button>
         </form>
       </td>
     </tr>

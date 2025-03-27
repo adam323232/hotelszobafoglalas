@@ -23,7 +23,7 @@
           <button
             type="submit"
             class="btn"
-            onclick="foglalastorol('<%= user.id %>')"
+            onclick="usertorol('<%= user.id %>')"
           >
             Töröl
           </button>
@@ -33,11 +33,3 @@
     </tbody>
   </table>
 </div>
-<script>
-  async function foglalastorol(id) {
-    const response = await fetch(`/api/users/torol/${id}`, {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json" },
-    });
-  }
-</script>

@@ -141,6 +141,64 @@
           headers: { "Content-Type": "application/json" },
         });
       }
+      function usertorol(id) {
+        if (confirm("Biztosan törölni szeretnéd ezt a felhasználót?")) {
+          fetch(`/users/${userId}`, {
+            method: "DELETE",
+          })
+            .then((response) => {
+              if (response.ok) {
+                alert("Felhasználó sikeresen törölve!");
+                window.location.reload(); // Az oldal frissítése
+              } else {
+                alert("Hiba történt a törlés során!");
+              }
+            })
+            .catch((error) => {
+              console.error("Hiba:", error);
+              alert("Hiba történt a törlés során!");
+            });
+        }
+      }
+      async function szobahozzaad(formData) {
+        const response = await fetch("/api/admin/addroom", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+        if (response.ok) {
+          alert("Szoba sikeresen hozzáadva!");
+          window.location.reload();
+        } else {
+          alert("Hiba történt a szoba hozzáadása során!");
+        }
+      }
+      async function szobafrissites(id, updatedRoom) {
+        const response = await fetch(`/api/updatebooking/${id}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ updatedRoom }),
+        });
+        if (response.ok) {
+          alert("Szoba sikeresen frissítve!");
+          window.location.reload();
+        } else {
+          alert("Hiba történt a szoba frissítése során!");
+        }
+      }
+      async function szobatorol(id) {
+        if (confirm("Biztosan törölni szeretnéd ezt a szobát?")) {
+          const response = await fetch(`/api/rooms/${id}`, {
+            method: "DELETE",
+          });
+          if (response.ok) {
+            alert("Szoba sikeresen törölve!");
+            window.location.reload();
+          } else {
+            alert("Hiba történt a szoba törlése során!");
+          }
+        }
+      }
     </script>
   </body>
 </html>

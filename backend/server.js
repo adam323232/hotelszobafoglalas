@@ -45,6 +45,8 @@ app.get("/", async (req, res) => {
 app.get("/admin/rooms", async (req, res) => {
   try {
     const rooms = await RoomModel.find();
+    // console.log(rooms);
+
     return res.status(200).render("Szobak.ejs", { rooms });
   } catch (error) {
     return res.status(500).json({ message: error.message });

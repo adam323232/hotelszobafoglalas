@@ -34,7 +34,7 @@ router.post("/getroombyid", async (req, res) => {
   }
 });
 
-router.post("/admin/addroom", async (req, res) => {
+router.post("/addroom", async (req, res) => {
   try {
     const { name, hotel, price, capacity } = req.body; // Szoba adatok
     const newRoom = new Room({ name, hotel, price, capacity });
@@ -49,24 +49,42 @@ router.post("/admin/addroom", async (req, res) => {
 router.put("/updatebooking/:id", async (req, res) => {
   const { id } = req.params;
   const { updatedRoom } = req.body;
+  console.log(updatedRoom);
 
   try {
+    // Az extrák boolean értékeit tömbbé alakítjuk
+    const extrakArray = [
+      updatedRoom.extrak[0] || false,
+      updatedRoom.extrak[1] || false,
+      updatedRoom.extrak[2] || false,
+      updatedRoom.extrak[3] || false,
+      updatedRoom.extrak[4] || false,
+      updatedRoom.extrak[5] || false,
+      updatedRoom.extrak[6] || false,
+    ];
+
+    // Szoba frissítése az adatbázisban
     const roomitem = await Room.findByIdAndUpdate(
-      { _id: id },
+      id,
       {
         name: updatedRoom.name,
-        maxcount: updatedRoom.maxcount,
-        rentperday: updatedRoom.rentperday,
         type: updatedRoom.type,
+        rentperday: updatedRoom.rentperday,
+        maxcount: updatedRoom.maxcount,
         phonenumber: updatedRoom.phonenumber,
-        extrak: updatedRoom.extrak,
+        extrak: extrakArray, // Extrák tömbként tárolva
       },
-      { new: true }
+      { new: true } // Az új értékek visszaadása
     );
 
-    return res.status(200).json({ msg: "Sikeres szoba frissítés", roomitem });
+    if (!roomitem) {
+      return res.status(404).json({ message: "Szoba nem található" });
+    }
+
+    res.status(200).json({ message: "Szoba sikeresen frissítve", roomitem });
   } catch (error) {
-    return res.status(400).json({ error });
+    console.error("Hiba a szoba frissítése során:", error);
+    res.status(500).json({ message: "Hiba történt a szoba frissítése során" });
   }
 });
 router.delete("/:id", async (req, res) => {

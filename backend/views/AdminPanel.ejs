@@ -122,6 +122,7 @@
           .then((response) => response.text())
           .then((data) => {
             document.getElementById("szobak").innerHTML = data;
+            console.log(data);
           })
           .catch((error) => console.error("Error loading rooms:", error));
       }
@@ -161,14 +162,14 @@
         }
       }
       async function szobahozzaad(formData) {
-        const response = await fetch("/api/admin/addroom", {
+        const response = await fetch("/api/rooms/addroom", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formData),
         });
         if (response.ok) {
           alert("Szoba sikeresen hozzáadva!");
-          window.location.reload();
+          // window.location.reload();
         } else {
           alert("Hiba történt a szoba hozzáadása során!");
         }
@@ -199,6 +200,148 @@
           }
         }
       }
+      // Modális ablak megnyitása
+      function openModal(
+        id,
+        name,
+        type,
+        rentperday,
+        maxcount,
+        phonenumber,
+        extrak
+      ) {
+        console.log(extrak.split(","));
+        let extrakArray = extrak.split(",");
+        let tomb = [];
+
+        for (let i = 0; i < extrakArray.length; i++) {
+          if (extrakArray[i] === "true") {
+            tomb.push(true);
+          } else {
+            tomb.push(false);
+          }
+        }
+
+        document.getElementById("editModal").style.display = "block";
+        document.getElementById("editRoomId").value = id;
+        document.getElementById("editRoomName").value = name;
+        document.getElementById("editRoomType").value = type;
+        document.getElementById("editRoomRentPerDay").value = rentperday;
+        document.getElementById("editRoomMaxCount").value = maxcount;
+        document.getElementById("editRoomPhoneNumber").value = phonenumber;
+
+        // Extrák checkboxok beállítása a tömb alapján
+        document.getElementById("editExtraSzobaszerviz").checked =
+          tomb[0] || false;
+        document.getElementById("editExtraMinibar").checked = tomb[1] || false;
+        document.getElementById("editExtraFitneszterem").checked =
+          tomb[2] || false;
+        document.getElementById("editExtraParkolo").checked = tomb[3] || false;
+        document.getElementById("editExtraEtkezes").checked = tomb[4] || false;
+        document.getElementById("editExtraReggeli").checked = tomb[5] || false;
+        document.getElementById("editExtraWifi").checked = tomb[6] || false;
+      }
+
+      // Modális ablak bezárása
+      function closeModal() {
+        document.getElementById("editModal").style.display = "none";
+      }
+
+      // Szoba frissítése
+      async function updateRoom() {
+        const id = document.getElementById("editRoomId").value;
+        const updatedRoom = {
+          name: document.getElementById("editRoomName").value,
+          type: document.getElementById("editRoomType").value,
+          rentperday: document.getElementById("editRoomRentPerDay").value,
+          maxcount: document.getElementById("editRoomMaxCount").value,
+          phonenumber: document.getElementById("editRoomPhoneNumber").value,
+          extrak: [
+            document.getElementById("editExtraSzobaszerviz").checked,
+            document.getElementById("editExtraMinibar").checked,
+            document.getElementById("editExtraFitneszterem").checked,
+            document.getElementById("editExtraParkolo").checked,
+            document.getElementById("editExtraEtkezes").checked,
+            document.getElementById("editExtraReggeli").checked,
+            document.getElementById("editExtraWifi").checked,
+          ],
+        };
+
+        const response = await fetch(`/api/rooms/updatebooking/${id}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ updatedRoom }),
+        });
+
+        if (response.ok) {
+          alert("Szoba sikeresen frissítve!");
+          window.location.reload();
+        } else {
+          alert("Hiba történt a szoba frissítése során!");
+        }
+      }
     </script>
+    <!-- Modális ablak -->
+    <div id="editModal" class="modal" style="display: none">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Szoba szerkesztése</h2>
+        <form id="editRoomForm">
+          <input type="hidden" id="editRoomId" />
+          <div>
+            <label for="editRoomName">Név:</label>
+            <input type="text" id="editRoomName" required />
+          </div>
+          <div>
+            <label for="editRoomType">Típus:</label>
+            <input type="text" id="editRoomType" required />
+          </div>
+          <div>
+            <label for="editRoomRentPerDay">Ár/nap:</label>
+            <input type="number" id="editRoomRentPerDay" required />
+          </div>
+          <div>
+            <label for="editRoomMaxCount">Maximális férőhely:</label>
+            <input type="number" id="editRoomMaxCount" required />
+          </div>
+          <div>
+            <label for="editRoomPhoneNumber">Telefonszám:</label>
+            <input type="tel" id="editRoomPhoneNumber" required />
+          </div>
+
+          <h4>Extra szolgáltatások</h4>
+          <div>
+            <label for="editExtraSzobaszerviz">Szobaszerviz</label>
+            <input type="checkbox" id="editExtraSzobaszerviz" />
+          </div>
+          <div>
+            <label for="editExtraMinibar">Minibár</label>
+            <input type="checkbox" id="editExtraMinibar" />
+          </div>
+          <div>
+            <label for="editExtraFitneszterem">Fitneszterem</label>
+            <input type="checkbox" id="editExtraFitneszterem" />
+          </div>
+          <div>
+            <label for="editExtraParkolo">Parkoló</label>
+            <input type="checkbox" id="editExtraParkolo" />
+          </div>
+          <div>
+            <label for="editExtraEtkezes">Étkezés</label>
+            <input type="checkbox" id="editExtraEtkezes" />
+          </div>
+          <div>
+            <label for="editExtraReggeli">Reggeli</label>
+            <input type="checkbox" id="editExtraReggeli" />
+          </div>
+          <div>
+            <label for="editExtraWifi">WiFi</label>
+            <input type="checkbox" id="editExtraWifi" />
+          </div>
+
+          <button type="button" onclick="updateRoom()">Frissítés</button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>

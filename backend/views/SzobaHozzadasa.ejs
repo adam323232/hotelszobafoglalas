@@ -7,7 +7,7 @@
   </head>
   <body>
     <h1>Szoba hozzáadása</h1>
-    <form action="/api/rooms/addroom" method="POST">
+    <form>
       <div>
         <label for="name">Szoba neve:</label>
         <input
@@ -159,8 +159,7 @@
           placeholder="Kép link 5"
         />
       </div>
-
-      <button type="submit">Szoba hozzáadása</button>
+      <button type="submit" onclick="{szobahozzaad}">Szoba hozzáadása</button>
     </form>
   </body>
 </html>

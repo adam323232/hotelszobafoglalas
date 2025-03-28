@@ -21,9 +21,12 @@
       <td><%= room.maxcount %></td>
       <td><%= room.phonenumber %></td>
       <td>
-        <a onclick="szobafrissites('<%= room._id %>')" class="btn btn-warning"
-          >Szerkeszt</a
+        <button
+          class="btn btn-warning"
+          onclick="openModal('<%= room._id %>', '<%= room.name %>', '<%= room.type %>', '<%= room.rentperday %>', '<%= room.maxcount %>', '<%= room.phonenumber %>', '<%= room.extrak %>')"
         >
+          Szerkeszt
+        </button>
         <form>
           <button
             type="submit"

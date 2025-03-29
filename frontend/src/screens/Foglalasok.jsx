@@ -41,7 +41,7 @@ const Foglalasok = () => {
   }
 
   return (
-    <div className="container">
+    <div className="containerf">
       {rooms.length === 0 ? (
         <p>Nincsenek foglalások</p>
       ) : (
@@ -51,17 +51,17 @@ const Foglalasok = () => {
             key={elem._id}
           >
             <div className="col-md-11 mt-3">
-              Hotel: <h1>{elem.room}</h1>
-              Ettől: <h3>{elem.fromdate}</h3>
-              Eddig: <h3>{elem.todate}</h3>
-              Ár: <h3>{elem.totalamount}€</h3>
+              Hotel: <p className="nevp">{elem.room}</p>
+              Ettől: <p className="fromdate">{elem.fromdate}</p>
+              Eddig: <p className="todate">{elem.todate}</p>
+              Ár: <p className="ar">{elem.totalamount}€</p>
               Status:{" "}
-              <h1>
+              <p className="status">
                 {elem.status == "booked" ? "LEFOGLALT" : "VISSZA MONDOTT"}
-              </h1>
+              </p>
               <div style={{ float: "right" }}>
                 <button
-                  className="btn btn-primary"
+                  className="btnf btn-primary"
                   onClick={() => {
                     cancelBooking(elem._id);
                   }}

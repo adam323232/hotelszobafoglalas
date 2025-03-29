@@ -4,9 +4,16 @@
   padding: 20px;
 }
 
-h4 {
+.extrak-container h4 {
   text-align: left;
   color: #82c1ff;
+  font-weight: bold;
+  background-color: #f0f0f0; 
+  border: none;
+  border-radius: 5px; 
+  padding: 10px;
+  margin-bottom: 10px; 
+  display: inline-block; 
 }
 
 .extraSzoveg {
@@ -15,4 +22,24 @@ h4 {
 
 .lista {
   padding-left: 50px;
+}
+
+.extra-img {
+  width: 300px;
+  height: auto;
+  float: right; 
+  margin-left: 20px; 
+  margin-bottom: 20px; 
+  border-radius: 8px;
+}
+
+.jellemzoip {
+  font-size: 1em; 
+  font-weight: bold; 
+  background-color: #f0f0f0; 
+  border: none;
+  border-radius: 5px;
+  padding: 10px; 
+  margin-bottom: 10px; 
+  display: inline-block; 
 }

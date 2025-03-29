@@ -1,26 +1,80 @@
+.containerf {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
 .foglalasok {
-  border: 2px solid black !important;
-  padding: 2px;
-  padding-left: 2px;
-}
-/* .foglalasok {
-  border: 2px solid black !important;
-  padding: 2px;
-  padding-left: 2px;
-  max-width: 100%; Ne lógjon ki a képernyőről
-  box-sizing: border-box; Padding és border is számít a méretbe
+  width: 320px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin: 30px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-Reszponzív töréspontok
+.foglalasok:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.nevp,
+.fromdate,
+.todate,
+.ar,
+.status {
+  font-size: 1em;
+  margin: 5px 0;
+  color: #333;
+}
+
+.status {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.btnf {
+  padding: 10px 15px;
+  font-size: 0.9em;
+  color: #fff;
+  background-color: #2b445d;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btnf:hover {
+  background-color: white;
+  color: black;
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2) ;
+}
 @media (max-width: 768px) {
+  .containerf {
+    grid-template-columns: 1fr; /* Egy oszlopos elrendezés kisebb képernyőkön */
+    gap: 15px;
+  }
+
   .foglalasok {
-    padding: 4px; Kicsit nagyobb padding tableten
+    margin: 15px; /* Csökkentett margó kisebb képernyőkön */
+    width: 100%; /* A kártyák kitöltik a rendelkezésre álló helyet */
+  }
+
+  .btnf {
+    width: 100%; /* A gombok teljes szélességet kapnak */
+    text-align: center;
   }
 }
 
-@media (max-width: 480px) {
-  .foglalasok {
-    padding: 6px; Még nagyobb padding mobilon
-    font-size: 0.9em; Kisebb betűméret a helyspórolásért
+@media (min-width: 769px) and (max-width: 1024px) {
+  .containerf {
+    grid-template-columns: repeat(2, 1fr); /* Két oszlopos elrendezés közepes képernyőkön */
+    gap: 20px;
   }
-} */
+
+  .foglalasok {
+    margin: 20px;
+  }
+}

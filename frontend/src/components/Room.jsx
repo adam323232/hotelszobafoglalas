@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Modal, Button, Carousel } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Room({ room, fromdate, todate, extras }) {
-  // Extrák sablonja
   const plainOptions = [
     { nev: "Szobaszerviz", ar: 21 },
     { nev: "Minibár", ar: 100 },
@@ -14,38 +15,66 @@ function Room({ room, fromdate, todate, extras }) {
     { nev: "Wifi", ar: 4 },
   ];
 
-  // State-ek a modalhoz és az extrákhoz
   const [show, setShow] = useState(false);
   const [extrak, setExtrak] = useState([]);
 
-  // Modal bezárása
   const handleClose = () => setShow(false);
 
-  // Adatok betöltése az adatbázisból
   const handleShow = async () => {
     try {
       const response = await fetch(
         `http://localhost:5000/api/rooms/${room._id}`
       );
       const roomData = await response.json();
-      console.log(roomData.room.extrak);
-      setExtrak(roomData.room.extrak); // Extrák frissítése
-
-      // Helyes mezőnév: "extrak"
-      // if (roomData && Array.isArray(roomData.extras)) {
-      //   const mappedExtras = roomData.room.extrak
-      //     .map((extra, index) => (extra ? plainOptions[index] : null))
-      //     .filter(Boolean); // Kiszűrjük a false értékeket
-
-      //   setExtras(mappedExtras); // Extrák frissítése
-      // } else {
-      //   setExtras([]); // Ha nincs "extrak", üres tömb
-      // }
-
-      setShow(true); // Modal megnyitása
+      setExtrak(roomData.room.extrak);
+      setShow(true);
     } catch (error) {
       console.error("Hiba a szoba adatainak betöltésekor:", error);
-      setExtrak([]); // Biztonsági fallback
+      setExtrak([]);
+    }
+  };
+
+  const handleBookingClick = () => {
+    if (!fromdate && !todate && !extras) {
+      toast.error("Kérlek, válaszd ki az időpontot és az extrákat!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else if (!fromdate) {
+      toast.error("Kérlek, válaszd ki a kezdő dátumot!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else if (!todate) {
+      toast.error("Kérlek, válaszd ki a befejező dátumot!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else if (!extras) {
+      toast.error("Kérlek, válaszd ki az extrákat!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
   };
 
@@ -62,16 +91,23 @@ function Room({ room, fromdate, todate, extras }) {
           <p>Type: {room.type}</p>
         </b>
         <div style={{ float: "right" }}>
-          {fromdate && todate && (
+          {fromdate && todate && extras ? (
             <Link to={`/book/${room._id}/${fromdate}/${todate}/${extras}`}>
               <button className="btn btn-primary m-2">Foglalás</button>
             </Link>
+          ) : (
+            <button
+              className="btn btn-primary m-2"
+              onClick={handleBookingClick}
+            >
+              Foglalás
+            </button>
           )}
-
           <button className="btn btn-primary" onClick={handleShow}>
             Részletek
           </button>
         </div>
+        <ToastContainer />
       </div>
 
       <Modal show={show} onHide={handleClose} size="lg">
@@ -87,7 +123,7 @@ function Room({ room, fromdate, todate, extras }) {
               </Carousel.Item>
             ))}
           </Carousel>
-          <p>{room.description}</p> {/* Szoba leírása */}
+          <p>{room.description}</p>
           <h5>Extrák:</h5>
           <ul>
             {extrak && extrak.length > 0 ? (

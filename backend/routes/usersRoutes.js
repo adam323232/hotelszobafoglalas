@@ -52,24 +52,25 @@ router.delete("/torol/:id", async (req, res) => {
     res.status(500).send({ error: "Hiba történt a törlés során" });
   }
 });
-router.put("/updateuseradmin/:id", async (req, res) => {
-  const { id } = req.params;
-  const { updatedUser } = req.body;
-  // console.log(updatedUser);
+router.put("/toggleAdmin/:id", async (req, res) => {
+  const { id } = req.params; // Az ID az URL-ből érkezik
+  const { isAdmin } = req.body; // Az isAdmin a kérés törzséből érkezik
 
   try {
-    const useritem = await User.findByIdAndUpdate(
-      { _id: id },
-      {
-        isAdmin: !updatedUser.isAdmin,
-      },
-      { new: true }
-    );
+    const user = await User.findById(id); // Az ID alapján keresünk
+    if (!user) {
+      return res.status(404).json({ message: "Felhasználó nem található." });
+    }
 
-    return res.status(200).json({ msg: "Admin jog frissitve", useritem });
+    user.isAdmin = isAdmin; // Admin jog beállítása
+    await user.save(); // Mentjük a változtatást
+
+    return res.status(200).json({ msg: "Admin jog sikeresen frissítve", user });
   } catch (error) {
-    return res.status(400).json({ error });
+    console.error(error);
+    return res.status(500).json({ error: "Hiba történt az admin jog módosítása során." });
   }
 });
+
 
 module.exports = router;

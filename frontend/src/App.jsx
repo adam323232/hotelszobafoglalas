@@ -14,6 +14,7 @@ import AboutUs from "./components/AboutUs";
 // import Extrakscreen from "./screens/Extrakscreen";
 import Extrak from "./components/Extrak";
 import ProtectedAdmin from "./ProtectedAdmin";
+import Cancel from "./screens/Cancel";
 
 function App() {
   return (
@@ -31,6 +32,9 @@ function App() {
             <Route element={<ProtectedRoutes />}>
               <Route path="*" element={<Loginscreen />}></Route>
             </Route> 
+            <Route element={<ProtectedAdmin />}>
+              <Route path="http://localhost:5000/" element={<Loginscreen />}></Route>
+            </Route>
             <Route path="/login" element={<Loginscreen />}></Route>
             <Route path="/profile" element={<Profilescreen />}></Route>
             <Route path="/" element={<Landingscreen />}></Route>
@@ -38,6 +42,7 @@ function App() {
             <Route path="/privacy" element={<Adatvedelem />}></Route>
             <Route path="/about" element={<AboutUs />}></Route>
             <Route path="/extrak" element={<Extrak />}></Route>
+            <Route path="/cancel" element={<Cancel />}></Route>
           </Routes>
         </BrowserRouter>
       </div>

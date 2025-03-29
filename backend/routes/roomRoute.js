@@ -36,13 +36,33 @@ router.post("/getroombyid", async (req, res) => {
 
 router.post("/addroom", async (req, res) => {
   try {
-    const { name, hotel, price, capacity } = req.body; // Szoba adatok
-    const newRoom = new Room({ name, hotel, price, capacity });
-    await newRoom.save(); // Szoba mentése az adatbázisba
-    res.status(201).send({ message: "Szoba sikeresen hozzáadva" });
+    const {
+      name,
+      imageurls,
+      rentperday,
+      type,
+      maxcount,
+      phonenumber,
+      description,
+      extrak,
+    } = req.body;
+
+    const newRoom = new Room({
+      name,
+      imageurls,
+      rentperday,
+      type,
+      maxcount,
+      phonenumber,
+      description,
+      extrak,
+    });
+
+    await newRoom.save();
+    res.status(201).json({ message: "Szoba sikeresen hozzáadva", newRoom });
   } catch (error) {
-    console.error(error);
-    res.status(500).send({ message: "Hiba történt a szoba hozzáadása során" });
+    console.error("Hiba a szoba hozzáadása során:", error);
+    res.status(500).json({ message: "Hiba történt a szoba hozzáadása során" });
   }
 });
 

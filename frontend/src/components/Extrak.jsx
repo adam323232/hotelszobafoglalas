@@ -8,6 +8,7 @@ const Extrak = () => {
       <br />
       <h4>Szobaszerviz</h4>
       <br />
+      <img src="https://marieclaire.hu/uploads/2023/07/Ne%CC%81vtelen-terv-2023-07-13T114540759.png" alt="Étkezés" className="extra-img" />
       <p className="extraSzoveg">
         A szobaszerviz (room service) egy kényelmi szolgáltatás, amelyet
         szállodák és panziók biztosítanak vendégeik számára. Ennek keretében a
@@ -15,7 +16,7 @@ const Extrak = () => {
         egyéb szolgáltatásokat anélkül, hogy el kellene hagyniuk a szobát.
         <br />
         <br />
-        A szobaszerviz jellemzői:
+        <p className="jellemzoip">A szobaszerviz jellemzői:</p>
         <br />
         <br />
         <ul className="lista">
@@ -45,13 +46,14 @@ const Extrak = () => {
 
       <h4>Minibár</h4>
       <br />
+      <img src="https://i.dailymail.co.uk/i/pix/2015/07/28/13/2ACEFB0500000578-0-image-a-6_1438087330414.jpg" alt="Étkezés" className="extra-img" />
       <p className="extraSzoveg">
         A minibár egy kisméretű, hűtött szekrény vagy szekrényrész, amelyet a
         szállodai szobákban helyeznek el, és különféle italokat, harapnivalókat,
         valamint apró édességeket tartalmaz.
         <br />
         <br />
-        A minibár jellemzői:
+        <p className="jellemzoip">A minibár jellemzői:</p>
         <br />
         <br />
         <ul className="lista">
@@ -84,6 +86,7 @@ const Extrak = () => {
 
       <h4>Fitneszterem</h4>
       <br />
+      <img src="https://www.omnihotels.com/-/media/images/hotels/daldtn/activities/fitness/daldtn-omni-dallas-hotel-fitness-1.jpg?h=660&iar=0&w=1170" alt="Étkezés" className="extra-img" />
       <p className="extraSzoveg">
         A fitneszterem szolgáltatás egy olyan kényelmi lehetőség, amelyet számos
         szálloda, wellnessközpont vagy sportlétesítmény kínál vendégei számára,
@@ -91,7 +94,7 @@ const Extrak = () => {
         rutinjukat.
         <br />
         <br />
-        Fitneszterem jellemzői:
+        <p className="jellemzoip">Fitneszterem jellemzői:</p>
         <br />
         <br />
         <ul className="lista">
@@ -135,6 +138,7 @@ const Extrak = () => {
 
       <h4>Parkoló</h4>
       <br />
+      <img src="https://www.currentlighting.com/sites/default/files/styles/large/public/images/ac-hotel-southpark-exterior-back-750x500.jpg?itok=9qMTzqhx" alt="Étkezés" className="extra-img" />
       <p className="extraSzoveg">
         A parkoló szolgáltatás egy kényelmi lehetőség, amelyet szállodák,
         éttermek, bevásárlóközpontok és egyéb létesítmények biztosítanak
@@ -142,7 +146,7 @@ const Extrak = () => {
         rutinjukat.
         <br />
         <br />
-        A parkoló szolgáltatás jellemzői:
+        <p className="jellemzoip">A parkoló szolgáltatás jellemzői:</p>
         <br />
         <br />
         <ul className="lista">
@@ -177,13 +181,14 @@ const Extrak = () => {
 
       <h4>Étkezés</h4>
       <br />
+      <img src="https://science-hotel-szeged.booked.hu/data/Photos/450x450/15677/1567734/1567734134.JPEG" alt="Étkezés" className="extra-img" />
       <p className="extraSzoveg">
         Az étkezési szolgáltatás a vendéglátóhelyek — például szállodák,
         éttermek, kávézók vagy wellness központok — által nyújtott szolgáltatás,
         amely a vendégek étkezési igényeinek kiszolgálását célozza meg.
         <br />
         <br />
-        Az étkezés jellemzői:
+        <p className="jellemzoip">Az étkezés jellemzői:</p>
         <br />
         <br />
         <ul className="lista">
@@ -225,13 +230,14 @@ const Extrak = () => {
 
       <h4>WiFi</h4>
       <br />
+      <img src="https://www.ipvanish.com/wp-content/uploads/2023/11/is-hotel-wifi-safe_IPV-blog-1024x683.png" alt="WIFI" className="extra-img"/>
       <p className="extraSzoveg">
         A Wi-Fi szolgáltatás a vezeték nélküli internetelérést biztosító
         szolgáltatás, amelyet szállodák, éttermek, kávézók, irodák és egyéb
         létesítmények kínálnak vendégeik és ügyfeleik számára.
         <br />
         <br />
-        A WiFi jellemzői:
+        <p className="jellemzoip">A WiFi jellemzői:</p>
         <br />
         <br />
         <ul className="lista">

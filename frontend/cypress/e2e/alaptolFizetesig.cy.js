@@ -27,7 +27,9 @@ describe("Alaptól fizetésig", () => {
     cy.wait(1000);
     cy.get(".ant-picker-cell").contains("30").click();
     cy.wait(1000);
-    cy.contains("Extrák").click();
+    cy.get(
+      'button[class="ant-btn css-dev-only-do-not-override-142vneq ant-btn-default ant-btn-color-default ant-btn-variant-outlined"]'
+    ).click();
     cy.wait(1000);
     cy.get(".dropdown-list-kontener").contains("Wifi").click();
     cy.get(".dropdown-list-kontener").contains("Reggeli").click();

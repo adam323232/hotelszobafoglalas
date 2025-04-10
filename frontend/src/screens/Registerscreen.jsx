@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import bcrypt from "bcryptjs"; // bcryptjs importálása
 import Loader from "../components/Loader";
 import Error from "../components/Error";
 import Success from "../components/Succes";
@@ -83,13 +84,17 @@ const Register = () => {
     }
 
     if (password === cpassword) {
-      const user = {
-        name,
-        email,
-        password,
-        cpassword,
-      };
       try {
+        // Jelszó hash-elése bcryptjs segítségével
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
+
+        const user = {
+          name,
+          email,
+          password: hashedPassword, // A hash-elt jelszót küldjük el
+        };
+
         setLoading(true);
         setError(null); // Reset error state before making the request
 
@@ -136,9 +141,7 @@ const Register = () => {
       {error && <Error message="Nem létezik ilyen felhasználó" />}
 
       <div className="row registerdiv justify-content-center mt-5">
-        <div
-          className="col-md-3 bsdiv mt-5 bs"
-        >
+        <div className="col-md-3 bsdiv mt-5 bs">
           {succes && <Success message="Sikeres regisztráció" />}
 
           <div>
@@ -230,8 +233,9 @@ const Register = () => {
                 Regisztráció{" "}
               </button>
             </div>
-            <p className="p" style={{textAlign: "center"}}>
-              Ha már be vagy jelentkezve akkor: <br /><Link to="/login">Belepés</Link>
+            <p className="p" style={{ textAlign: "center" }}>
+              Ha már be vagy jelentkezve akkor: <br />
+              <Link to="/login">Belepés</Link>
             </p>
           </div>
         </div>

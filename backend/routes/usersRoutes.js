@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/user");
+const bcrypt = require("bcryptjs");
 
 router.post("/register", async (req, res) => {
   try {
@@ -20,17 +21,33 @@ router.post("/register", async (req, res) => {
 
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
-  // console.log(email, password);
+
   try {
-    const user = await User.findOne({ email: email, password: password });
-    // console.log(user);
-    if (user) {
-      res.status(200).json({ msg: "Sikeres belépés!", user });
-    } else {
-      return res.status(400).json({ msg: "Login failed" });
+    // Felhasználó keresése email alapján
+    const user = await User.findOne({ email: email });
+    if (!user) {
+      return res.status(404).json({ msg: "Ilyen felhasználó nem létezik" });
     }
+
+    // Jelszó ellenőrzése bcrypt.compare segítségével
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(401).json({ msg: "Helytelen jelszó" });
+    }
+
+    // Ha minden rendben, visszaküldjük a felhasználói adatokat
+    res.status(200).json({
+      msg: "Sikeres belépés!",
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        isAdmin: user.isAdmin,
+      },
+    });
   } catch (error) {
-    return res.status(400).json({ error });
+    console.error(error);
+    return res.status(500).json({ error: "Szerverhiba történt" });
   }
 });
 router.get("/", async (req, res) => {
@@ -45,7 +62,7 @@ router.get("/", async (req, res) => {
 router.delete("/torol/:id", async (req, res) => {
   try {
     const userId = req.params.id;
-    console.log(userId);
+    // console.log(userId);
     await User.findByIdAndDelete({ _id: userId });
     return res.status(200).send({ message: "Profil törölve" });
   } catch (error) {

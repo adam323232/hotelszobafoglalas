@@ -91,7 +91,7 @@ const Bookingscreen = ({}) => {
   async function bookRoom() {
     const bookingDetails = {
       room,
-      userid: JSON.parse(localStorage.getItem("currentUser")).user._id,
+      userid: JSON.parse(localStorage.getItem("currentUser")).user.id,
       felhasznalo: JSON.parse(localStorage.getItem("currentUser")).user.name,
       fromDate,
       toDate,

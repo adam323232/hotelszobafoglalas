@@ -61,7 +61,7 @@ async function foglalastorol(id) {
 }
 function usertorol(id) {
   if (confirm("Biztosan törölni szeretnéd ezt a felhasználót?")) {
-    fetch(`/users/torol/${id}`, {
+    fetch(`/api/users/torol/${id}`, {
       method: "DELETE",
     })
       .then((response) => {
